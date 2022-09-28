@@ -1,11 +1,9 @@
-using System;
-
 namespace CarAssembler
 {
     public class InitialState : IGameState
     {
         private Player _player;
-        private UI _ui;
+        private readonly UI _ui;
 
         public InitialState(Player player, UI ui)
         {
@@ -15,12 +13,12 @@ namespace CarAssembler
 
         public void Enter()
         {
-            throw new NotImplementedException();
+            _ui.MainMenu.Show();
         }
 
         public void Exit()
         {
-            throw new NotImplementedException();
+            _ui.MainMenu.Hide();
         }
     }
 }

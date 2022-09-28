@@ -1,10 +1,9 @@
-using System;
 using CarAssembler;
 
 public class EndLevelState : IGameState
 {
     private Player _player;
-    private UI _ui;
+    private readonly UI _ui;
 
     public EndLevelState(Player player, UI ui)
     {
@@ -14,11 +13,11 @@ public class EndLevelState : IGameState
 
     public void Enter()
     {
-        throw new NotImplementedException();
+        _ui.EndLevelMenu.Show();
     }
 
     public void Exit()
     {
-        throw new NotImplementedException();
+        _ui.EndLevelMenu.Hide();
     }
 }

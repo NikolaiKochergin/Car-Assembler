@@ -8,6 +8,11 @@ namespace CarAssembler
 
         public RectTransform RectTransform => _rectTransform;
 
+        private void Awake()
+        {
+            Hide();
+        }
+
         public void Show()
         {
             gameObject.SetActive(true);

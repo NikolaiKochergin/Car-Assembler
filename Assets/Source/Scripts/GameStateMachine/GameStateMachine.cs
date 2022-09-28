@@ -21,7 +21,12 @@ namespace CarAssembler
         {
             SetStateByDefault();
         }
-        
+
+        private void OnEnable()
+        {
+            _uI.MainMenu.StartButton.onClick.AddListener(SetPlayState);
+        }
+
         private void InitStates()
         {
             _statesMap = new Dictionary<Type, IGameState>

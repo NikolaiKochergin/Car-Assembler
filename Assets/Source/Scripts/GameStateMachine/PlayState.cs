@@ -1,10 +1,9 @@
-using System;
 using CarAssembler;
 
 public class PlayState : IGameState
 {
     private Player _player;
-    private UI _ui;
+    private readonly UI _ui;
 
     public PlayState(Player player, UI ui)
     {
@@ -14,11 +13,11 @@ public class PlayState : IGameState
 
     public void Enter()
     {
-        throw new NotImplementedException();
+        _ui.PlayMenu.Show();
     }
 
     public void Exit()
     {
-        throw new NotImplementedException();
+        _ui.PlayMenu.Hide();
     }
 }

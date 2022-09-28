@@ -1,10 +1,9 @@
-using System;
 using CarAssembler;
 
 public class FinisherState : IGameState
 {
     private Player _player;
-    private UI _ui;
+    private readonly UI _ui;
 
     public FinisherState(Player player, UI ui)
     {
@@ -14,11 +13,11 @@ public class FinisherState : IGameState
 
     public void Enter()
     {
-        throw new NotImplementedException();
+        _ui.FinisherMenu.Show();
     }
 
     public void Exit()
     {
-        throw new NotImplementedException();
+        _ui.FinisherMenu.Hide();
     }
 }
