@@ -2,18 +2,19 @@ using CarAssembler;
 
 public class PlayState : IGameState
 {
-    private Player _player;
+    private readonly PlayerStateMachine _playerStateMachine;
     private readonly UI _ui;
 
-    public PlayState(Player player, UI ui)
+    public PlayState(PlayerStateMachine playerStateMachine, UI ui)
     {
-        _player = player;
+        _playerStateMachine = playerStateMachine;
         _ui = ui;
     }
 
     public void Enter()
     {
         _ui.PlayMenu.Show();
+        _playerStateMachine.SetIdleState();
     }
 
     public void Exit()

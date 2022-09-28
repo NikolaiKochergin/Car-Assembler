@@ -2,14 +2,15 @@ using CarAssembler;
 
 public class FinisherState : IGameState
 {
-    private Player _player;
+    private readonly PlayerStateMachine _playerStateMachine;
     private readonly UI _ui;
 
-    public FinisherState(Player player, UI ui)
+    public FinisherState(PlayerStateMachine playerStateMachine, UI ui)
     {
-        _player = player;
+        _playerStateMachine = playerStateMachine;
         _ui = ui;
     }
+
 
     public void Enter()
     {

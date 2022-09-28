@@ -2,12 +2,12 @@ using CarAssembler;
 
 public class EndLevelState : IGameState
 {
-    private Player _player;
+    private readonly PlayerStateMachine _playerStateMachine;
     private readonly UI _ui;
 
-    public EndLevelState(Player player, UI ui)
+    public EndLevelState(PlayerStateMachine playerStateMachine, UI ui)
     {
-        _player = player;
+        _playerStateMachine = playerStateMachine;
         _ui = ui;
     }
 

@@ -1,23 +1,30 @@
-using System;
-using UnityEngine;
-
 namespace CarAssembler
 {
     public class MoveState : IPlayerState
     {
+        private readonly Player _player;
+        private readonly PlayerStateMachine _playerStateMachine;
+
+        public MoveState(Player player, PlayerStateMachine playerStateMachine)
+        {
+            _player = player;
+            _playerStateMachine = playerStateMachine;
+        }
+
         public void Enter()
         {
-            throw new NotImplementedException();
+            _player.PlayerMover.StartMove();
         }
 
         public void Exit()
         {
-            throw new System.NotImplementedException();
+            _player.PlayerMover.StopMove();
         }
 
         public void Update()
         {
-            throw new System.NotImplementedException();
+            if (_player.PlayInput.IsMoving == false)
+                _playerStateMachine.SetIdleState();
         }
     }
 }

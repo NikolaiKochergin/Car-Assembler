@@ -6,7 +6,7 @@ namespace CarAssembler
 {
     public class GameStateMachine : MonoBehaviour
     {
-        [SerializeField] private Player _player;
+        [SerializeField] private PlayerStateMachine _playerStateMachine;
         [SerializeField] private UI _uI;
         
         private Dictionary<Type, IGameState> _statesMap;
@@ -31,10 +31,10 @@ namespace CarAssembler
         {
             _statesMap = new Dictionary<Type, IGameState>
             {
-                [typeof(InitialState)] = new InitialState(_player, _uI),
-                [typeof(PlayState)] = new PlayState(_player, _uI),
-                [typeof(FinisherState)] = new FinisherState(_player, _uI),
-                [typeof(EndLevelState)] = new EndLevelState(_player, _uI)
+                [typeof(InitialState)] = new InitialState(_playerStateMachine, _uI),
+                [typeof(PlayState)] = new PlayState(_playerStateMachine, _uI),
+                [typeof(FinisherState)] = new FinisherState(_playerStateMachine, _uI),
+                [typeof(EndLevelState)] = new EndLevelState(_playerStateMachine, _uI)
             };
         }
 

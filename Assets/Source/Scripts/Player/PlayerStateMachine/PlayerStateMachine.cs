@@ -6,6 +6,8 @@ namespace CarAssembler
 {
     public class PlayerStateMachine : MonoBehaviour
     {
+        [SerializeField] private Player _player;
+        
         private Dictionary<Type, IPlayerState> _statesMap;
         private IPlayerState _currentState;
 
@@ -28,33 +30,40 @@ namespace CarAssembler
         {
             _statesMap = new Dictionary<Type, IPlayerState>
             {
-                [typeof(IdleState)] = new IdleState(),
-                [typeof(MoveState)] = new MoveState(),
-                [typeof(PartPickingState)] = new PartPickingState()
+                [typeof(IdleState)] = new IdleState(_player, this),
+                [typeof(MoveState)] = new MoveState(_player, this),
+                [typeof(PartPickingState)] = new PartPickingState(_player, this),
+                [typeof(NonControlledState)] = new NonControlledState(_player)
             };
         }
         
-        private void SetIdleState()
+        public void SetIdleState()
         {
             var state = GetState<IdleState>();
             SetState(state);
         }
 
-        private void SetMoveState()
+        public void SetMoveState()
         {
             var state = GetState<MoveState>();
             SetState(state);
         }
 
-        private void SetPartPickingState()
+        public void SetPartPickingState()
         {
             var state = GetState<PartPickingState>();
             SetState(state);
         }
         
+        public void SetNonControlledState()
+        {
+            var state = GetState<NonControlledState>();
+            SetState(state);
+        }
+        
         private void SetStateByDefault()
         {
-            SetIdleState();
+            SetNonControlledState();
         }
     
         private void SetState(IPlayerState newState)
