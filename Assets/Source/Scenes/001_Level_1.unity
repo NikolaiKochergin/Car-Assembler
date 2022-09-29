@@ -1937,6 +1937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerStateMachine: {fileID: 150741270}
   _uI: {fileID: 1477450888}
+  _data: {fileID: 1899024125}
 --- !u!4 &2137094156
 Transform:
   m_ObjectHideFlags: 0

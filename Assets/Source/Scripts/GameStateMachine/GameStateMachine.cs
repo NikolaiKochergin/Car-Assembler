@@ -8,6 +8,8 @@ namespace CarAssembler
     {
         [SerializeField] private PlayerStateMachine _playerStateMachine;
         [SerializeField] private UI _uI;
+        [SerializeField] private Data _data;
+        
         private IGameState _currentState;
 
         private Dictionary<Type, IGameState> _statesMap;
@@ -36,10 +38,10 @@ namespace CarAssembler
         {
             _statesMap = new Dictionary<Type, IGameState>
             {
-                [typeof(InitialState)] = new InitialState(_playerStateMachine, _uI),
+                [typeof(InitialState)] = new InitialState(_playerStateMachine, _uI, _data),
                 [typeof(PlayState)] = new PlayState(_playerStateMachine, _uI),
                 [typeof(FinisherState)] = new FinisherState(_playerStateMachine, _uI),
-                [typeof(EndLevelState)] = new EndLevelState(_playerStateMachine, _uI)
+                [typeof(EndLevelState)] = new EndLevelState(_playerStateMachine, _uI, _data)
             };
         }
 
