@@ -32,6 +32,8 @@ namespace CarAssembler
 
         public Detail GetDetail()
         {
+            OffHighlight();
+            
             _selfCollider.enabled = false;
             var tempDetail = _detail;
             _detail = null;
