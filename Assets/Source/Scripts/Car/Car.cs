@@ -19,7 +19,7 @@ namespace CarAssembler
 
         public event Action<int> PriceChanged;
 
-        public void TakeDetail(Detail detail)
+        public bool TryTakeDetail(Detail detail)
         {
             var slot = _slots.FirstOrDefault(s => s.SlotType == detail.SlotType);
             if (slot != null)
@@ -30,11 +30,17 @@ namespace CarAssembler
                 slot.TakeOrReplace(detail);
                 Price += detail.Price;
                 PriceChanged?.Invoke(Price);
+                return true;
             }
-            else
-            {
-                Debug.Log("В этой машине нет слота типа " + detail.SlotType);
-            }
+
+            Price -= detail.Price;
+            if (Price < 0)
+                Price = 0;
+            
+            PriceChanged?.Invoke(-detail.Price);
+            Debug.Log("В этой машине нет слота типа " + detail.SlotType);
+            Debug.Log("Тут нужно решить, будет ли штраф за не правильный выбор");
+            return false;
         }
     }
 }

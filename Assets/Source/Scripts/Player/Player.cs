@@ -7,7 +7,7 @@ namespace CarAssembler
         [SerializeField] private Car _currentCar;
         [SerializeField] private CollisionHandler CollisionHandler;
         [SerializeField] private UIMoneyWidget _uiMoneyWidget;
-        
+
         [SerializeField] private PlayInput _playInput;
         [SerializeField] private PlayerMover _playerMover;
         [SerializeField] private TakingDetailTimer _takingDetailTimer;
@@ -35,12 +35,17 @@ namespace CarAssembler
 
         private void OnFactoryMachineTaken(FactoryMachine factoryMachine)
         {
+            if (FactoryMachine != null)
+                FactoryMachine.OffHighlight();
+
             FactoryMachine = factoryMachine;
+            FactoryMachine.OnHighlight();
         }
 
         private void OnFactoryMachineLost(FactoryMachine factoryMachine)
         {
-            FactoryMachine = null;
+            if (factoryMachine == FactoryMachine)
+                FactoryMachine = null;
         }
 
         private void OnPriceChanged(int value)

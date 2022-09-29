@@ -20,26 +20,18 @@ namespace CarAssembler
             _detail.SetPrice(_detail.Price * value);
         }
 
-        private void OnTriggerEnter(Collider other)
+        public void OnHighlight()
         {
-            var player = other.GetComponent<Player>();
-
-            if (player)
-                _meshRenderer.sharedMaterial = _highlightMaterial;
+            _meshRenderer.sharedMaterial = _highlightMaterial;
         }
 
-        private void OnTriggerExit(Collider other)
+        public void OffHighlight()
         {
-            var player = other.GetComponent<Player>();
-
-            if (player)
-                _meshRenderer.sharedMaterial = _commonMaterial;
+            _meshRenderer.sharedMaterial = _commonMaterial;
         }
 
         public Detail GetDetail()
         {
-            _meshRenderer.sharedMaterial = _commonMaterial;
-            
             _selfCollider.enabled = false;
             Detail tempDetail = _detail;
             _detail = null;
