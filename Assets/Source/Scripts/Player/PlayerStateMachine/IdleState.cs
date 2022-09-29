@@ -24,7 +24,7 @@ namespace CarAssembler
             if(_player.PlayInput.IsMoving)
                 _playerStateMachine.SetMoveState();
             
-            if(_player.FactoryMachine.Detail != null)
+            if(_player.FactoryMachine != null && _player.FactoryMachine.Detail != null)
                 _playerStateMachine.SetPartPickingState();
         }
     }

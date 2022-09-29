@@ -8,15 +8,15 @@ namespace CarAssembler
     {
         [SerializeField] private PlayerStateMachine _playerStateMachine;
         [SerializeField] private UI _uI;
-        
-        private Dictionary<Type, IGameState> _statesMap;
         private IGameState _currentState;
+
+        private Dictionary<Type, IGameState> _statesMap;
 
         private void Awake()
         {
             InitStates();
         }
-        
+
         private void Start()
         {
             SetStateByDefault();
@@ -24,7 +24,12 @@ namespace CarAssembler
 
         private void OnEnable()
         {
-            _uI.MainMenu.StartButton.onClick.AddListener(SetPlayState);
+            _uI.MainMenu.StartButton.ButtonPressedDown += SetPlayState;
+        }
+
+        private void OnDisable()
+        {
+            _uI.MainMenu.StartButton.ButtonPressedDown -= SetPlayState;
         }
 
         private void InitStates()
@@ -43,33 +48,33 @@ namespace CarAssembler
             var state = GetState<InitialState>();
             SetState(state);
         }
-        
+
         private void SetPlayState()
         {
             var state = GetState<PlayState>();
             SetState(state);
         }
-        
+
         private void SetFinisherState()
         {
             var state = GetState<FinisherState>();
             SetState(state);
         }
-        
+
         private void SetEndLevelState()
         {
             var state = GetState<EndLevelState>();
             SetState(state);
         }
-        
+
         private void SetStateByDefault()
         {
             SetInitialState();
         }
-    
+
         private void SetState(IGameState newState)
         {
-            if(_currentState != null)
+            if (_currentState != null)
                 _currentState.Exit();
 
             _currentState = newState;

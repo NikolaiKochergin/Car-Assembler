@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace CarAssembler
 {
     public class MainMenu : MenuBase
     {
-        [SerializeField] private Button _startButton;
+        [SerializeField] private StartButton _startButton;
 
-        public Button StartButton => _startButton;
+        public StartButton StartButton => _startButton;
     }
 }
