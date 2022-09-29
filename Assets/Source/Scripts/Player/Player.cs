@@ -45,7 +45,10 @@ namespace CarAssembler
         private void OnFactoryMachineLost(FactoryMachine factoryMachine)
         {
             if (factoryMachine == FactoryMachine)
+            {
+                FactoryMachine.OffHighlight();
                 FactoryMachine = null;
+            }
         }
 
         private void OnPriceChanged(int value)

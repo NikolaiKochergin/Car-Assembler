@@ -7,10 +7,15 @@ namespace CarAssembler
     {
         private void OnTriggerEnter(Collider other)
         {
-            var factotyMachine = other.GetComponent<FactoryMachine>();
+            var factoryMachine = other.GetComponent<FactoryMachine>();
+            var obstacle = other.GetComponent<Obstacle>();
             
-            if(factotyMachine)
-                FactoryMachineTaken?.Invoke(factotyMachine);
+            if(factoryMachine)
+                FactoryMachineTaken?.Invoke(factoryMachine);
+            
+            if(obstacle)
+                ObstacleTaken?.Invoke();
+                
         }
 
         private void OnTriggerExit(Collider other)
@@ -23,5 +28,6 @@ namespace CarAssembler
 
         public event Action<FactoryMachine> FactoryMachineTaken;
         public event Action<FactoryMachine> FactoryMachineLost;
+        public event Action ObstacleTaken;
     }
 }

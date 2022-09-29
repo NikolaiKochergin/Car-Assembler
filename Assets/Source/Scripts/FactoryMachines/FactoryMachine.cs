@@ -1,8 +1,8 @@
-using System;
 using UnityEngine;
 
 namespace CarAssembler
 {
+    [SelectionBase]
     public class FactoryMachine : MonoBehaviour
     {
         [SerializeField] private MeshRenderer _meshRenderer;
@@ -16,7 +16,7 @@ namespace CarAssembler
         public void BuffDetailPrice(int value)
         {
             Debug.Log("Тут стоит подумать, как лучше менять цену деталей.");
-            
+
             _detail.SetPrice(_detail.Price * value);
         }
 
@@ -33,7 +33,7 @@ namespace CarAssembler
         public Detail GetDetail()
         {
             _selfCollider.enabled = false;
-            Detail tempDetail = _detail;
+            var tempDetail = _detail;
             _detail = null;
             tempDetail.Hide();
             return tempDetail;

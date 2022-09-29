@@ -1,28 +1,24 @@
+using Dreamteck.Splines;
 using UnityEngine;
 
 namespace CarAssembler
 {
     public class PlayerMover : MonoBehaviour
     {
+        [SerializeField] private SplineFollower _splineFollower;
         private void Start()
         {
-            Debug.Log("Скрипт для тестов, потом перепишу.");
-            enabled = false;
-        }
-
-        private void Update()
-        {
-            transform.position += Vector3.forward * 2f * Time.deltaTime;
+            _splineFollower.follow = false;
         }
 
         public void StartMove()
         {
-            enabled = true;
+            _splineFollower.follow = true;
         }
 
         public void StopMove()
         {
-            enabled = false;
+            _splineFollower.follow = false;
         }
     }
 }
