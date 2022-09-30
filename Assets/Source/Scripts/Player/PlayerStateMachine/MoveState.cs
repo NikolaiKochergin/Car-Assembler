@@ -14,11 +14,13 @@ namespace CarAssembler
         public void Enter()
         {
             _player.PlayerMover.StartMove();
+            _player.Conveyor.Enable();
         }
 
         public void Exit()
         {
             _player.PlayerMover.StopMove();
+            _player.Conveyor.Disable();
         }
 
         public void Update()

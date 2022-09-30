@@ -18,6 +18,7 @@ namespace CarAssembler
             Content = detail;
             detail.transform.parent = transform;
             detail.transform.SetPositionAndRotation(transform.position, transform.rotation);
+            detail.transform.localScale = Vector3.one;
             detail.Show();
         }
 
@@ -42,6 +43,7 @@ namespace CarAssembler
         Windows,
         Wheels,
         Spoiler,
-        Engine
+        Engine,
+        Tuning
     }
 }

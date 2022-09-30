@@ -13,6 +13,9 @@ namespace CarAssembler
         [SerializeField] private PlayerMover _playerMover;
         [SerializeField] private TakingDetailTimer _takingDetailTimer;
 
+        [SerializeField] private Conveyor _conveyor;
+        public Conveyor Conveyor => _conveyor;
+
         public PlayInput PlayInput => _playInput;
         public PlayerMover PlayerMover => _playerMover;
         public TakingDetailTimer TakingDetailTimer => _takingDetailTimer;
