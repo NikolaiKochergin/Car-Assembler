@@ -341,8 +341,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11457290, guid: 1edb7f7d5ea68467097decc77664b28d, type: 3}
+      propertyPath: Logs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457290, guid: 1edb7f7d5ea68467097decc77664b28d, type: 3}
       propertyPath: ApiKey
-      value: ' 82a6954f-1de4-46e5-a0c8-1be82f7ba75d'
+      value: 82a6954f-1de4-46e5-a0c8-1be82f7ba75d
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1edb7f7d5ea68467097decc77664b28d, type: 3}

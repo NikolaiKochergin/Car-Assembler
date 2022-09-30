@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace CarAssembler
@@ -19,10 +20,13 @@ namespace CarAssembler
         public Car Car => _currentCar;
         public FactoryMachine FactoryMachine { get; private set; }
 
+        public event Action LevelIsOver;
+
         private void OnEnable()
         {
             CollisionHandler.FactoryMachineTaken += OnFactoryMachineTaken;
             CollisionHandler.FactoryMachineLost += OnFactoryMachineLost;
+            CollisionHandler.EndLevelTriggerTaken += OnEndLevelTriggerTaken;
             _currentCar.PriceChanged += OnPriceChanged;
         }
 
@@ -30,6 +34,7 @@ namespace CarAssembler
         {
             CollisionHandler.FactoryMachineTaken -= OnFactoryMachineTaken;
             CollisionHandler.FactoryMachineLost -= OnFactoryMachineLost;
+            CollisionHandler.EndLevelTriggerTaken -= OnEndLevelTriggerTaken;
             _currentCar.PriceChanged -= OnPriceChanged;
         }
 
@@ -54,6 +59,11 @@ namespace CarAssembler
         private void OnPriceChanged(int value)
         {
             _uiMoneyWidget.ShowMoney(_currentCar.Price);
+        }
+
+        private void OnEndLevelTriggerTaken()
+        {
+            LevelIsOver?.Invoke();
         }
     }
 }

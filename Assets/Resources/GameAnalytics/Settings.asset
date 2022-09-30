@@ -32,15 +32,15 @@ MonoBehaviour:
   Build:
   - 0.1
   SelectedPlatformOrganization:
-  - 
+  - VervePlace
   SelectedPlatformStudio:
-  - 
+  - GA_Agava
   SelectedPlatformGame:
-  - 
-  SelectedPlatformGameID: ffffffff
-  SelectedOrganization: 00000000
-  SelectedStudio: 00000000
-  SelectedGame: 00000000
+  - Car Assembler
+  SelectedPlatformGameID: 17630300
+  SelectedOrganization: 01000000
+  SelectedStudio: 01000000
+  SelectedGame: 02000000
   NewVersion: 
   Changes: 
   SignUpOpen: 1
@@ -63,7 +63,7 @@ MonoBehaviour:
   ResourceCurrencies: []
   LastCreatedGamePlatform: -1
   Platforms: 0b000000
-  CurrentInspectorState: 0
+  CurrentInspectorState: 3
   ClosedHints: 
   DisplayHints: 0
   DisplayHintsScrollState: {x: 0, y: 0}

@@ -4,7 +4,7 @@ using UnityEngine;
 public class Data : MonoBehaviour
 {
 
-    protected const string _dataKeyName = "CarAssembler";
+    protected const string _dataKeyName = "Car Assembler";
     protected SaveOptions _options = new SaveOptions();
 
     public void Save()

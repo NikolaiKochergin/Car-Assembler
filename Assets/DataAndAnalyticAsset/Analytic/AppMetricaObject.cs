@@ -92,4 +92,6 @@ public class AppMetricaObject : ScriptableObject
             {"current_soft", currentSoft }
         });
     }
+
+
 }

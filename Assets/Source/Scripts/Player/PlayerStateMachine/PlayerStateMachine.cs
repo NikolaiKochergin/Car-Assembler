@@ -7,9 +7,11 @@ namespace CarAssembler
     public class PlayerStateMachine : MonoBehaviour
     {
         [SerializeField] private Player _player;
-        
-        private Dictionary<Type, IPlayerState> _statesMap;
         private IPlayerState _currentState;
+
+        private Dictionary<Type, IPlayerState> _statesMap;
+
+        public Player Player => _player;
 
         private void Awake()
         {
@@ -26,6 +28,16 @@ namespace CarAssembler
             _currentState.Update();
         }
 
+        private void OnEnable()
+        {
+            _player.LevelIsOver += SetNonControlledState;
+        }
+
+        private void OnDisable()
+        {
+            _player.LevelIsOver -= SetNonControlledState;
+        }
+
         private void InitStates()
         {
             _statesMap = new Dictionary<Type, IPlayerState>
@@ -36,7 +48,7 @@ namespace CarAssembler
                 [typeof(NonControlledState)] = new NonControlledState(_player)
             };
         }
-        
+
         public void SetIdleState()
         {
             var state = GetState<IdleState>();
@@ -54,21 +66,21 @@ namespace CarAssembler
             var state = GetState<PartPickingState>();
             SetState(state);
         }
-        
+
         public void SetNonControlledState()
         {
             var state = GetState<NonControlledState>();
             SetState(state);
         }
-        
+
         private void SetStateByDefault()
         {
             SetNonControlledState();
         }
-    
+
         private void SetState(IPlayerState newState)
         {
-            if(_currentState != null)
+            if (_currentState != null)
                 _currentState.Exit();
 
             _currentState = newState;
