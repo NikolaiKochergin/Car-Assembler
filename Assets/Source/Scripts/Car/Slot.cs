@@ -42,6 +42,7 @@ namespace CarAssembler
         Wheels,
         Spoiler,
         Engine,
-        Tuning
+        Tuning,
+        Bumper
     }
 }

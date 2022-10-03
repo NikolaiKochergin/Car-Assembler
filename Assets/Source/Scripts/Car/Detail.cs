@@ -19,10 +19,11 @@ namespace CarAssembler
 
             _price = value;
         }
-        
+
         public void Show()
         {
-            _appearParticles.Play();
+            if (_appearParticles != null)
+                _appearParticles.Play();
         }
 
         public void Hide()
