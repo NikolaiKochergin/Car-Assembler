@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace CarAssembler
@@ -10,16 +9,20 @@ namespace CarAssembler
         public SlotType SlotType => _slotType;
         public Detail Content { get; private set; }
 
+        private void OnValidate()
+        {
+            gameObject.name = _slotType + "Slot";
+        }
+
         public void TakeOrReplace(Detail detail)
         {
             if (Content)
                 Content.Hide();
 
-            Content = detail;
-            detail.transform.parent = transform;
-            detail.transform.SetPositionAndRotation(transform.position, transform.rotation);
-            detail.transform.localScale = Vector3.one;
-            detail.Show();
+            Content = Instantiate(detail, transform);
+            Content.transform.SetPositionAndRotation(transform.position, transform.rotation);
+            Content.transform.localScale = Vector3.one;
+            Content.Show();
         }
 
         public void ClearContent()
@@ -27,11 +30,6 @@ namespace CarAssembler
             if (Content)
                 Content.Hide();
             Content = null;
-        }
-
-        private void OnValidate()
-        {
-            gameObject.name = _slotType + "Slot";
         }
     }
 

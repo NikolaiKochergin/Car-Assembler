@@ -51,6 +51,11 @@ public class Data : MonoBehaviour
         _options.Soft = value;
     }
 
+    public void SetMoney(int value)
+    {
+        _options.Money = value;
+    }
+
     public void AddSession()
     {
         _options.SessionCount++;
@@ -95,6 +100,11 @@ public class Data : MonoBehaviour
     {
         return _options.Soft;
     }
+
+    public int GetMoney()
+    {
+        return _options.Money;
+    }
 }
 
 [Serializable]
@@ -106,5 +116,6 @@ public class SaveOptions
     public string RegistrationDate;
     public int DisplayedLevelNumber = 1;
     public int Soft;
+    public int Money = 0;
 }
 

@@ -3,20 +3,22 @@ using UnityEngine;
 namespace CarAssembler
 {
     [SelectionBase]
-    public class FactoryMachine : MonoBehaviour
+    public class Stand : MonoBehaviour
     {
         [SerializeField] private MeshRenderer _meshRenderer;
         [SerializeField] private Material _highlightMaterial;
         [SerializeField] private Material _commonMaterial;
         [SerializeField] private Collider _selfCollider;
         [SerializeField] private UIMoneyWidget _uiMoneyWidget;
-        [SerializeField] private Detail _detail;
+        [SerializeField] private Animator _standAnimator;
+        [SerializeField] private Detail _detailPrefab;
 
-        public Detail Detail => _detail;
+        public bool IsEnable { get; private set; }
 
         private void Start()
         {
-            _uiMoneyWidget.ShowMoney(_detail.Price);
+            _uiMoneyWidget.ShowMoney(_detailPrefab.Price);
+            IsEnable = true;
         }
 
         public void OnHighlight()
@@ -31,13 +33,17 @@ namespace CarAssembler
 
         public Detail GetDetail()
         {
-            OffHighlight();
-            _uiMoneyWidget.Disable();
+            Disable();
+            return _detailPrefab;
+        }
+
+        private void Disable()
+        {
+            IsEnable = false;
             _selfCollider.enabled = false;
-            var tempDetail = _detail;
-            _detail = null;
-            tempDetail.Hide();
-            return tempDetail;
+            _uiMoneyWidget.Disable();
+            OffHighlight();
+            _standAnimator.enabled = true;
         }
     }
 }

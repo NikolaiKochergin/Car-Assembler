@@ -21,7 +21,7 @@ namespace CarAssembler
         public TakingDetailTimer TakingDetailTimer => _takingDetailTimer;
 
         public Car Car => _currentCar;
-        public FactoryMachine FactoryMachine { get; private set; }
+        public Stand Stand { get; private set; }
 
         public event Action LevelIsOver;
 
@@ -41,21 +41,21 @@ namespace CarAssembler
             _currentCar.PriceChanged -= OnPriceChanged;
         }
 
-        private void OnFactoryMachineTaken(FactoryMachine factoryMachine)
+        private void OnFactoryMachineTaken(Stand _stand)
         {
-            if (FactoryMachine != null)
-                FactoryMachine.OffHighlight();
+            if (Stand != null)
+                Stand.OffHighlight();
 
-            FactoryMachine = factoryMachine;
-            FactoryMachine.OnHighlight();
+            Stand = _stand;
+            Stand.OnHighlight();
         }
 
-        private void OnFactoryMachineLost(FactoryMachine factoryMachine)
+        private void OnFactoryMachineLost(Stand _stand)
         {
-            if (factoryMachine == FactoryMachine)
+            if (_stand == Stand)
             {
-                FactoryMachine.OffHighlight();
-                FactoryMachine = null;
+                Stand.OffHighlight();
+                Stand = null;
             }
         }
 

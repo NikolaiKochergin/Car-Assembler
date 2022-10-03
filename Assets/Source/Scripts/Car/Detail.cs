@@ -5,6 +5,7 @@ namespace CarAssembler
 {
     public class Detail : MonoBehaviour
     {
+        [SerializeField] private DetailAnimator _detailAnimator;
         [SerializeField] private SlotType _slotType;
         [SerializeField] [Min(0)] private int _price;
 
@@ -21,12 +22,14 @@ namespace CarAssembler
         
         public void Show()
         {
-            gameObject.SetActive(true);
+            _detailAnimator.PlayShow();
+            //gameObject.SetActive(true);
         }
 
         public void Hide()
         {
-            gameObject.SetActive(false);
+            _detailAnimator.PlayHide();
+            //gameObject.SetActive(false);
         }
     }
 }

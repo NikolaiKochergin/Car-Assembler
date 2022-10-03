@@ -13,7 +13,7 @@ namespace CarAssembler
 
         private void Update()
         {
-            transform.LookAt(_cameraTransform);
+            transform.rotation = _cameraTransform.rotation;
         }
     }
 }
