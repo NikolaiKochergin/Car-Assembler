@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2a393f237a2f20a47966ca53c16846fe
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - FTY SPEEDY CASUAL NCV
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 16118455bb67dc9498c2a4bea790ca01, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
