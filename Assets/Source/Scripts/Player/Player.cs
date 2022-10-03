@@ -15,6 +15,7 @@ namespace CarAssembler
 
         [SerializeField] private Conveyor _conveyor;
         public Conveyor Conveyor => _conveyor;
+        public UIMoneyWidget MoneyWidget => _uiMoneyWidget;
 
         public PlayInput PlayInput => _playInput;
         public PlayerMover PlayerMover => _playerMover;

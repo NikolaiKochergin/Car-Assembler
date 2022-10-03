@@ -13,6 +13,7 @@ namespace CarAssembler
 
         public void Enter()
         {
+            _player.MoneyWidget.Disable();
             _player.TakingDetailTimer.StartTimer(() =>
             {
                 var detail = _player.Stand.GetDetail();
@@ -23,6 +24,7 @@ namespace CarAssembler
 
         public void Exit()
         {
+            _player.MoneyWidget.Enable();
             _player.TakingDetailTimer.StopTimer();
         }
 

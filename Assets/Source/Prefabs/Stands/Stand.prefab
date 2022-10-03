@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meshRenderer: {fileID: 7011303312702630519}
-  _highlightMaterial: {fileID: 2100000, guid: 1b871d3023990d84b8e3cfdd0ae916fd, type: 2}
+  _highlightMaterial: {fileID: 2100000, guid: d9a81f534b0b9ca4898c2d369bf7b7a4, type: 2}
   _commonMaterial: {fileID: 2100000, guid: 108f488d66323e74eb19ac7e0f800576, type: 2}
   _selfCollider: {fileID: 7594996127345878502}
   _uiMoneyWidget: {fileID: 7112714558733546221}
