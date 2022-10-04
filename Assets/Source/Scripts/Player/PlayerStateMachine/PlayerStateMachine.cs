@@ -30,12 +30,12 @@ namespace CarAssembler
 
         private void OnEnable()
         {
-            _player.LevelIsOver += SetNonControlledState;
+            _player.PlayerMover.EndLevelReached += SetNonControlledState;
         }
 
         private void OnDisable()
         {
-            _player.LevelIsOver -= SetNonControlledState;
+            _player.PlayerMover.EndLevelReached -= SetNonControlledState;
         }
 
         private void InitStates()

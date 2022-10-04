@@ -15,6 +15,7 @@ namespace CarAssembler
 
         public void Enter()
         {
+            _ui.PlayMenu.ProgressWidget.Initialize(_data.GetDisplayedLevelNumber(), _playerStateMachine.Player);
             _ui.MainMenu.Show();
             _playerStateMachine.SetNonControlledState();
         }

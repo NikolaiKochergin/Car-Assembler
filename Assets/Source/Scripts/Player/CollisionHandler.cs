@@ -9,16 +9,12 @@ namespace CarAssembler
         {
             var factoryMachine = other.GetComponent<Stand>();
             var obstacle = other.GetComponent<Obstacle>();
-            var endLevelTrigger = other.GetComponent<EndLevelTrigger>();
             
             if(factoryMachine)
                 FactoryMachineTaken?.Invoke(factoryMachine);
             
             if(obstacle)
                 ObstacleTaken?.Invoke();
-            
-            if(endLevelTrigger)
-                EndLevelTriggerTaken?.Invoke();
         }
 
         private void OnTriggerExit(Collider other)
@@ -32,6 +28,5 @@ namespace CarAssembler
         public event Action<Stand> FactoryMachineTaken;
         public event Action<Stand> FactoryMachineLost;
         public event Action ObstacleTaken;
-        public event Action EndLevelTriggerTaken;
     }
 }
