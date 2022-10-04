@@ -14,11 +14,13 @@ public class PlayState : IGameState
     public void Enter()
     {
         _ui.PlayMenu.Show();
+        _playerStateMachine.Player.MoneyWidget.Enable();
         _playerStateMachine.SetIdleState();
     }
 
     public void Exit()
     {
+        _playerStateMachine.Player.MoneyWidget.Disable();
         _ui.PlayMenu.Hide();
     }
 }

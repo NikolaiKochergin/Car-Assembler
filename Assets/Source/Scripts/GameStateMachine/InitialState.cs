@@ -18,11 +18,13 @@ namespace CarAssembler
             _ui.PlayMenu.ProgressWidget.Initialize(_data.GetDisplayedLevelNumber(), _playerStateMachine.Player);
             _ui.MainMenu.Show();
             _playerStateMachine.SetNonControlledState();
+            _playerStateMachine.Player.MoneyWidget.Disable();
         }
 
         public void Exit()
         {
             _ui.MainMenu.Hide();
+            _playerStateMachine.Player.MoneyWidget.Enable();
         }
     }
 }

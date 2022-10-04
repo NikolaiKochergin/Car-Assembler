@@ -17,7 +17,7 @@ namespace CarAssembler
 
         private void Start()
         {
-            _uiMoneyWidget.ShowMoney(_detailPrefab.Price);
+            _uiMoneyWidget.SetMoneyText(_detailPrefab.Price);
             IsEnable = true;
         }
 

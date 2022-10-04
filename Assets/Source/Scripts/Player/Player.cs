@@ -57,7 +57,7 @@ namespace CarAssembler
 
         private void OnPriceChanged(int value)
         {
-            _uiMoneyWidget.ShowMoney(_currentCar.Price);
+            _uiMoneyWidget.SetMoneyText(_currentCar.Price);
         }
     }
 }

@@ -7,9 +7,16 @@ namespace CarAssembler
     {
         [SerializeField] private TMP_Text _text;
 
-        public void ShowMoney(int value)
+        public void SetMoneyText(int value)
         {
-            _text.text = value.ToString("0");
+            string valueText;
+
+            if (value >= 1000)
+                valueText = (value / 1000).ToString("0.0") + "K";
+            else
+                valueText = value.ToString("0");
+
+            _text.text = "$ " + valueText;
         }
 
         public void Enable()

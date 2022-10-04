@@ -18,10 +18,11 @@ public class EndLevelState : IGameState
         var money = _playerStateMachine.Player.Car.Price;
         money += _data.GetMoney();
         
-        _ui.EndLevelMenu.MoneyWidget.ShowMoney(money);
+        _ui.EndLevelMenu.MoneyWidget.SetMoneyText(money);
         _data.SetMoney(money);
         
         _ui.EndLevelMenu.Show();
+        _ui.EndLevelMenu.MoneyWidget.Enable();
     }
 
     public void Exit()
