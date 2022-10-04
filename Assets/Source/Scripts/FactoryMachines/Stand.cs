@@ -23,12 +23,12 @@ namespace CarAssembler
 
         public void OnHighlight()
         {
-            _meshRenderer.sharedMaterial = _highlightMaterial;
+            _meshRenderer.material = _highlightMaterial;
         }
 
         public void OffHighlight()
         {
-            _meshRenderer.sharedMaterial = _commonMaterial;
+            _meshRenderer.material = _commonMaterial;
         }
 
         public Detail GetDetail()

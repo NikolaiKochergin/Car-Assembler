@@ -279,8 +279,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tap & Hold
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7659f6d6ec9b642db8be29bc45fe97cc, type: 2}
-  m_sharedMaterial: {fileID: 8690591861142563998, guid: 7659f6d6ec9b642db8be29bc45fe97cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
+  m_sharedMaterial: {fileID: 7374927986402738804, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -541,8 +541,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Next Level
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7659f6d6ec9b642db8be29bc45fe97cc, type: 2}
-  m_sharedMaterial: {fileID: 8690591861142563998, guid: 7659f6d6ec9b642db8be29bc45fe97cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
+  m_sharedMaterial: {fileID: 7374927986402738804, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1557,7 +1557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6255913372480478032
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1671,6 +1671,14 @@ PrefabInstance:
       propertyPath: m_text
       value: $ 500
       objectReference: {fileID: 0}
+    - target: {fileID: 1405396267662327085, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
+    - target: {fileID: 1405396267662327085, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7374927986402738804, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
     - target: {fileID: 1405396268081238054, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -59.770004
@@ -1679,6 +1687,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Details
       objectReference: {fileID: 0}
+    - target: {fileID: 1405396268081238055, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
+    - target: {fileID: 1405396268081238055, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7374927986402738804, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
     - target: {fileID: 1405396268851116855, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_Name
       value: UIUpgradeButton (1)
@@ -1701,7 +1717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1709,7 +1725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1749,11 +1765,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 703.2847
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1918,10 +1934,26 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.291
       objectReference: {fileID: 0}
+    - target: {fileID: 1405396267662327085, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
+    - target: {fileID: 1405396267662327085, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7374927986402738804, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
     - target: {fileID: 1405396268081238054, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -59.770004
       objectReference: {fileID: 0}
+    - target: {fileID: 1405396268081238055, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
+    - target: {fileID: 1405396268081238055, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7374927986402738804, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
     - target: {fileID: 1405396268851116855, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_Name
       value: UIUpgradeButton
@@ -1944,7 +1976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1952,7 +1984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1992,11 +2024,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 301.0949
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 1405396268851116856, guid: bebbd02aa588c4d40b56ebebd678bc32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
