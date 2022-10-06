@@ -40,6 +40,9 @@ namespace CarAssembler
         Empty,
         Yellow,
         Green,
-        Blue
+        Blue,
+        Grade1,
+        Grade2,
+        Grade3
     }
 }

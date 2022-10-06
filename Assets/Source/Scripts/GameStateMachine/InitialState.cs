@@ -34,7 +34,8 @@ namespace CarAssembler
         public void Exit()
         {
             _ui.MainMenu.Hide();
-            _playerStateMachine.Player.MoneyWidget.Enable();
+            // Если концепция снова изменится и нужно будет включить деньги, то раскоментить.
+            //_playerStateMachine.Player.MoneyWidget.Enable();
         }
 
         private TaskList GetTaskList()

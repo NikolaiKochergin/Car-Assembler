@@ -21,6 +21,13 @@ namespace CarAssembler
                 .Where(slot => _slotType == SlotType.Empty || slot.Content.SlotType == _slotType)
                 .Any(slot => slot.Content.Features.Any(feature => feature == _feature));
 
+            foreach (var slot in carSlots)
+            {
+                if(slot.Content != null && slot.Content.SlotType == _slotType)
+                    if (_feature == FeatureType.Empty)
+                        IsDone = true;
+            }
+
             return IsDone;
         }
     }

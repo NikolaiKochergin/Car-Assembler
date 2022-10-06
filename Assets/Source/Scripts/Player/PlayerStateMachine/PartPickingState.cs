@@ -25,7 +25,8 @@ namespace CarAssembler
 
         public void Exit()
         {
-            _player.MoneyWidget.Enable();
+            // Если концепция снова изменится и нужно будет включить деньги, то раскоментить.
+            //_player.MoneyWidget.Enable();
             _player.TakingDetailTimer.StopTimer();
         }
 

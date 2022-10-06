@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 8309544178572630443}
   _slotType: 5
+  _features: 04000000
   _price: 200
 --- !u!1 &8418990844722226407
 GameObject:

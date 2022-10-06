@@ -14,7 +14,8 @@ public class PlayState : IGameState
     public void Enter()
     {
         _ui.PlayMenu.Show();
-        _playerStateMachine.Player.MoneyWidget.Enable();
+        // Если концепция снова изменится и нужно будет включить деньги, то раскоментить.
+        //_playerStateMachine.Player.MoneyWidget.Enable();
         _playerStateMachine.SetIdleState();
     }
 

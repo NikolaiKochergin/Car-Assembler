@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: 003_LevelTaskList
   m_EditorClassIdentifier: 
   _tasks:
-  - _slotType: 0
+  - _slotType: 6
+    _feature: 6
+  - _slotType: 2
+    _feature: 0
+  - _slotType: 4
+    _feature: 0
+  - _slotType: 5
     _feature: 0
