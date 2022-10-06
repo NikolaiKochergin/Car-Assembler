@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1537000574215645247}
   - component: {fileID: 1537000574215645240}
   - component: {fileID: 1094323420890766910}
+  - component: {fileID: 1652641560259704184}
   m_Layer: 5
   m_Name: UITaskListWidget
   m_TagString: Untagged
@@ -53,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiTaskWidgetPrefab: {fileID: 4938137169246965124, guid: 5bb662bc61d469140ac734ddc40c1c34, type: 3}
   _content: {fileID: 2849934998660827314}
-  _defaultIcon: {fileID: 21300000, guid: f38a81c3995b26641ae318469db4c585, type: 3}
+  _iconsMap: {fileID: 1652641560259704184}
   _appearDuration: 0.1
 --- !u!95 &1094323420890766910
 Animator:
@@ -75,6 +76,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1652641560259704184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537000574215645246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa7e6384e21ab1458d0e18e1310822a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultSprite:
+  - {fileID: 21300000, guid: f38a81c3995b26641ae318469db4c585, type: 3}
+  _framesSprites: []
+  _doorsSprites:
+  - {fileID: 21300000, guid: 60411d7de24923f4daf9c70158cbe7c8, type: 3}
+  - {fileID: 21300000, guid: f2cff701455d81a47b95418aca431754, type: 3}
+  - {fileID: 21300000, guid: 5ed83bf425c5e9f4083cd1a451f6da01, type: 3}
+  _windowsSprites: []
+  _wheelsSprites:
+  - {fileID: 21300000, guid: 920bdb962bbb1d143b13b6baedc8a25d, type: 3}
+  - {fileID: 21300000, guid: 2d6d4ef1b20971d41ab2285de20933b5, type: 3}
+  - {fileID: 21300000, guid: e74a89640df28d14fb1f5993c15b3cf6, type: 3}
+  _spoilersSprites:
+  - {fileID: 21300000, guid: 41ba2e7ad2d034840a1c58ddca750b1d, type: 3}
+  - {fileID: 21300000, guid: ab0b8bb513ffc294d86b1866d4115929, type: 3}
+  - {fileID: 21300000, guid: c3264e6f17760994d99dfaac237d00ff, type: 3}
+  _enginesSprites:
+  - {fileID: 21300000, guid: 913a036e69515804e9dfbf8efb8e835b, type: 3}
+  - {fileID: 21300000, guid: e95a0f5afa5d7ee4da51ead2638bdd86, type: 3}
+  - {fileID: 21300000, guid: 5faac09f409637a4fbcf96b45268b6b9, type: 3}
+  _tuningSprites: []
+  _bumbersSprites:
+  - {fileID: 21300000, guid: 60411d7de24923f4daf9c70158cbe7c8, type: 3}
+  - {fileID: 21300000, guid: f2cff701455d81a47b95418aca431754, type: 3}
+  - {fileID: 21300000, guid: 5ed83bf425c5e9f4083cd1a451f6da01, type: 3}
 --- !u!1 &9169415034572089040
 GameObject:
   m_ObjectHideFlags: 0

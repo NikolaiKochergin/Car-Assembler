@@ -8,7 +8,7 @@ namespace CarAssembler
     {
         [SerializeField] private UITaskWidget _uiTaskWidgetPrefab;
         [SerializeField] private Transform _content;
-        [SerializeField] private Sprite _defaultIcon;
+        [SerializeField] private IconsMap _iconsMap;
         [SerializeField] [Min(0)] private float _appearDuration = 0.1f;
 
         private TaskList _taskList;
@@ -34,7 +34,8 @@ namespace CarAssembler
             foreach (var task in _taskList.Tasks)
             {
                 var taskView = Instantiate(_uiTaskWidgetPrefab, _content);
-                taskView.Initialize(_defaultIcon);
+                var icon = _iconsMap.GetIconBy(task.SlotType, task.Feature);
+                taskView.Initialize(icon);
                 taskView.Hide();
                 _taskViews.Add(taskView);
             }

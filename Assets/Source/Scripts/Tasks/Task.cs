@@ -11,6 +11,7 @@ namespace CarAssembler
         [SerializeField] private SlotType _slotType;
         [SerializeField] private FeatureType _feature;
 
+        public SlotType SlotType => _slotType;
         public FeatureType Feature => _feature;
         public bool IsDone { get; private set; }
 

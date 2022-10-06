@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tasks:
   - _slotType: 6
-    _feature: 1
-  - _slotType: 0
-    _feature: 0
+    _feature: 5
+  - _slotType: 2
+    _feature: 4
+  - _slotType: 5
+    _feature: 6

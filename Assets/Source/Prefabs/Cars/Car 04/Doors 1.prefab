@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 259554356232329631}
   _slotType: 2
+  _features: 04000000
   _price: 110
 --- !u!1001 &8136897081277365961
 PrefabInstance:
