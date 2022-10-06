@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef024027bd11134e80bd99137766238, type: 3}
   m_Name: 002_LevelTaskList
   m_EditorClassIdentifier: 
-  _tasks: []
+  _tasks:
+  - _slotType: 0
+    _feature: 0
+  - _slotType: 0
+    _feature: 0

@@ -17,6 +17,7 @@ namespace CarAssembler
         {
             _taskList = taskList;
             _taskList.TaskListUpdated += OnTaskListUpdated;
+            OnTaskListUpdated(taskList.Tasks);
         }
 
         private void OnTaskListUpdated(IReadOnlyList<Task> tasks)

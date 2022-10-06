@@ -13,11 +13,9 @@ namespace CarAssembler
         [SerializeField] private TakingDetailTimer _takingDetailTimer;
 
         [SerializeField] private Conveyor _conveyor;
-
-        [SerializeField] private TaskList _taskList;
         
         public Conveyor Conveyor => _conveyor;
-        public TaskList TaskList => _taskList;
+        public TaskList TaskList { get; private set; }
         public UIMoneyWidget MoneyWidget => _uiMoneyWidget;
 
         public PlayInput PlayInput => _playInput;
@@ -30,7 +28,7 @@ namespace CarAssembler
 
         public void SetTaskList(TaskList taskList)
         {
-            _taskList = taskList;
+            TaskList = taskList;
             taskList.UpdateTasksList(_currentCar.Slots);
         }
 
