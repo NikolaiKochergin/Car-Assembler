@@ -19,6 +19,9 @@ namespace CarAssembler
             _ui.MainMenu.Show();
             _playerStateMachine.SetNonControlledState();
             _playerStateMachine.Player.MoneyWidget.Disable();
+            
+            _ui.PlayMenu.TaskWidget.Initialize(_playerStateMachine.Player.TaskList);
+            _playerStateMachine.Player.SetTaskList(_playerStateMachine.Player.TaskList);
         }
 
         public void Exit()

@@ -13,7 +13,11 @@ namespace CarAssembler
         [SerializeField] private TakingDetailTimer _takingDetailTimer;
 
         [SerializeField] private Conveyor _conveyor;
+
+        [SerializeField] private TaskList _taskList;
+        
         public Conveyor Conveyor => _conveyor;
+        public TaskList TaskList => _taskList;
         public UIMoneyWidget MoneyWidget => _uiMoneyWidget;
 
         public PlayInput PlayInput => _playInput;
@@ -23,21 +27,28 @@ namespace CarAssembler
         public Car Car => _currentCar;
         public Stand Stand { get; private set; }
 
+
+        public void SetTaskList(TaskList taskList)
+        {
+            _taskList = taskList;
+            taskList.UpdateTasksList(_currentCar.Slots);
+        }
+
         private void OnEnable()
         {
-            CollisionHandler.FactoryMachineTaken += OnFactoryMachineTaken;
-            CollisionHandler.FactoryMachineLost += OnFactoryMachineLost;
+            CollisionHandler.StandTaken += OnStandTaken;
+            CollisionHandler.StandLost += OnStandLost;
             _currentCar.PriceChanged += OnPriceChanged;
         }
 
         private void OnDisable()
         {
-            CollisionHandler.FactoryMachineTaken -= OnFactoryMachineTaken;
-            CollisionHandler.FactoryMachineLost -= OnFactoryMachineLost;
+            CollisionHandler.StandTaken -= OnStandTaken;
+            CollisionHandler.StandLost -= OnStandLost;
             _currentCar.PriceChanged -= OnPriceChanged;
         }
 
-        private void OnFactoryMachineTaken(Stand _stand)
+        private void OnStandTaken(Stand _stand)
         {
             if (Stand != null)
                 Stand.OffHighlight();
@@ -46,7 +57,7 @@ namespace CarAssembler
             Stand.OnHighlight();
         }
 
-        private void OnFactoryMachineLost(Stand _stand)
+        private void OnStandLost(Stand _stand)
         {
             if (_stand == Stand)
             {

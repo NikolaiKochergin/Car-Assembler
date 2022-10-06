@@ -11,7 +11,7 @@ namespace CarAssembler
             var obstacle = other.GetComponent<Obstacle>();
             
             if(factoryMachine)
-                FactoryMachineTaken?.Invoke(factoryMachine);
+                StandTaken?.Invoke(factoryMachine);
             
             if(obstacle)
                 ObstacleTaken?.Invoke();
@@ -22,11 +22,11 @@ namespace CarAssembler
             var factotyMachine = other.GetComponent<Stand>();
             
             if(factotyMachine)
-                FactoryMachineLost?.Invoke(factotyMachine);
+                StandLost?.Invoke(factotyMachine);
         }
 
-        public event Action<Stand> FactoryMachineTaken;
-        public event Action<Stand> FactoryMachineLost;
+        public event Action<Stand> StandTaken;
+        public event Action<Stand> StandLost;
         public event Action ObstacleTaken;
     }
 }

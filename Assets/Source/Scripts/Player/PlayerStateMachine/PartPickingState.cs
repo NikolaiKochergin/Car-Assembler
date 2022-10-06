@@ -17,7 +17,8 @@ namespace CarAssembler
             _player.TakingDetailTimer.StartTimer(() =>
             {
                 var detail = _player.Stand.GetDetail();
-                _player.Car.TryTakeDetail(detail);
+                if(_player.Car.TryTakeDetail(detail))
+                    _player.TaskList.UpdateTasksList(_player.Car.Slots);
                 _playerStateMachine.SetIdleState();
             });
         }

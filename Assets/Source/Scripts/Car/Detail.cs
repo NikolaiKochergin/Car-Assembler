@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CarAssembler
@@ -7,9 +8,11 @@ namespace CarAssembler
     {
         [SerializeField] private ParticleSystem _appearParticles;
         [SerializeField] private SlotType _slotType;
+        [SerializeField] private FeatureType[] _features;
         [SerializeField] [Min(0)] private int _price;
 
         public SlotType SlotType => _slotType;
+        public IReadOnlyList<FeatureType> Features => _features;
         public int Price => _price;
 
         public void SetPrice(int value)
@@ -30,5 +33,13 @@ namespace CarAssembler
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public enum FeatureType
+    {
+        Empty,
+        Yellow,
+        Green,
+        Blue
     }
 }

@@ -9,6 +9,7 @@ namespace CarAssembler
     {
         [SerializeField] private List<Slot> _slots;
 
+        public IReadOnlyList<Slot> Slots => _slots;
         public int Price { get; private set; }
 
         private void Start()
