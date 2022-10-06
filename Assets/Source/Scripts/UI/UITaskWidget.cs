@@ -1,28 +1,33 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CarAssembler
 {
     public class UITaskWidget : MonoBehaviour
     {
-        private TaskList _taskList;
+        [SerializeField] private Image _iconImage;
+        [SerializeField] private Image _fillerTrue;
+        [SerializeField] private Image _fillerFalse;
 
-        private void OnDestroy()
+        public void Initialize(Sprite icon)
         {
-            if (_taskList != null)
-                _taskList.TaskListUpdated -= OnTaskListUpdated;
+            _iconImage.sprite = icon;
         }
 
-        public void Initialize(TaskList taskList)
+        public void Show()
         {
-            _taskList = taskList;
-            _taskList.TaskListUpdated += OnTaskListUpdated;
-            OnTaskListUpdated(taskList.Tasks);
+            gameObject.SetActive(true);
         }
 
-        private void OnTaskListUpdated(IReadOnlyList<Task> tasks)
+        public void Hide()
         {
-            foreach (var task in _taskList.Tasks) Debug.Log(task.IsDone);
+            gameObject.SetActive(false);
+        }
+
+        public void MarkCompleted(bool isCombleted)
+        {
+            _fillerTrue.enabled = isCombleted;
+            _fillerFalse.enabled = !isCombleted;
         }
     }
 }
