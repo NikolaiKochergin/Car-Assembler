@@ -29,6 +29,7 @@ namespace CarAssembler
             var taskList = GetTaskList();
             _playerStateMachine.Player.SetTaskList(taskList);
             _ui.PlayMenu.TasksListWidget.Initialize(_playerStateMachine.Player.TaskList);
+            _ui.PlayMenu.TaskProgressWidget.Initialize(_playerStateMachine.Player.TaskList);
         }
 
         public void Exit()
