@@ -15,6 +15,7 @@ namespace CarAssembler
 
         public void Enter()
         {
+            _ui.PlayMenu.Show();
             _enterKatScene.Play();
         }
 

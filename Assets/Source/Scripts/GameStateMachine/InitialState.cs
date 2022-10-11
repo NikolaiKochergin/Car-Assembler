@@ -21,15 +21,15 @@ namespace CarAssembler
 
         public void Enter()
         {
-            _ui.PlayMenu.ProgressWidget.Initialize(_data.GetDisplayedLevelNumber(), _playerStateMachine.Player);
+            //_ui.PlayMenu.ProgressWidget.Initialize(_data.GetDisplayedLevelNumber(), _playerStateMachine.Player);
             _ui.MainMenu.Show();
             _playerStateMachine.SetNonControlledState();
             _playerStateMachine.Player.MoneyWidget.Disable();
 
             var taskList = GetTaskList();
-            _playerStateMachine.Player.SetTaskList(taskList);
-            _ui.PlayMenu.TasksListWidget.Initialize(_playerStateMachine.Player.TaskList);
-            _ui.PlayMenu.TaskProgressWidget.Initialize(_playerStateMachine.Player.TaskList);
+            //_playerStateMachine.Player.SetTaskList(taskList);
+            //_ui.PlayMenu.TasksListWidget.Initialize(_playerStateMachine.Player.TaskList);
+            //_ui.PlayMenu.TaskProgressWidget.Initialize(_playerStateMachine.Player.TaskList);
         }
 
         public void Exit()

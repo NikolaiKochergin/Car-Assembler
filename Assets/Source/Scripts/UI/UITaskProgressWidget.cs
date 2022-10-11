@@ -40,9 +40,9 @@ namespace CarAssembler
 
         private void SetValue(float value)
         {
-            if(_filler.fillAmount > value)
+            if(_filler.fillAmount > value && _engryParticleSystem != null)
                 _engryParticleSystem.Play();
-            if (_filler.fillAmount < value)
+            if (_filler.fillAmount < value && _goodParticleSystem != null)
                 _goodParticleSystem.Play();
 
             _filler.fillAmount = value;
