@@ -45,7 +45,12 @@ namespace CarAssembler
 
         private void OnTaskListUpdated(IReadOnlyList<Task> tasks)
         {
-            for (var i = 0; i < _taskList.Tasks.Count; i++) _taskViews[i].MarkCompleted(!_taskList.Tasks[i].IsDone);
+            for (var i = 0; i < _taskList.Tasks.Count; i++)
+            {
+                _taskViews[i].MarkCompleted(_taskList.Tasks[i].IsDone);
+                // if(!_taskList.Tasks[i].IsDone)
+                //     _taskViews[i].ShowFalse();
+            }
         }
 
         private IEnumerator ShowAppear()
