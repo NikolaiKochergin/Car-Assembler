@@ -35,6 +35,11 @@ namespace CarAssembler
             _splineFollower.follow = false;
         }
 
+        public void SetFollowSpeed(float value)
+        {
+            _splineFollower.followSpeed = value;
+        }
+
         public float GetLevelProgress()
         {
             return (float) _splineFollower.GetPercent();

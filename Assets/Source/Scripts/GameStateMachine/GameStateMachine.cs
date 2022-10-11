@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace CarAssembler
 {
@@ -9,6 +10,7 @@ namespace CarAssembler
         [SerializeField] private PlayerStateMachine _playerStateMachine;
         [SerializeField] private UI _uI;
         [SerializeField] private Data _data;
+        [SerializeField] private PlayableDirector _enterKatScene;
         
         private IGameState _currentState;
 
@@ -26,13 +28,13 @@ namespace CarAssembler
 
         private void OnEnable()
         {
-            _uI.MainMenu.StartButton.ButtonPressedDown += SetPlayState;
+            _uI.MainMenu.StartButton.ButtonPressedDown += SetEnterKatSceneState;
             _playerStateMachine.Player.PlayerMover.EndLevelReached += SetEndLevelState;
         }
 
         private void OnDisable()
         {
-            _uI.MainMenu.StartButton.ButtonPressedDown -= SetPlayState;
+            _uI.MainMenu.StartButton.ButtonPressedDown -= SetEnterKatSceneState;
             _playerStateMachine.Player.PlayerMover.EndLevelReached -= SetEndLevelState;
         }
 
@@ -41,6 +43,7 @@ namespace CarAssembler
             _statesMap = new Dictionary<Type, IGameState>
             {
                 [typeof(InitialState)] = new InitialState(_playerStateMachine, _uI, _data),
+                [typeof(KatSceneState)] = new KatSceneState(_enterKatScene, _uI),
                 [typeof(PlayState)] = new PlayState(_playerStateMachine, _uI),
                 [typeof(FinisherState)] = new FinisherState(_playerStateMachine, _uI),
                 [typeof(EndLevelState)] = new EndLevelState(_playerStateMachine, _uI, _data)
@@ -53,7 +56,13 @@ namespace CarAssembler
             SetState(state);
         }
 
-        private void SetPlayState()
+        private void SetEnterKatSceneState()
+        {
+            var state = GetState<KatSceneState>();
+            SetState(state);
+        }
+
+        public void SetPlayState()
         {
             var state = GetState<PlayState>();
             SetState(state);
