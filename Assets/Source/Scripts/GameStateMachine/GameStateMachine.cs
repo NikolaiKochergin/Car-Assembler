@@ -43,7 +43,7 @@ namespace CarAssembler
             _statesMap = new Dictionary<Type, IGameState>
             {
                 [typeof(InitialState)] = new InitialState(_playerStateMachine, _uI, _data),
-                [typeof(KatSceneState)] = new KatSceneState(_enterKatScene),
+                [typeof(KatSceneState)] = new KatSceneState(_enterKatScene, _uI),
                 [typeof(PlayState)] = new PlayState(_playerStateMachine, _uI),
                 [typeof(FinisherState)] = new FinisherState(_playerStateMachine, _uI),
                 [typeof(EndLevelState)] = new EndLevelState(_playerStateMachine, _uI, _data)
