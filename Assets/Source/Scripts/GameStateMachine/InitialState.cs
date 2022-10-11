@@ -6,17 +6,14 @@ namespace CarAssembler
 {
     public class InitialState : IGameState
     {
-        private readonly Data _data;
-
         private readonly PlayerStateMachine _playerStateMachine;
         private readonly UI _ui;
         private readonly string TaskListsPath = "LevelTaskLists/";
 
-        public InitialState(PlayerStateMachine playerStateMachine, UI ui, Data data)
+        public InitialState(PlayerStateMachine playerStateMachine, UI ui)
         {
             _playerStateMachine = playerStateMachine;
             _ui = ui;
-            _data = data;
         }
 
         public void Enter()
