@@ -25,6 +25,7 @@ namespace CarAssembler
         public void Show()
         {
             gameObject.SetActive(true);
+            base.Show();
         }
 
         public void Hide()

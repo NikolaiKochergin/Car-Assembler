@@ -5,9 +5,9 @@ namespace CarAssembler
     [SelectionBase]
     public class Stand : MonoBehaviour
     {
-        [SerializeField] private MeshRenderer _meshRenderer;
-        [SerializeField] private Material _highlightMaterial;
-        [SerializeField] private Material _commonMaterial;
+        private const string DisableAnimation = nameof(DisableAnimation);
+        private const string HighlightAnimation = nameof(HighlightAnimation);
+        
         [SerializeField] private Collider _selfCollider;
         [SerializeField] private UIMoneyWidget _uiMoneyWidget;
         [SerializeField] private Animator _standAnimator;
@@ -24,12 +24,14 @@ namespace CarAssembler
 
         public void OnHighlight()
         {
-            _meshRenderer.material = _highlightMaterial;
+            _standAnimator.enabled = true;
+            _standAnimator.Play(HighlightAnimation);
         }
 
         public void OffHighlight()
         {
-            _meshRenderer.material = _commonMaterial;
+            _standAnimator.StopPlayback();
+            _standAnimator.enabled = false;
         }
 
         public Detail GetDetail()
@@ -45,6 +47,7 @@ namespace CarAssembler
             _uiMoneyWidget.Disable();
             OffHighlight();
             _standAnimator.enabled = true;
+            _standAnimator.Play(DisableAnimation);
             DisablePairStands();
         }
 

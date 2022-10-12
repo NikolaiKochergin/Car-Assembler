@@ -13,11 +13,11 @@ namespace CarAssembler
 
         public event Action<IReadOnlyList<Task>> TaskListUpdated;
 
-        public void UpdateTasksList(IReadOnlyList<Slot> slots)
+        public void UpdateTasksList(Car car)
         {
             foreach (var task in _tasks)
             {
-                task.CheckTask(slots);
+                task.CheckTask(car);
             }
             TaskListUpdated?.Invoke(Tasks);
         }

@@ -27,10 +27,10 @@ namespace CarAssembler
 
         private void LoadNextLevel()
         {
-            var sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            var sceneIndex = Storage.Load().Level;
 
             if (sceneIndex == SceneManager.sceneCountInBuildSettings)
-                sceneIndex = 0;
+                sceneIndex = 1;
         
             SceneManager.LoadScene(sceneIndex);
         }

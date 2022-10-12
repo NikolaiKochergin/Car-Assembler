@@ -27,7 +27,7 @@ public class LoadNextLevelButton : MonoBehaviour
         var sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
         if (sceneIndex == SceneManager.sceneCountInBuildSettings)
-            sceneIndex = 0;
+            sceneIndex = 1;
         
         SceneManager.LoadScene(sceneIndex);
     }

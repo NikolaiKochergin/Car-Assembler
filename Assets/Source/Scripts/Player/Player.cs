@@ -39,14 +39,14 @@ namespace CarAssembler
         {
             Destroy(_currentCar.gameObject);
             var spawnedCar = Instantiate(car, transform.position, Quaternion.identity, transform);
-            
             _currentCar = spawnedCar;
+            _currentCar.Show();
         }
 
         public void SetTaskList(TaskList taskList)
         {
             TaskList = taskList;
-            taskList.UpdateTasksList(_currentCar.Slots);
+            taskList.UpdateTasksList(_currentCar);
         }
 
         private void OnStandTaken(Stand _stand)
