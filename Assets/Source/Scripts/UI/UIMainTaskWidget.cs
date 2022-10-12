@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIMainTaskWidget : MonoBehaviour
+namespace CarAssembler
 {
-    [SerializeField] private Image _TaskImage;
-
-    public void Initialize(Sprite taskIcon)
+    public class UIMainTaskWidget : MonoBehaviour
     {
-        _TaskImage.sprite = taskIcon;
+        [SerializeField] private Image _TaskImage;
+
+        public void Initialize(Sprite taskIcon)
+        {
+            _TaskImage.sprite = taskIcon;
+        }
     }
 }

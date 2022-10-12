@@ -12,6 +12,7 @@ namespace CarAssembler
         [SerializeField] private UIMoneyWidget _uiMoneyWidget;
         [SerializeField] private Animator _standAnimator;
         [SerializeField] private Detail _detailPrefab;
+        [SerializeField] private Stand[] _pairStands;
 
         public bool IsEnable { get; private set; }
 
@@ -44,6 +45,14 @@ namespace CarAssembler
             _uiMoneyWidget.Disable();
             OffHighlight();
             _standAnimator.enabled = true;
+            DisablePairStands();
+        }
+
+        private void DisablePairStands()
+        {
+            foreach (var stand in _pairStands)
+                if (stand.IsEnable)
+                    stand.Disable();
         }
     }
 }
