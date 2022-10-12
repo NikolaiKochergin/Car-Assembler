@@ -13,11 +13,13 @@ namespace CarAssembler
 
         public void Enter()
         {
-            _player.MoneyWidget.Disable();
             _player.TakingDetailTimer.StartTimer(() =>
             {
                 var detail = _player.Stand.GetDetail();
-                if(_player.Car.TryTakeDetail(detail))
+
+                if (detail is Car car)
+                    _player.SetCar(car);
+                else if (_player.Car.TryTakeDetail(detail))
                     _player.TaskList.UpdateTasksList(_player.Car.Slots);
                 _playerStateMachine.SetIdleState();
             });
@@ -25,14 +27,12 @@ namespace CarAssembler
 
         public void Exit()
         {
-            // Если концепция снова изменится и нужно будет включить деньги, то раскоментить.
-            //_player.MoneyWidget.Enable();
             _player.TakingDetailTimer.StopTimer();
         }
 
         public void Update()
         {
-            if(_player.PlayInput.IsMoving)
+            if (_player.PlayInput.IsMoving)
                 _playerStateMachine.SetMoveState();
         }
     }

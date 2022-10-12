@@ -15,14 +15,6 @@ namespace CarAssembler
         public IReadOnlyList<FeatureType> Features => _features;
         public int Price => _price;
 
-        public void SetPrice(int value)
-        {
-            if (value < 0)
-                throw new ArgumentOutOfRangeException(nameof(value));
-
-            _price = value;
-        }
-
         public void Show()
         {
             if (_appearParticles != null)

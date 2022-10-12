@@ -6,17 +6,15 @@ namespace CarAssembler
     {
         [SerializeField] private Car _currentCar;
         [SerializeField] private CollisionHandler CollisionHandler;
-        [SerializeField] private UIMoneyWidget _uiMoneyWidget;
 
         [SerializeField] private PlayInput _playInput;
         [SerializeField] private PlayerMover _playerMover;
         [SerializeField] private TakingDetailTimer _takingDetailTimer;
 
         [SerializeField] private Conveyor _conveyor;
-        
+
         public Conveyor Conveyor => _conveyor;
         public TaskList TaskList { get; private set; }
-        public UIMoneyWidget MoneyWidget => _uiMoneyWidget;
 
         public PlayInput PlayInput => _playInput;
         public PlayerMover PlayerMover => _playerMover;
@@ -25,25 +23,30 @@ namespace CarAssembler
         public Car Car => _currentCar;
         public Stand Stand { get; private set; }
 
-
-        public void SetTaskList(TaskList taskList)
-        {
-            TaskList = taskList;
-            taskList.UpdateTasksList(_currentCar.Slots);
-        }
-
         private void OnEnable()
         {
             CollisionHandler.StandTaken += OnStandTaken;
             CollisionHandler.StandLost += OnStandLost;
-            _currentCar.PriceChanged += OnPriceChanged;
         }
 
         private void OnDisable()
         {
             CollisionHandler.StandTaken -= OnStandTaken;
             CollisionHandler.StandLost -= OnStandLost;
-            _currentCar.PriceChanged -= OnPriceChanged;
+        }
+
+        public void SetCar(Car car)
+        {
+            Destroy(_currentCar.gameObject);
+            var spawnedCar = Instantiate(car, transform.position, Quaternion.identity, transform);
+            
+            _currentCar = spawnedCar;
+        }
+
+        public void SetTaskList(TaskList taskList)
+        {
+            TaskList = taskList;
+            taskList.UpdateTasksList(_currentCar.Slots);
         }
 
         private void OnStandTaken(Stand _stand)
@@ -62,11 +65,6 @@ namespace CarAssembler
                 Stand.OffHighlight();
                 Stand = null;
             }
-        }
-
-        private void OnPriceChanged(int value)
-        {
-            _uiMoneyWidget.SetMoneyText(_currentCar.Price);
         }
     }
 }

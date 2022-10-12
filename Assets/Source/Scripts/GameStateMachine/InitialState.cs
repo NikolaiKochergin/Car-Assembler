@@ -20,7 +20,6 @@ namespace CarAssembler
         {
             _ui.MainMenu.Show();
             _playerStateMachine.SetNonControlledState();
-            _playerStateMachine.Player.MoneyWidget.Disable();
 
             var taskList = GetTaskList();
             _playerStateMachine.Player.SetTaskList(taskList);
@@ -31,8 +30,6 @@ namespace CarAssembler
         public void Exit()
         {
             _ui.MainMenu.Hide();
-            // Если концепция снова изменится и нужно будет включить деньги, то раскоментить.
-            //_playerStateMachine.Player.MoneyWidget.Enable();
         }
 
         private TaskList GetTaskList()

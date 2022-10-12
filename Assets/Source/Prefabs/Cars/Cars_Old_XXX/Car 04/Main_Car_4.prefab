@@ -177,6 +177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ce21f6e4a37a14095f11119feb94ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _appearParticles: {fileID: 8319854434449434454, guid: ba1bf38dbd0039848b7a67c3f6ad8dad, type: 3}
+  _slotType: 0
+  _features: 
+  _price: 0
   _slots:
   - {fileID: 7953592867453208977}
   - {fileID: 7953592868293206824}

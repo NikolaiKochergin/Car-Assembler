@@ -19,10 +19,10 @@ namespace CarAssembler
 
         private void OnTriggerExit(Collider other)
         {
-            var factotyMachine = other.GetComponent<Stand>();
+            var factoryMachine = other.GetComponent<Stand>();
             
-            if(factotyMachine)
-                StandLost?.Invoke(factotyMachine);
+            if(factoryMachine)
+                StandLost?.Invoke(factoryMachine);
         }
 
         public event Action<Stand> StandTaken;
