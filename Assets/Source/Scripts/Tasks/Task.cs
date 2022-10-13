@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace CarAssembler
@@ -8,18 +6,10 @@ namespace CarAssembler
     [Serializable]
     public class Task
     {
-        [SerializeField] private SlotType _slotType;
-        [SerializeField] private FeatureType _feature;
+        [SerializeField] private Sprite _taskIcon;
+        [SerializeField] private FeatureType _carType;
 
-        public SlotType SlotType => _slotType;
-        public FeatureType Feature => _feature;
-        public bool IsDone { get; private set; }
-
-        public virtual bool CheckTask(Car car)
-        {
-            
-
-            return IsDone;
-        }
+        public Sprite TaskIcon => _taskIcon;
+        public FeatureType CarType => _carType;
     }
 }

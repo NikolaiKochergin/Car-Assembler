@@ -20,7 +20,7 @@ namespace CarAssembler
                 if (detail is Car car)
                     _player.SetCar(car);
                 else if (_player.Car.TryTakeDetail(detail))
-                    _player.TaskList.UpdateTasksList(_player.Car);
+                    _player.AddDetailPrice(detail.Price);
                 _playerStateMachine.SetIdleState();
             });
         }

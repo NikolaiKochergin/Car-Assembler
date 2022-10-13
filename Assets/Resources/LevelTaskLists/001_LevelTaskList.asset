@@ -13,11 +13,5 @@ MonoBehaviour:
   m_Name: 001_LevelTaskList
   m_EditorClassIdentifier: 
   _tasks:
-  - _slotType: 6
-    _feature: 6
-  - _slotType: 2
-    _feature: 6
-  - _slotType: 4
-    _feature: 0
-  - _slotType: 5
-    _feature: 6
+  - _taskIcon: {fileID: 21300000, guid: f7777c5400fc5194b9c082750efb8514, type: 3}
+    _carType: 2

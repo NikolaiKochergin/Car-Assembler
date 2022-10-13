@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,44 +6,35 @@ namespace CarAssembler
     public class UITaskProgressWidget : MonoBehaviour
     {
         [SerializeField] private Image _filler;
-        [SerializeField] private ParticleSystem _engryParticleSystem;
-        [SerializeField] private ParticleSystem _goodParticleSystem;
 
-        private TaskList _taskList;
+        private Player _player;
 
-        private void OnDestroy()
+        private void OnEnable()
         {
-            if (_taskList != null)
-                _taskList.TaskListUpdated -= OnTaskListUpdated;
+            if (_player)
+                _player.CarPriceChanged += OnCarPriceChanged;
         }
 
-        public void Initialize(TaskList taskList)
+        private void OnDisable()
         {
-            SetValue(0);
-            _taskList = taskList;
-            _taskList.TaskListUpdated += OnTaskListUpdated;
+            if (_player)
+                _player.CarPriceChanged -= OnCarPriceChanged;
         }
 
-        private void OnTaskListUpdated(IReadOnlyList<Task> taskList)
+        public void Initialize(Player player)
         {
-            var doneTaskCount = 0;
+            _player = player;
+            OnCarPriceChanged(_player.CarPrice);
+        }
 
-            foreach (var task in taskList)
-                if (task.IsDone)
-                    doneTaskCount += 1;
-
-            var doneTaskPercent = (float) doneTaskCount / taskList.Count;
-
-            SetValue(doneTaskPercent);
+        private void OnCarPriceChanged(int value)
+        {
+            var normalizedValue = value * 1f / 100f;
+            SetValue(normalizedValue);
         }
 
         private void SetValue(float value)
         {
-            if(_filler.fillAmount > value && _engryParticleSystem != null)
-                _engryParticleSystem.Play();
-            if (_filler.fillAmount < value && _goodParticleSystem != null)
-                _goodParticleSystem.Play();
-
             _filler.fillAmount = value;
         }
     }

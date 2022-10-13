@@ -237,7 +237,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1081035511012230713}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1734,7 +1734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f7777c5400fc5194b9c082750efb8514, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5faac09f409637a4fbcf96b45268b6b9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1978,6 +1978,7 @@ MonoBehaviour:
   _rectTransform: {fileID: 8709343537107788368}
   _uiMainTasksListWidget: {fileID: 6805664214536237276}
   _uiCustomerCloud: {fileID: 2526441938686519872}
+  _uiTaskProgressWidget: {fileID: 7079478680692039080}
 --- !u!1 &8709343537124846209
 GameObject:
   m_ObjectHideFlags: 0

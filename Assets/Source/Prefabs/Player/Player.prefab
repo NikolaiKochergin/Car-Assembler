@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 4825045328175787818}
   - component: {fileID: 4825045328175787820}
   - component: {fileID: 4825045328175787819}
+  - component: {fileID: 1933545368043136057}
   - component: {fileID: 4825045328175787821}
   m_Layer: 0
   m_Name: Player
@@ -333,6 +334,7 @@ MonoBehaviour:
   _playerMover: {fileID: 4825045328175787819}
   _takingDetailTimer: {fileID: 4825045328175787820}
   _conveyor: {fileID: 0}
+  _taskListChecker: {fileID: 1933545368043136057}
 --- !u!114 &4825045328175787817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +386,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _splineFollower: {fileID: 4825045328175787821}
+--- !u!114 &1933545368043136057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825045328175787811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4ba2e500b36ed47b46ff6be4d604d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4825045328175787821
 MonoBehaviour:
   m_ObjectHideFlags: 0

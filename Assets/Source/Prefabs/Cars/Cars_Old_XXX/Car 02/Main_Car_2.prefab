@@ -174,8 +174,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 5066008508280862668}
   _slotType: 1
-  _features: 00000000
-  _price: 0
+  _features: 01000000
+  _price: 20
   _slots:
   - {fileID: 3752402008484088847}
   - {fileID: 3752402007646496438}

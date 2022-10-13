@@ -29,6 +29,9 @@ namespace CarAssembler
     public enum FeatureType
     {
         Empty,
+        Sport,
+        Common,
+        SUV,
         Yellow,
         Green,
         Blue,
