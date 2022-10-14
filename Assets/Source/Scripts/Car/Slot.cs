@@ -57,6 +57,6 @@ namespace CarAssembler
         Spoiler,
         Engine,
         Tuning,
-        Bumper
+        FrontBumper
     }
 }

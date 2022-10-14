@@ -87,7 +87,7 @@ namespace CarAssembler
                         sprite = _tuningSprites[index];
                     }
                     break;
-                case SlotType.Bumper:
+                case SlotType.FrontBumper:
                     if (featureType == FeatureType.Empty)
                         sprite = _bumbersSprites[0];
                     else
