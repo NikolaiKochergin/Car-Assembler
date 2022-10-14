@@ -132,6 +132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slotType: 6
+  _sportPart: {fileID: 0}
+  _commonPart: {fileID: 0}
+  _SUVPart: {fileID: 0}
 --- !u!1 &7647400755226551203
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +216,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slotType: 2
+  _sportPart: {fileID: 0}
+  _commonPart: {fileID: 0}
+  _SUVPart: {fileID: 0}
 --- !u!1 &7647400756259620934
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +264,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slotType: 4
+  _sportPart: {fileID: 0}
+  _commonPart: {fileID: 0}
+  _SUVPart: {fileID: 0}
 --- !u!1 &7647400756702193434
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +312,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slotType: 5
+  _sportPart: {fileID: 0}
+  _commonPart: {fileID: 0}
+  _SUVPart: {fileID: 0}
 --- !u!1 &7647400756780426992
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,8 +362,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 815717989955177427}
-  _slotType: 0
-  _features: 03000000
+  _slotType: 1
+  _feature: 3
   _price: 5
   _slots:
   - {fileID: 7647400755921893764}

@@ -7,15 +7,21 @@ namespace CarAssembler
     {
         [SerializeField] private ParticleSystem _appearParticles;
         [SerializeField] private SlotType _slotType;
-        [SerializeField] private FeatureType[] _features;
+        [SerializeField] private FeatureType _feature;
         [SerializeField] [Min(0)] private int _price;
 
         public SlotType SlotType => _slotType;
-        public IReadOnlyList<FeatureType> Features => _features;
+        public FeatureType Feature => _feature;
         public int Price => _price;
+
+        public void SetPrice(int value)
+        {
+            _price = value;
+        }
 
         public void Show()
         {
+            gameObject.SetActive(true);
             if (_appearParticles != null)
                 _appearParticles.Play();
         }
@@ -31,12 +37,6 @@ namespace CarAssembler
         Empty,
         Sport,
         Common,
-        SUV,
-        Yellow,
-        Green,
-        Blue,
-        Grade1,
-        Grade2,
-        Grade3
+        SUV
     }
 }

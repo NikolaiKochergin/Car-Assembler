@@ -10,12 +10,12 @@ namespace CarAssembler
         
         public IReadOnlyList<Slot> Slots => _slots;
 
-        public bool TryTakeDetail(Detail detail)
+        public bool TryTakeDetail(Stand stand)
         {
-            var slot = _slots.FirstOrDefault(s => s.SlotType == detail.SlotType);
+            var slot = _slots.FirstOrDefault(s => s.SlotType == stand.SlotType);
             if (slot != null)
             {
-                slot.TakeOrReplace(detail);
+                slot.TakeOrReplace(stand);
                 return true;
             }
 

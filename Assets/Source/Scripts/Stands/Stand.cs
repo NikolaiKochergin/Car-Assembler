@@ -13,7 +13,13 @@ namespace CarAssembler
         [SerializeField] private Animator _standAnimator;
         [SerializeField] private Detail _detailPrefab;
         [SerializeField] private Stand[] _pairStands;
+        [SerializeField] [Min(0)] private int _detailPrice;
+        [SerializeField] private SlotType _slotType;
+        [SerializeField] private FeatureType _detailFeature;
 
+        public SlotType SlotType => _slotType;
+        public FeatureType DetailFeature => _detailFeature;
+        public int DetailPrice => _detailPrice;
         public bool IsEnable { get; private set; }
 
         private void Start()

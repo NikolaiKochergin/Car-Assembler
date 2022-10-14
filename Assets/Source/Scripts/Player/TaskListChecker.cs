@@ -14,13 +14,6 @@ namespace CarAssembler
 
         public void CheckTaskList(Detail detail)
         {
-            foreach (var feature in detail.Features)
-            {
-                if (feature == _taskList.Tasks[0].CarType)
-                {
-                    _carPrice += detail.Price;
-                }
-            }
         }
     }
 }
