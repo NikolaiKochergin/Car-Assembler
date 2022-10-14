@@ -54,7 +54,7 @@ namespace CarAssembler
         public void SetCar(Car car)
         {
             Destroy(_currentCar.gameObject);
-            var spawnedCar = Instantiate(car, transform.position, Quaternion.identity, transform);
+            var spawnedCar = Instantiate(car, transform.position + new Vector3(0,0.3f,0), Quaternion.identity, transform);
             _currentCar = spawnedCar;
             _currentCar.Show();
             CarPrice += car.Price;
