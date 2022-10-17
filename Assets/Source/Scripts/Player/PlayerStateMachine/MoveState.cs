@@ -7,20 +7,20 @@ namespace CarAssembler
 
         public MoveState(PlayerStateMachine playerStateMachine)
         {
-            _player = playerStateMachine.Player;
             _playerStateMachine = playerStateMachine;
+            _player = _playerStateMachine.Player;
         }
 
         public void Enter()
         {
             _player.PlayerMover.StartMove();
-            _player.Conveyor.Enable();
+            _player.ConveyorAnimator.Enable();
         }
 
         public void Exit()
         {
             _player.PlayerMover.StopMove();
-            _player.Conveyor.Disable();
+            _player.ConveyorAnimator.Disable();
         }
 
         public void Update()

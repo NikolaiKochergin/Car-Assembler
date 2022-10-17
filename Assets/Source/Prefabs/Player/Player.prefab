@@ -96,7 +96,7 @@ MonoBehaviour:
   CollisionHandler: {fileID: 4825045328175787817}
   _playInput: {fileID: 4825045328175787818}
   _playerMover: {fileID: 4825045328175787819}
-  _conveyor: {fileID: 0}
+  _conveyorAnimator: {fileID: 0}
 --- !u!114 &4825045328175787817
 MonoBehaviour:
   m_ObjectHideFlags: 0

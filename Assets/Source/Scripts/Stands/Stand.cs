@@ -11,15 +11,16 @@ namespace CarAssembler
         [SerializeField] private Collider _selfCollider;
         [SerializeField] private UIMoneyWidget _uiMoneyWidget;
         [SerializeField] private Animator _standAnimator;
-        [SerializeField] private Detail _detailPrefab;
-        [SerializeField] private DetailFeatures _detailFeatures;
+        [SerializeField] private Detail[] _detailPrefabs;
 
-        public DetailFeatures DetailFeatures => _detailFeatures;
+        private Detail _currentDetailPrefab;
+        
         public bool IsEnable { get; private set; }
 
         private void Start()
         {
             IsEnable = true;
+            _currentDetailPrefab = _detailPrefabs[0];
         }
 
         public void OnHighlight()
@@ -37,7 +38,7 @@ namespace CarAssembler
         public Detail GetDetail()
         {
             Disable();
-            return _detailPrefab;
+            return _currentDetailPrefab;
         }
 
         private void Disable()

@@ -7,8 +7,8 @@ namespace CarAssembler
 
         public IdleState(PlayerStateMachine playerStateMachine)
         {
-            _player = _playerStateMachine.Player;
             _playerStateMachine = playerStateMachine;
+            _player = _playerStateMachine.Player;
         }
 
         public void Enter()

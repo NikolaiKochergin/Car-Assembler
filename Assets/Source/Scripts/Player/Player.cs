@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace CarAssembler
@@ -7,15 +8,16 @@ namespace CarAssembler
         [SerializeField] private CollisionHandler CollisionHandler;
         [SerializeField] private PlayInput _playInput;
         [SerializeField] private PlayerMover _playerMover;
-        [SerializeField] private Conveyor _conveyor;
+        [SerializeField] private ConveyorAnimator _conveyorAnimator;
         
         private Car _currentCar;
 
-        public Conveyor Conveyor => _conveyor;
+        public ConveyorAnimator ConveyorAnimator => _conveyorAnimator;
         public PlayInput PlayInput => _playInput;
         public PlayerMover PlayerMover => _playerMover;
         public Car Car => _currentCar;
         public Stand Stand { get; private set; }
+        public event Action DetailPicking;
 
         private void OnEnable()
         {
@@ -39,6 +41,11 @@ namespace CarAssembler
             var spawnedCar = Instantiate(car, transform);
             _currentCar = spawnedCar;
             _currentCar.Show();
+        }
+
+        public void StartPickingDetail()
+        {
+            DetailPicking?.Invoke();
         }
 
         private void OnStandTaken(Stand _stand)

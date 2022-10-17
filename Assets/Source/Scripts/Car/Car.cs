@@ -8,7 +8,7 @@ namespace CarAssembler
     {
         [SerializeField] private Transform _model;
         
-        private List<Detail> _details;
+        private List<Detail> _details = new();
         private int _carPrice;
 
         public IReadOnlyList<Detail> Details => _details;
