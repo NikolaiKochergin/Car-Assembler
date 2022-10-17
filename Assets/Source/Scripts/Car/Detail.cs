@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace CarAssembler
@@ -6,17 +5,14 @@ namespace CarAssembler
     public class Detail : MonoBehaviour
     {
         [SerializeField] private ParticleSystem _appearParticles;
-        [SerializeField] private SlotType _slotType;
-        [SerializeField] private FeatureType _feature;
-        [SerializeField] [Min(0)] private int _price;
+        [SerializeField] private DetailFeatures _features;
 
-        public SlotType SlotType => _slotType;
-        public FeatureType Feature => _feature;
-        public int Price => _price;
+        public DetailFeatures Features => _features;
 
-        public void SetPrice(int value)
+        public void SetDetailFeatures(DetailFeatures features)
         {
-            _price = value;
+            if (features != null)
+                _features = features;
         }
 
         public void Show()
@@ -30,13 +26,5 @@ namespace CarAssembler
         {
             gameObject.SetActive(false);
         }
-    }
-
-    public enum FeatureType
-    {
-        Empty,
-        Sport,
-        Common,
-        SUV
     }
 }

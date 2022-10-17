@@ -1,31 +1,42 @@
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace CarAssembler
 {
-    public class Car : Detail
+    public class Car : MonoBehaviour
     {
-        [SerializeField] private List<Slot> _slots;
+        [SerializeField] private Transform _model;
         
-        public IReadOnlyList<Slot> Slots => _slots;
+        private List<Detail> _details;
+        private int _carPrice;
 
-        public bool TryTakeDetail(Stand stand)
+        public IReadOnlyList<Detail> Details => _details;
+
+        public int CarPrice
         {
-            var slot = _slots.FirstOrDefault(s => s.SlotType == stand.SlotType);
-            if (slot != null)
+            get => _carPrice;
+            private set
             {
-                slot.TakeOrReplace(stand);
-                return true;
+                _carPrice = value;
+                CarPriceChanged?.Invoke(value);
             }
+        }
 
-            return false;
+        public event Action<int> CarPriceChanged;
+
+        public bool TryTakeDetailFrom(Stand stand)
+        {
+            var spawnedDetail = Instantiate(stand.GetDetail(), _model);
+            spawnedDetail.SetDetailFeatures(stand.DetailFeatures);
+            _details.Add(spawnedDetail);
+            
+            return true;
         }
 
         public void Show()
         {
             gameObject.SetActive(true);
-            base.Show();
         }
 
         public void Hide()

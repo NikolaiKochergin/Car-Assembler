@@ -13,21 +13,12 @@ namespace CarAssembler
 
         public void Enter()
         {
-            _player.TakingDetailTimer.StartTimer(() =>
-            {
-                var detail = _player.Stand.GetDetail();
-
-                if (detail is Car car)
-                    _player.SetCar(car);
-                else if (_player.Car.TryTakeDetail(_player.Stand))
-                    _player.AddDetailPrice(_player.Stand.DetailPrice);
-                _playerStateMachine.SetIdleState();
-            });
+            
         }
 
         public void Exit()
         {
-            _player.TakingDetailTimer.StopTimer();
+            
         }
 
         public void Update()

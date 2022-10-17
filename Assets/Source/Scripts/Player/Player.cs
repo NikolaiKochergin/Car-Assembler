@@ -1,41 +1,20 @@
-using System;
 using UnityEngine;
 
 namespace CarAssembler
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private Car _currentCar;
         [SerializeField] private CollisionHandler CollisionHandler;
         [SerializeField] private PlayInput _playInput;
         [SerializeField] private PlayerMover _playerMover;
-        [SerializeField] private TakingDetailTimer _takingDetailTimer;
         [SerializeField] private Conveyor _conveyor;
-        [SerializeField] [Min(0)] private int _defaultCarPrice = 50;
-
-        private int _carPrice;
+        [SerializeField] private Car _currentCar;
 
         public Conveyor Conveyor => _conveyor;
         public PlayInput PlayInput => _playInput;
         public PlayerMover PlayerMover => _playerMover;
-        public TakingDetailTimer TakingDetailTimer => _takingDetailTimer;
         public Car Car => _currentCar;
         public Stand Stand { get; private set; }
-
-        public int CarPrice
-        {
-            get => _carPrice;
-            private set
-            {
-                _carPrice = value;
-                CarPriceChanged?.Invoke(value);
-            }
-        }
-
-        private void Awake()
-        {
-            CarPrice = _defaultCarPrice;
-        }
 
         private void OnEnable()
         {
@@ -49,20 +28,16 @@ namespace CarAssembler
             CollisionHandler.StandLost -= OnStandLost;
         }
 
-        public event Action<int> CarPriceChanged;
-
-        public void SetCar(Car car)
+        public void Initialize(Car car)
         {
-            Destroy(_currentCar.gameObject);
-            var spawnedCar = Instantiate(car, transform.position + new Vector3(0,0.3f,0), Quaternion.identity, transform);
-            _currentCar = spawnedCar;
-            _currentCar.Show();
-            CarPrice += car.Price;
+            SetCar(car);
         }
 
-        public void AddDetailPrice(int value)
+        private void SetCar(Car car)
         {
-            CarPrice += value;
+            var spawnedCar = Instantiate(car, transform);
+            _currentCar = spawnedCar;
+            _currentCar.Show();
         }
 
         private void OnStandTaken(Stand _stand)
@@ -76,7 +51,7 @@ namespace CarAssembler
 
         private void OnStandLost(Stand _stand)
         {
-            if (_stand == Stand)
+            if (Equals(_stand, Stand))
             {
                 Stand.OffHighlight();
                 Stand = null;

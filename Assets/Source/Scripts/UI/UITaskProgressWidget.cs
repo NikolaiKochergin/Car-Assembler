@@ -11,20 +11,15 @@ namespace CarAssembler
 
         private void OnEnable()
         {
-            if (_player)
-                _player.CarPriceChanged += OnCarPriceChanged;
         }
 
         private void OnDisable()
         {
-            if (_player)
-                _player.CarPriceChanged -= OnCarPriceChanged;
         }
 
         public void Initialize(Player player)
         {
             _player = player;
-            OnCarPriceChanged(_player.CarPrice);
         }
 
         private void OnCarPriceChanged(int value)

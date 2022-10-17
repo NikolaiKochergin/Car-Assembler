@@ -12,19 +12,13 @@ namespace CarAssembler
         [SerializeField] private UIMoneyWidget _uiMoneyWidget;
         [SerializeField] private Animator _standAnimator;
         [SerializeField] private Detail _detailPrefab;
-        [SerializeField] private Stand[] _pairStands;
-        [SerializeField] [Min(0)] private int _detailPrice;
-        [SerializeField] private SlotType _slotType;
-        [SerializeField] private FeatureType _detailFeature;
+        [SerializeField] private DetailFeatures _detailFeatures;
 
-        public SlotType SlotType => _slotType;
-        public FeatureType DetailFeature => _detailFeature;
-        public int DetailPrice => _detailPrice;
+        public DetailFeatures DetailFeatures => _detailFeatures;
         public bool IsEnable { get; private set; }
 
         private void Start()
         {
-            _uiMoneyWidget.SetMoneyText(_detailPrefab.Price);
             IsEnable = true;
         }
 
@@ -54,14 +48,6 @@ namespace CarAssembler
             OffHighlight();
             _standAnimator.enabled = true;
             _standAnimator.Play(DisableAnimation);
-            DisablePairStands();
-        }
-
-        private void DisablePairStands()
-        {
-            foreach (var stand in _pairStands)
-                if (stand.IsEnable)
-                    stand.Disable();
         }
     }
 }

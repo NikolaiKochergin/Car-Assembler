@@ -8,7 +8,7 @@ namespace CarAssembler
     {
         private readonly PlayerStateMachine _playerStateMachine;
         private readonly UI _ui;
-        private readonly string TaskListsPath = "LevelTaskLists/";
+        private readonly string LevelSetupPath = "LevelSetup/";
 
         public InitialState(PlayerStateMachine playerStateMachine, UI ui)
         {
@@ -21,9 +21,9 @@ namespace CarAssembler
             _ui.MainMenu.Show();
             _playerStateMachine.SetNonControlledState();
 
-            var taskList = GetTaskList();
-            _ui.PlayMenu.MainTaskWidget.Initialize(taskList.Tasks[0].TaskIcon);
-            _ui.PlayMenu.TaskProgressWidget.Initialize(_playerStateMachine.Player);
+            var levelSetup = GetLevelSetup();
+            _ui.PlayMenu.MainTaskWidget.Initialize(levelSetup.Tasks[0].TaskIcon);
+            _playerStateMachine.Player.Initialize(levelSetup.Car);
         }
 
         public void Exit()
@@ -31,18 +31,18 @@ namespace CarAssembler
             _ui.MainMenu.Hide();
         }
 
-        private TaskList GetTaskList()
+        private LevelSetup GetLevelSetup()
         {
-            var taskLists = Resources.LoadAll<TaskList>(TaskListsPath);
+            var levelSetups = Resources.LoadAll<LevelSetup>(LevelSetupPath);
 
-            if (taskLists.Length == 0)
+            if (levelSetups.Length == 0)
                 throw new ArgumentOutOfRangeException(
-                    $"Task Lists not created by path Assets/Resources/{TaskListsPath}");
+                    $"LevelSetup not created by path Assets/Resources/{LevelSetupPath}");
 
             var index = SceneManager.GetActiveScene().buildIndex - 1;
-            index = Mathf.Clamp(index, 0, taskLists.Length - 1);
+            index = Mathf.Clamp(index, 0, levelSetups.Length - 1);
 
-            return taskLists[index];
+            return levelSetups[index];
         }
     }
 }

@@ -181,15 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ce21f6e4a37a14095f11119feb94ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _appearParticles: {fileID: 5260445684710752825}
-  _slotType: 1
-  _feature: 1
-  _price: 5
-  _slots:
-  - {fileID: 7953592867453208977}
-  - {fileID: 7953592868293206824}
-  - {fileID: 7953592867384899661}
-  - {fileID: 7953592866657244942}
+  _model: {fileID: 0}
 --- !u!1 &7953592867384899667
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,10 +422,5 @@ PrefabInstance:
 --- !u!4 &5260445684691369515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6533473180080787017, guid: 07c3601cb897d2343864e84d9e2aa2fa, type: 3}
-  m_PrefabInstance: {fileID: 1417319173738082402}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &5260445684710752825 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6533473180100194907, guid: 07c3601cb897d2343864e84d9e2aa2fa, type: 3}
   m_PrefabInstance: {fileID: 1417319173738082402}
   m_PrefabAsset: {fileID: 0}

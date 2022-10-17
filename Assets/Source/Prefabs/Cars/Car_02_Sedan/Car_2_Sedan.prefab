@@ -270,9 +270,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 2
-  _feature: 2
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &983195693397482280
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,9 +457,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 6
-  _feature: 2
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &1311878670120715749
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,9 +732,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 2
-  _feature: 1
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &1550536412944676399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,9 +1094,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 6
-  _feature: 2
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &3481845526648462052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,16 +1195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ce21f6e4a37a14095f11119feb94ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _appearParticles: {fileID: 0}
-  _slotType: 1
-  _feature: 2
-  _price: 20
-  _slots:
-  - {fileID: 3481845526924919930}
-  - {fileID: 3481845528234815171}
-  - {fileID: 3481845527393023398}
-  - {fileID: 3481845526648462053}
-  - {fileID: 5316164798066214319}
+  _model: {fileID: 0}
 --- !u!1 &3481845526924919932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,9 +1486,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 6
-  _feature: 3
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &3863227320691808720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,9 +1717,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 6
-  _feature: 1
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &4133628353211149589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,9 +1770,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 4
-  _feature: 3
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &4133628353702621474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,9 +1823,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 4
-  _feature: 1
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &4133628354159037044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,9 +1876,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 4
-  _feature: 0
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &4133628354315466439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,9 +1929,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 4
-  _feature: 2
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &4326723679183207478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,9 +2031,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 5
-  _feature: 2
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &4349578059829396895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,9 +2385,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 5
-  _feature: 1
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &4978006886889620396
 GameObject:
   m_ObjectHideFlags: 0
@@ -3338,9 +3341,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 6
-  _feature: 1
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &7121463500697053389
 GameObject:
   m_ObjectHideFlags: 0
@@ -3470,9 +3474,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 8
-  _feature: 3
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &7495516899088324013
 GameObject:
   m_ObjectHideFlags: 0
@@ -3571,9 +3576,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 8
-  _feature: 3
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &7525282566780969399
 GameObject:
   m_ObjectHideFlags: 0
@@ -3672,9 +3678,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 5
-  _feature: 3
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &7538491320196144136
 GameObject:
   m_ObjectHideFlags: 0
@@ -3949,9 +3956,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 2
-  _feature: 3
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &7814064372735940128
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,9 +4005,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 0}
-  _slotType: 8
-  _feature: 1
-  _price: 0
+  _features:
+    _slotType: 0
+    _features: 
+    _price: 0
 --- !u!1 &7928534359747801898
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,12 +4,12 @@ namespace CarAssembler
 {
     public class TaskListChecker : MonoBehaviour
     {
-        private TaskList _taskList;
+        private LevelSetup _levelSetup;
         private int _carPrice;
 
-        public void SetTaskList(TaskList taskList)
+        public void SetTaskList(LevelSetup _levelSetup)
         {
-            _taskList = taskList;
+            this._levelSetup = _levelSetup;
         }
 
         public void CheckTaskList(Detail detail)
