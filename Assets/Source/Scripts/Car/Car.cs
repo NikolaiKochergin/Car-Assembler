@@ -25,10 +25,9 @@ namespace CarAssembler
 
         public event Action<int> CarPriceChanged;
 
-        public bool TryTakeDetailFrom(Stand stand)
+        public bool TryTakeDetail(Detail detail)
         {
-            var spawnedDetail = Instantiate(stand.GetDetail(), _model);
-            spawnedDetail.SetDetailFeatures(stand.DetailFeatures);
+            var spawnedDetail = Instantiate(detail, _model);
             _details.Add(spawnedDetail);
             
             return true;

@@ -6,10 +6,8 @@ namespace CarAssembler
     [Serializable]
     public class Task
     {
-        [SerializeField] private Sprite _taskIcon;
-        [SerializeField] private FeatureType _carType;
+        [SerializeField] private FeatureType _featureType;
 
-        public Sprite TaskIcon => _taskIcon;
-        public FeatureType CarType => _carType;
+        public FeatureType FeatureType => _featureType;
     }
 }

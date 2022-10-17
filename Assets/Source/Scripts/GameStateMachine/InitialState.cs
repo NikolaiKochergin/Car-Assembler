@@ -18,12 +18,10 @@ namespace CarAssembler
 
         public void Enter()
         {
-            _ui.MainMenu.Show();
-            _playerStateMachine.SetNonControlledState();
-
             var levelSetup = GetLevelSetup();
-            _ui.PlayMenu.MainTaskWidget.Initialize(levelSetup.Tasks[0].TaskIcon);
             _playerStateMachine.Player.Initialize(levelSetup.Car);
+            _playerStateMachine.SetNonControlledState();
+            _ui.MainMenu.Show();
         }
 
         public void Exit()

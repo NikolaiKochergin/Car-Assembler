@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace CarAssembler
@@ -23,15 +22,16 @@ namespace CarAssembler
         public int Comfort => _comfort;
         public int Price => _price;
     }
-    
+
     public enum FeatureType
     {
-        Empty,
-        Sport,
-        Common,
-        SUV
+        Speed,
+        FuelEconomy,
+        Power,
+        Coolness,
+        Comfort
     }
-    
+
     public enum SlotType
     {
         Empty,
