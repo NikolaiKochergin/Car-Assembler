@@ -5,9 +5,9 @@ namespace CarAssembler
         private readonly Player _player;
         private readonly PlayerStateMachine _playerStateMachine;
 
-        public IdleState(Player player, PlayerStateMachine playerStateMachine)
+        public IdleState(PlayerStateMachine playerStateMachine)
         {
-            _player = player;
+            _player = _playerStateMachine.Player;
             _playerStateMachine = playerStateMachine;
         }
 

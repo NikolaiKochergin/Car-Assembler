@@ -42,9 +42,9 @@ namespace CarAssembler
         {
             _statesMap = new Dictionary<Type, IPlayerState>
             {
-                [typeof(IdleState)] = new IdleState(_player, this),
-                [typeof(MoveState)] = new MoveState(_player, this),
-                [typeof(PartPickingState)] = new PartPickingState(_player, this),
+                [typeof(IdleState)] = new IdleState(this),
+                [typeof(MoveState)] = new MoveState(this),
+                [typeof(PartPickingState)] = new PartPickingState(this),
                 [typeof(NonControlledState)] = new NonControlledState(_player)
             };
         }

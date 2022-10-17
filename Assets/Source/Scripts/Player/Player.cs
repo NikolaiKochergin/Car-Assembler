@@ -8,7 +8,8 @@ namespace CarAssembler
         [SerializeField] private PlayInput _playInput;
         [SerializeField] private PlayerMover _playerMover;
         [SerializeField] private Conveyor _conveyor;
-        [SerializeField] private Car _currentCar;
+        
+        private Car _currentCar;
 
         public Conveyor Conveyor => _conveyor;
         public PlayInput PlayInput => _playInput;
