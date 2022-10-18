@@ -4,14 +4,18 @@ using UnityEngine;
 
 namespace CarAssembler
 {
-    public class Car : MonoBehaviour
+    public class Car : MonoBehaviour, IPhysics
     {
         [SerializeField] private Transform _model;
-        
+        [SerializeField] private CarExplosion _carExpolsion;
+        [SerializeField] private List<Rigidbody> _rigidbodiesDetails;
+
         private List<Detail> _details = new();
         private int _carPrice;
 
         public IReadOnlyList<Detail> Details => _details;
+        public IReadOnlyList<Rigidbody> RigidbodiesDetails => _rigidbodiesDetails;
+        public CarExplosion CarExplosion => _carExpolsion;
 
         public int CarPrice
         {
@@ -29,6 +33,9 @@ namespace CarAssembler
         {
             var spawnedDetail = Instantiate(detail, _model);
             _details.Add(spawnedDetail);
+
+            if (detail.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+                _rigidbodiesDetails.Add(rigidbody);
             
             return true;
         }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 525210332200600357}
   - component: {fileID: 525210332200600378}
+  - component: {fileID: 547768500828765589}
   m_Layer: 0
   m_Name: EngineSlot
   m_TagString: Untagged
@@ -54,6 +55,22 @@ MonoBehaviour:
     _coolness: 0
     _comfort: 0
     _price: 0
+--- !u!54 &547768500828765589
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525210332200600354}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1851580881842316881
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,6 +83,7 @@ GameObject:
   - component: {fileID: 2030879829354492761}
   - component: {fileID: 5157355055862520504}
   - component: {fileID: 8543638611078799543}
+  - component: {fileID: 2003412056478370612}
   m_Layer: 0
   m_Name: CommonEngine1
   m_TagString: Untagged
@@ -160,3 +178,17 @@ MonoBehaviour:
     _coolness: 0
     _comfort: 0
     _price: 0
+--- !u!64 &2003412056478370612
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851580881842316881}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -919866620784373381, guid: 75644c495d619f542a844d4ceb7bf0e0, type: 3}
