@@ -7,12 +7,12 @@ namespace CarAssembler
     public class DetailFeatures
     {
         [SerializeField] private SlotType _slotType;
-        [SerializeField] [Min(0)] private int _speed;
-        [SerializeField] [Min(0)] private int _fuelEconomy;
-        [SerializeField] [Min(0)] private int _power;
-        [SerializeField] [Min(0)] private int _coolness;
-        [SerializeField] [Min(0)] private int _comfort;
-        [SerializeField] [Min(0)] private int _price;
+        [SerializeField] private int _speed;
+        [SerializeField] private int _fuelEconomy;
+        [SerializeField] private int _power;
+        [SerializeField] private int _coolness;
+        [SerializeField] private int _comfort;
+        [SerializeField] private int _price;
 
         public SlotType Slot => _slotType;
         public int Speed => _speed;
