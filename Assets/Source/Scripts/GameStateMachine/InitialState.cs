@@ -20,6 +20,9 @@ namespace CarAssembler
         {
             var levelSetup = GetLevelSetup();
             _playerStateMachine.Player.Initialize(levelSetup.Car);
+            _ui.PlayMenu.CustomerCloud.Initialize(levelSetup.Tasks);
+            _ui.PlayMenu.TaskListWidget.Initialize(levelSetup.Tasks);
+            
             _playerStateMachine.SetNonControlledState();
             _ui.MainMenu.Show();
         }

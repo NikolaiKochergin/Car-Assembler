@@ -150,7 +150,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2486732385372153318}
   - component: {fileID: 5852710506767339181}
-  - component: {fileID: 6417441648342877088}
   m_Layer: 5
   m_Name: UITaskListWidget
   m_TagString: Untagged
@@ -198,20 +197,6 @@ MonoBehaviour:
   _powerIcon: {fileID: 0}
   _coolnessIcon: {fileID: 0}
   _comfortIcon: {fileID: 0}
---- !u!114 &6417441648342877088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9090886308603994286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
 --- !u!1001 &6993170746456671467
 PrefabInstance:
   m_ObjectHideFlags: 0

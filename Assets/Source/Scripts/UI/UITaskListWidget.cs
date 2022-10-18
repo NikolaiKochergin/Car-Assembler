@@ -15,11 +15,12 @@ namespace CarAssembler
         [SerializeField] private Sprite _coolnessIcon;
         [SerializeField] private Sprite _comfortIcon;
 
-        private readonly Dictionary<FeatureType, Sprite> _iconsMap = new();
+        public Dictionary<FeatureType, Sprite> IconMap { get; } = new();
 
         private void Awake()
         {
             InitIconsMap();
+            Hide();
         }
 
         public void Initialize(IReadOnlyList<Task> tasks)
@@ -27,17 +28,27 @@ namespace CarAssembler
             foreach (var task in tasks)
             {
                 var spawnedWidget = Instantiate(_taskWidgetPrefab, _content);
-                spawnedWidget.Initialize(_iconsMap[task.FeatureType], task.TargetValue.ToString());
+                spawnedWidget.Initialize(IconMap[task.FeatureType], task.TargetValue.ToString());
             }
         }
 
         private void InitIconsMap()
         {
-            _iconsMap.Add(FeatureType.Speed, _speedIcon);
-            _iconsMap.Add(FeatureType.FuelEconomy, _fuelEconomyIcon);
-            _iconsMap.Add(FeatureType.Power, _powerIcon);
-            _iconsMap.Add(FeatureType.Coolness, _coolnessIcon);
-            _iconsMap.Add(FeatureType.Comfort, _comfortIcon);
+            IconMap.Add(FeatureType.Speed, _speedIcon);
+            IconMap.Add(FeatureType.FuelEconomy, _fuelEconomyIcon);
+            IconMap.Add(FeatureType.Power, _powerIcon);
+            IconMap.Add(FeatureType.Coolness, _coolnessIcon);
+            IconMap.Add(FeatureType.Comfort, _comfortIcon);
+        }
+
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
         }
     }
 }
