@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,12 +6,11 @@ namespace CarAssembler
     public class UITaskWidget : MonoBehaviour
     {
         [SerializeField] private Image _iconImage;
-        [SerializeField] private TMP_Text _taskText;
+        [SerializeField] private UISlider _slider;
 
         public void Initialize(Sprite icon, string taskText)
         {
             _iconImage.sprite = icon;
-            _taskText.text = taskText;
         }
 
         public void Show()
