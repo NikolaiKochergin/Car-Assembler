@@ -10,33 +10,28 @@ namespace CarAssembler
         [SerializeField] private CarExplosion _carExpolsion;
         [SerializeField] private List<Rigidbody> _rigidbodiesDetails;
 
-        private List<Detail> _details = new();
-        private int _carPrice;
+        private readonly List<Detail> _details = new();
 
         public IReadOnlyList<Detail> Details => _details;
+        public CarFeatures Features { get; private set; }
         public IReadOnlyList<Rigidbody> RigidbodiesDetails => _rigidbodiesDetails;
         public CarExplosion CarExplosion => _carExpolsion;
 
-        public int CarPrice
+        private void Awake()
         {
-            get => _carPrice;
-            private set
-            {
-                _carPrice = value;
-                CarPriceChanged?.Invoke(value);
-            }
+            Features = new CarFeatures();
         }
-
-        public event Action<int> CarPriceChanged;
 
         public bool TryTakeDetail(Detail detail)
         {
             var spawnedDetail = Instantiate(detail, _model);
             _details.Add(spawnedDetail);
 
-            if (detail.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+            if (detail.TryGetComponent(out Rigidbody rigidbody))
                 _rigidbodiesDetails.Add(rigidbody);
             
+            Features.CalculateCarFeatures(_details);
+
             return true;
         }
 

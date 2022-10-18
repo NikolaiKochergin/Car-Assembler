@@ -49,11 +49,11 @@ MonoBehaviour:
   _appearParticles: {fileID: 0}
   _features:
     _slotType: 6
-    _speed: 0
-    _fuelEconomy: 0
-    _power: 0
-    _coolness: 0
-    _comfort: 0
+    _speed: 4
+    _fuelEconomy: -4
+    _power: 3
+    _coolness: 1
+    _comfort: -3
     _price: 0
 --- !u!54 &547768500828765589
 Rigidbody:

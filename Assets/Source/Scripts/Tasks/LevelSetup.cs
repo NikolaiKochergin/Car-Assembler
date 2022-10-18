@@ -10,6 +10,6 @@ namespace CarAssembler
         [SerializeField] private List<Task> _tasks;
 
         public Car Car => _car;
-        public List<Task> Tasks => _tasks;
+        public IReadOnlyList<Task> Tasks => _tasks;
     }
 }

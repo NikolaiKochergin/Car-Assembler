@@ -337,11 +337,11 @@ MonoBehaviour:
   _appearParticles: {fileID: 0}
   _features:
     _slotType: 4
-    _speed: 0
-    _fuelEconomy: 0
-    _power: 0
-    _coolness: 0
-    _comfort: 0
+    _speed: -3
+    _fuelEconomy: -3
+    _power: -1
+    _coolness: -3
+    _comfort: 5
     _price: 0
 --- !u!1 &6048676686770912760
 GameObject:

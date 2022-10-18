@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CarAssembler
@@ -17,6 +18,8 @@ namespace CarAssembler
         public PlayerMover PlayerMover => _playerMover;
         public Car Car => _currentCar;
         public Stand Stand { get; private set; }
+        public IReadOnlyList<Task> Tasks { get; private set; }
+
         public event Action DetailPicking;
 
         private void OnEnable()
@@ -31,8 +34,9 @@ namespace CarAssembler
             CollisionHandler.StandLost -= OnStandLost;
         }
 
-        public void Initialize(Car car)
+        public void Initialize(Car car, IReadOnlyList<Task> tasks)
         {
+            Tasks = tasks;
             SetCar(car);
         }
 

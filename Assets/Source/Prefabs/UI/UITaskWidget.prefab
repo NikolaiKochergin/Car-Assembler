@@ -258,6 +258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _filler: {fileID: 6828227998840905290}
+  _minValue: -15
+  _maxValue: 15
 --- !u!1 &4777426208624135503
 GameObject:
   m_ObjectHideFlags: 0
