@@ -9,7 +9,6 @@ namespace CarAssembler
         private const string HighlightAnimation = nameof(HighlightAnimation);
         
         [SerializeField] private Collider _selfCollider;
-        [SerializeField] private UIMoneyWidget _uiMoneyWidget;
         [SerializeField] private Animator _standAnimator;
         [SerializeField] private Detail[] _detailPrefabs;
 
@@ -35,6 +34,11 @@ namespace CarAssembler
             _standAnimator.enabled = false;
         }
 
+        public void SetDetailByIndex(int index)
+        {
+            _currentDetailPrefab = _detailPrefabs[index];
+        }
+
         public Detail GetDetail()
         {
             Disable();
@@ -45,7 +49,6 @@ namespace CarAssembler
         {
             IsEnable = false;
             _selfCollider.enabled = false;
-            _uiMoneyWidget.Disable();
             OffHighlight();
             _standAnimator.enabled = true;
             _standAnimator.Play(DisableAnimation);
