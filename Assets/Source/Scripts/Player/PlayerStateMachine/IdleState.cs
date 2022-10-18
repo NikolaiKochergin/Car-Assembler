@@ -13,6 +13,8 @@ namespace CarAssembler
 
         public void Enter()
         {
+            if(_player.Stand != null && _player.Stand.IsEnable)
+                _playerStateMachine.SetPartPickingState();
         }
 
         public void Exit()
@@ -23,9 +25,6 @@ namespace CarAssembler
         {
             if(_player.PlayInput.IsMoving)
                 _playerStateMachine.SetMoveState();
-            
-            if(_player.Stand != null && _player.Stand.IsEnable)
-                _playerStateMachine.SetPartPickingState();
         }
     }
 }
