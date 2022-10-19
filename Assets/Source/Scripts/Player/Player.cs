@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,8 +20,6 @@ namespace CarAssembler
         public UITaskListWidget TaskListWidget => _taskListWidget;
         public Stand Stand { get; private set; }
         public IReadOnlyList<Task> Tasks { get; private set; }
-
-        public event Action DetailPicking;
 
         private void OnEnable()
         {
@@ -47,11 +44,6 @@ namespace CarAssembler
             var spawnedCar = Instantiate(car, transform);
             _currentCar = spawnedCar;
             _currentCar.Show();
-        }
-
-        public void StartPickingDetail()
-        {
-            DetailPicking?.Invoke();
         }
 
         private void OnStandTaken(Stand _stand)

@@ -13,7 +13,6 @@ namespace CarAssembler
 
         public void Enter()
         {
-            _player.StartPickingDetail();
             _player.PlayInput.Disable();
             _player.Stand.UI.ShowWith(_player.Tasks);
         }
