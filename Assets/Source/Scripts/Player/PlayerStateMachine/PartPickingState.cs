@@ -15,6 +15,7 @@ namespace CarAssembler
         {
             _player.StartPickingDetail();
             _player.PlayInput.Disable();
+            _player.Stand.UI.ShowWith(_player.Tasks);
         }
 
         public void Exit()
@@ -23,6 +24,7 @@ namespace CarAssembler
             _player.Car.TryTakeDetail(detail);
             
             _player.PlayInput.Enable();
+            _player.Stand.UI.Hide();
         }
 
         public void Update()

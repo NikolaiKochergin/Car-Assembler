@@ -10,9 +10,12 @@ namespace CarAssembler
         
         [SerializeField] private Collider _selfCollider;
         [SerializeField] private Animator _standAnimator;
+        [SerializeField] private StandUI _standUI;
         [SerializeField] private Detail[] _detailPrefabs;
 
         private Detail _currentDetailPrefab;
+
+        public StandUI UI => _standUI;
         
         public bool IsEnable { get; private set; }
 
@@ -20,6 +23,7 @@ namespace CarAssembler
         {
             IsEnable = true;
             _currentDetailPrefab = _detailPrefabs[0];
+            _standUI.Initialize(_currentDetailPrefab);
         }
 
         public void OnHighlight()
