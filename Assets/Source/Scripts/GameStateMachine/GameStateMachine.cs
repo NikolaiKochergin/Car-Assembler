@@ -28,13 +28,13 @@ namespace CarAssembler
         private void OnEnable()
         {
             _uI.MainMenu.StartButton.ButtonPressedDown += SetEnterKatSceneState;
-            _playerStateMachine.Player.PlayerMover.EndLevelReached += SetEndLevelState;
+            _playerStateMachine.Player.PlayerMover.EndLevelReached += SetFinisherState;
         }
 
         private void OnDisable()
         {
             _uI.MainMenu.StartButton.ButtonPressedDown -= SetEnterKatSceneState;
-            _playerStateMachine.Player.PlayerMover.EndLevelReached -= SetEndLevelState;
+            _playerStateMachine.Player.PlayerMover.EndLevelReached -= SetFinisherState;
         }
 
         private void InitStates()
