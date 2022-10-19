@@ -18,5 +18,3 @@ MonoBehaviour:
     _targetValue: 5
   - _featureType: 1
     _targetValue: 3
-  - _featureType: 4
-    _targetValue: 1
