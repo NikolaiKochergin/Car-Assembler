@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace CarAssembler
             foreach (var task in tasks)
             {
                 var spawnedWidget = Instantiate(_cloudTaskWidgetPrefab, _content);
-                spawnedWidget.Initialize(_uiTaskListWidget.IconMap[task.FeatureType], task.TargetValue.ToString());
+                spawnedWidget.Initialize(_uiTaskListWidget.IconMap[task.FeatureType], task.FeatureType.ToString());
             }
         }
     }
