@@ -13,6 +13,7 @@ namespace CarAssembler
 
         public void Enter()
         {
+            _player.TaskListWidget.Show();
             if(_player.Stand != null && _player.Stand.IsEnable)
                 _playerStateMachine.SetPartPickingState();
         }

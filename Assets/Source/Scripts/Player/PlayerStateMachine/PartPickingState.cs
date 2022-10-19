@@ -13,20 +13,26 @@ namespace CarAssembler
 
         public void Enter()
         {
-            _player.StartPickingDetail();
-            _player.PlayInput.Disable();
+            _player.Stand.UI.ShowWith(_player.Tasks);
+            _player.Stand.Button.Clicked += OnClicked;
         }
 
         public void Exit()
         {
-            var detail = _player.Stand.GetDetail();
-            _player.Car.TryTakeDetail(detail);
-            
-            _player.PlayInput.Enable();
+            _player.Stand.Button.Clicked -= OnClicked;
+            _player.Stand.UI.Hide();
         }
 
         public void Update()
         {
+            if(_player.PlayInput.IsMoving)
+                _playerStateMachine.SetMoveState();
+        }
+
+        private void OnClicked()
+        {
+            var detail = _player.Stand.GetDetail();
+            _player.Car.TryTakeDetail(detail);
         }
     }
 }

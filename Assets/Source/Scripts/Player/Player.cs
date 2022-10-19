@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +9,7 @@ namespace CarAssembler
         [SerializeField] private PlayInput _playInput;
         [SerializeField] private PlayerMover _playerMover;
         [SerializeField] private ConveyorAnimator _conveyorAnimator;
+        [SerializeField] private UITaskListWidget _taskListWidget;
         
         private Car _currentCar;
 
@@ -17,10 +17,9 @@ namespace CarAssembler
         public PlayInput PlayInput => _playInput;
         public PlayerMover PlayerMover => _playerMover;
         public Car Car => _currentCar;
+        public UITaskListWidget TaskListWidget => _taskListWidget;
         public Stand Stand { get; private set; }
         public IReadOnlyList<Task> Tasks { get; private set; }
-
-        public event Action DetailPicking;
 
         private void OnEnable()
         {
@@ -36,8 +35,8 @@ namespace CarAssembler
 
         public void Initialize(Car car, IReadOnlyList<Task> tasks)
         {
-            Tasks = tasks;
             SetCar(car);
+            Tasks = tasks;
         }
 
         private void SetCar(Car car)
@@ -45,11 +44,6 @@ namespace CarAssembler
             var spawnedCar = Instantiate(car, transform);
             _currentCar = spawnedCar;
             _currentCar.Show();
-        }
-
-        public void StartPickingDetail()
-        {
-            DetailPicking?.Invoke();
         }
 
         private void OnStandTaken(Stand _stand)

@@ -7,7 +7,9 @@ namespace CarAssembler
     public class UITaskWidget : MonoBehaviour
     {
         [SerializeField] private Image _iconImage;
-        [SerializeField] private UISlider _slider;
+        [SerializeField] private Gradient _iconGradient;
+        [SerializeField] private int _minValue;
+        [SerializeField] private int _maxValue;
 
         private FeatureType _featureType;
         
@@ -22,23 +24,30 @@ namespace CarAssembler
             switch (_featureType)
             {
                 case FeatureType.Speed:
-                    _slider.SetValue(carFeatures.Speed);
+                    SetIconColorBy(carFeatures.Speed);
                     break;
                 case FeatureType.FuelEconomy:
-                    _slider.SetValue(carFeatures.FuelEconomy);
+                    SetIconColorBy(carFeatures.FuelEconomy);
                     break;
                 case FeatureType.Power:
-                    _slider.SetValue(carFeatures.Power);
+                    SetIconColorBy(carFeatures.Power);
                     break;
                 case FeatureType.Coolness:
-                    _slider.SetValue(carFeatures.Coolness);
+                    SetIconColorBy(carFeatures.Coolness);
                     break;
                 case FeatureType.Comfort:
-                    _slider.SetValue(carFeatures.Comfort);
+                    SetIconColorBy(carFeatures.Comfort);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        private void SetIconColorBy(int value)
+        {
+            float normalizedValue = (value - _minValue) * 1f / (_maxValue - _minValue);
+
+            _iconImage.color = _iconGradient.Evaluate(normalizedValue);
         }
 
         public void Show()
