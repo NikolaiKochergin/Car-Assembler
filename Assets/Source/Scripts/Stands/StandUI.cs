@@ -8,9 +8,9 @@ namespace CarAssembler
         [SerializeField] private StandFeatureView FeatureViewPrefab;
         [SerializeField] private Transform _content;
 
-        [Header("Task Icons")] [SerializeField]
-        private Sprite _speedIcon;
-
+        [Header("Task Icons")]
+        
+        [SerializeField] private Sprite _speedIcon;
         [SerializeField] private Sprite _fuelEconomyIcon;
         [SerializeField] private Sprite _powerIcon;
         [SerializeField] private Sprite _coolnessIcon;
