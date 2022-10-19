@@ -6,6 +6,6 @@ namespace CarAssembler
     {
         public event Action FinisherEnded;
         
-        public void ShowFinisher(Car car);
+        public void Show();
     }
 }
