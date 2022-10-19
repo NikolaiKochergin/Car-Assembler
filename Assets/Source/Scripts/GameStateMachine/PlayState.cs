@@ -14,7 +14,6 @@ namespace CarAssembler
         public void Enter()
         {
             _ui.PlayMenu.Show();
-            _ui.PlayMenu.TaskListWidget.Show();
             _ui.PlayMenu.TakeDetailButton.onClick.AddListener(OnTakeDetailButtonClicked);
             _playerStateMachine.SetIdleState();
             _playerStateMachine.Player.DetailPicking += OnDetailPicking;
