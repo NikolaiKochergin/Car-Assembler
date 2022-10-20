@@ -9,7 +9,6 @@ namespace CarAssembler
         [SerializeField] private SlotType _slotType;
         [SerializeField] private int _speed;
         [SerializeField] private int _fuelEconomy;
-        [SerializeField] private int _power;
         [SerializeField] private int _coolness;
         [SerializeField] private int _comfort;
         [SerializeField] private int _price;
@@ -17,7 +16,6 @@ namespace CarAssembler
         public SlotType Slot => _slotType;
         public int Speed => _speed;
         public int FuelEconomy => _fuelEconomy;
-        public int Power => _power;
         public int Coolness => _coolness;
         public int Comfort => _comfort;
         public int Price => _price;
@@ -27,7 +25,6 @@ namespace CarAssembler
     {
         Speed,
         FuelEconomy,
-        Power,
         Coolness,
         Comfort
     }

@@ -15,7 +15,6 @@ namespace CarAssembler
         
         [SerializeField] private Sprite _speedIcon;
         [SerializeField] private Sprite _fuelEconomyIcon;
-        [SerializeField] private Sprite _powerIcon;
         [SerializeField] private Sprite _coolnessIcon;
         [SerializeField] private Sprite _comfortIcon;
         
@@ -37,7 +36,6 @@ namespace CarAssembler
         {
             _iconsMap.Add(FeatureType.Speed, _speedIcon);
             _iconsMap.Add(FeatureType.FuelEconomy, _fuelEconomyIcon);
-            _iconsMap.Add(FeatureType.Power, _powerIcon);
             _iconsMap.Add(FeatureType.Coolness, _coolnessIcon);
             _iconsMap.Add(FeatureType.Comfort, _comfortIcon);
         }

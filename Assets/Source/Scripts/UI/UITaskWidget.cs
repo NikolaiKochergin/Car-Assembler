@@ -29,9 +29,6 @@ namespace CarAssembler
                 case FeatureType.FuelEconomy:
                     SetIconColorBy(carFeatures.FuelEconomy);
                     break;
-                case FeatureType.Power:
-                    SetIconColorBy(carFeatures.Power);
-                    break;
                 case FeatureType.Coolness:
                     SetIconColorBy(carFeatures.Coolness);
                     break;
