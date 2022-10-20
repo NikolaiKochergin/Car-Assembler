@@ -4,8 +4,6 @@ namespace CarAssembler
 {
     public interface IFinisher
     {
-        public event Action FinisherEnded;
-        
-        public void Show();
+        public void Show(Action ended);
     }
 }
