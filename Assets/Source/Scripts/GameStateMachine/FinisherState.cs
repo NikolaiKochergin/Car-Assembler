@@ -1,36 +1,35 @@
-using CarAssembler;
-
-public class FinisherState : IGameState
+namespace CarAssembler
 {
-    private readonly GameStateMachine _gameStateMachine;
-    private readonly PlayerStateMachine _playerStateMachine;
-    private readonly UI _ui;
-    private readonly TaskChecker _taskChecker;
-
-    public FinisherState(GameStateMachine gameStateMachine, PlayerStateMachine playerStateMachine, UI ui, TaskChecker taskChecker)
+    public class FinisherState : IGameState
     {
-        _gameStateMachine = gameStateMachine;
-        _playerStateMachine = playerStateMachine;
-        _ui = ui;
-        _taskChecker = taskChecker;
-    }
+        private readonly GameStateMachine _gameStateMachine;
+        private readonly PlayerStateMachine _playerStateMachine;
+        private readonly TaskChecker _taskChecker;
+        private readonly UI _ui;
 
-
-    public void Enter()
-    {
-        var finisher = _taskChecker.GetFinisherBy(_playerStateMachine.Player.Tasks, _playerStateMachine.Player.Car);
-        
-        finisher.Show(() =>
+        public FinisherState(GameStateMachine gameStateMachine, PlayerStateMachine playerStateMachine, UI ui,
+            TaskChecker taskChecker)
         {
-            _gameStateMachine.SetEndLevelState();
-        });
-        
-        
-        _ui.FinisherMenu.Show();
-    }
+            _gameStateMachine = gameStateMachine;
+            _playerStateMachine = playerStateMachine;
+            _ui = ui;
+            _taskChecker = taskChecker;
+        }
 
-    public void Exit()
-    {
-        _ui.FinisherMenu.Hide();
+
+        public void Enter()
+        {
+            var finisher = _taskChecker.GetFinisherBy(_playerStateMachine.Player.Tasks, _playerStateMachine.Player.Car);
+
+            finisher.Show(() => { _gameStateMachine.SetEndLevelState(); });
+
+
+            _ui.FinisherMenu.Show();
+        }
+
+        public void Exit()
+        {
+            _ui.FinisherMenu.Hide();
+        }
     }
 }

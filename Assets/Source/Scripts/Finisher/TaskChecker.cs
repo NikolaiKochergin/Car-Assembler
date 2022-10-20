@@ -3,23 +3,30 @@ using UnityEngine;
 
 namespace CarAssembler
 {
-    public class TaskChecker : MonoBehaviour, ITaskChecker
+    public class TaskChecker : MonoBehaviour
     {
-        [SerializeField] private MonoBehaviour _finisher;
-        private IFinisher Finisher => (IFinisher) _finisher;
+        [SerializeField] private List<MonoBehaviour> _finishers;
+
+        private readonly List<IFinisher> Finishers = new();
 
         private void OnValidate()
         {
-            if (_finisher && !(_finisher is IFinisher))
-            {
-                Debug.LogError(nameof(_finisher) + " needs to implement " + nameof(IFinisher));
-                _finisher = null;
-            }
+            Finishers.Clear();
+            foreach (var finisher in _finishers)
+                if (finisher && !(finisher is IFinisher))
+                {
+                    Debug.LogError(nameof(finisher) + " needs to implement " + nameof(IFinisher));
+                    _finishers.Remove(finisher);
+                }
+                else
+                {
+                    Finishers.Add((IFinisher) finisher);
+                }
         }
 
         public IFinisher GetFinisherBy(IReadOnlyList<Task> tasks, Car car)
         {
-            return Finisher;
+            return Finishers[0];
         }
     }
 }
