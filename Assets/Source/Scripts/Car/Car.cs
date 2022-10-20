@@ -7,7 +7,7 @@ namespace CarAssembler
     public class Car : MonoBehaviour, IPhysics
     {
         [SerializeField] private Transform _model;
-        [SerializeField] private CarExplosion _carExpolsion;
+        [SerializeField] private CarFinishReaction _carExpolsion;
         [SerializeField] private List<Rigidbody> _rigidbodiesDetails;
 
         private readonly List<Detail> _details = new();
@@ -15,7 +15,7 @@ namespace CarAssembler
         public IReadOnlyList<Detail> Details => _details;
         public CarFeatures Features { get; private set; }
         public IReadOnlyList<Rigidbody> RigidbodiesDetails => _rigidbodiesDetails;
-        public CarExplosion CarExplosion => _carExpolsion;
+        public CarFinishReaction CarExplosion => _carExpolsion;
 
         private void Awake()
         {
@@ -27,7 +27,7 @@ namespace CarAssembler
             var spawnedDetail = Instantiate(detail, _model);
             _details.Add(spawnedDetail);
 
-            if (detail.TryGetComponent(out Rigidbody rigidbody))
+            if (spawnedDetail.TryGetComponent(out Rigidbody rigidbody))
                 _rigidbodiesDetails.Add(rigidbody);
             
             Features.CalculateCarFeatures(_details);

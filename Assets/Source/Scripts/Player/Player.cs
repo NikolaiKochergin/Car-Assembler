@@ -46,6 +46,21 @@ namespace CarAssembler
             _currentCar.Show();
         }
 
+        public void ExplodeCar()
+        {
+            for (int i = 0; i < _currentCar.RigidbodiesDetails.Count; i++)
+            {
+                Debug.Log(_currentCar.RigidbodiesDetails[i]);
+                
+            }
+            _currentCar.CarExplosion.Explode(_currentCar.RigidbodiesDetails);
+        }
+
+        public void SlipCar()
+        {
+            _currentCar.CarExplosion.Slip();
+        }
+
         private void OnStandTaken(Stand _stand)
         {
             if (Stand != null)

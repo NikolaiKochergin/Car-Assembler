@@ -6,7 +6,7 @@ namespace CarAssembler
 {
     public interface IPhysics
     {
-        public void MakePhysics(List<Rigidbody> rigidbodies)
+        public void MakePhysics(IReadOnlyList<Rigidbody> rigidbodies)
         {
             for (int i = 0; i < rigidbodies.Count; i++)
             {

@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 153256, guid: c38f8a6d5d405264e831e84cfc9e5fee, type: 3}
       propertyPath: m_Name
-      value: SmokeExplosionWhite 1
+      value: SmokeExplosionWhite 1 Variant 1
       objectReference: {fileID: 0}
     - target: {fileID: 443696, guid: c38f8a6d5d405264e831e84cfc9e5fee, type: 3}
       propertyPath: m_RootOrder

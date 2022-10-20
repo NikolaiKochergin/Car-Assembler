@@ -11,6 +11,7 @@ namespace CarAssembler
         [SerializeField] private UI _uI;
         [SerializeField] private PlayableDirector _enterKatScene;
         [SerializeField] private TaskChecker _taskChecker;
+        [SerializeField] private Player _player;
 
         private IGameState _currentState;
 
