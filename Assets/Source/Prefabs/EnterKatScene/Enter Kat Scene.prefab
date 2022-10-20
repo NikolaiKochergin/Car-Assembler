@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6231115188512031623
 Transform:
   m_ObjectHideFlags: 0
@@ -178,6 +178,7 @@ Transform:
   - {fileID: 6231115190109732084}
   - {fileID: 5905317786338931440}
   - {fileID: 5905317787208434331}
+  - {fileID: 5905317786286820395}
   m_Father: {fileID: 6231115189815644228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -198,7 +199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6231115190109732084
 Transform:
   m_ObjectHideFlags: 0
@@ -356,7 +357,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 837611536712012586, guid: 6c1c6ac190d66a84197e82446fecddea, type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'thumb_01_l'\n\tTransform 'index_02_r'\n\tTransform
+        'spine_02'\n\tTransform 'thumb_02_r'\n\tTransform 'index_02_l'\n\tTransform
+        'thumb_01_r'\n\tTransform 'thumb_02_l'\n\tTransform 'thigh_l'\n\tTransform
+        'calf_l'\n\tTransform 'foot_l'\n\tand more ..."
       objectReference: {fileID: 0}
     - target: {fileID: 6554249186117021373, guid: 6c1c6ac190d66a84197e82446fecddea, type: 3}
       propertyPath: m_RootOrder
@@ -472,6 +478,15 @@ PrefabInstance:
     - target: {fileID: 2040109739001599575, guid: 382d996aa02cc9c4b8de79c9c042ad0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558982725548234409, guid: 382d996aa02cc9c4b8de79c9c042ad0b, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'thumb_01_l'\n\tTransform 'index_02_r'\n\tTransform
+        'spine_02'\n\tTransform 'thumb_02_r'\n\tTransform 'index_02_l'\n\tTransform
+        'thumb_01_r'\n\tTransform 'thumb_02_l'\n\tTransform 'thigh_l'\n\tTransform
+        'calf_l'\n\tTransform 'foot_l'\n\tand more ..."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 382d996aa02cc9c4b8de79c9c042ad0b, type: 3}
@@ -616,4 +631,66 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c329f32b8571ea747be6541fbc04feee, type: 3}
   m_PrefabInstance: {fileID: 6231115189794264347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6231115189888052160
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6231115190047879569}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.955
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.8622758
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.82
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+      propertyPath: m_Name
+      value: monitor white stand
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+--- !u!4 &5905317786286820395 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fbdffa45c1659344bb1d03df313103a9, type: 3}
+  m_PrefabInstance: {fileID: 6231115189888052160}
   m_PrefabAsset: {fileID: 0}
