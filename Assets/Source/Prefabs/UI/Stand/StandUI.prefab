@@ -136,11 +136,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FeatureViewPrefab: {fileID: 1883193144018467601, guid: 4e10dbe37eb2f1f428b4b8a051685190, type: 3}
   _content: {fileID: 3172891993126394015}
-  _speedIcon: {fileID: 21300000, guid: 8fd521d3fc1eb46fd92b0f29508e5f76, type: 3}
-  _fuelEconomyIcon: {fileID: 21300000, guid: c5e89d08241b54ec7bc004a7b9bcd16b, type: 3}
+  _speedIcon: {fileID: 21300000, guid: 4e6f28436b848d64685970b70374e418, type: 3}
+  _fuelEconomyIcon: {fileID: 21300000, guid: 83a8641e3b8b2614695b0e7f3efb4b93, type: 3}
   _powerIcon: {fileID: 21300000, guid: 759ff3efa4b1d4283ac05a2b4c084b38, type: 3}
-  _coolnessIcon: {fileID: 21300000, guid: 550354964fdb749a790b090cf8bd8118, type: 3}
-  _comfortIcon: {fileID: 21300000, guid: 8ce7d0e9cb5184e2298eedeb3266e9be, type: 3}
+  _coolnessIcon: {fileID: 21300000, guid: 1649e503db704e04698e0f1cd27bcd99, type: 3}
+  _comfortIcon: {fileID: 21300000, guid: 97c09b0f9e17d5242abf08ea7fda984e, type: 3}
 --- !u!1 &5063790206021451090
 GameObject:
   m_ObjectHideFlags: 0
