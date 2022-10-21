@@ -22,7 +22,7 @@ namespace CarAssembler
             Features = new CarFeatures();
         }
 
-        public bool TryTakeDetail(Detail detail)
+        public void TakeDetail(Detail detail)
         {
             var spawnedDetail = Instantiate(detail, _model);
             _details.Add(spawnedDetail);
@@ -31,8 +31,6 @@ namespace CarAssembler
                 _rigidbodiesDetails.Add(rigidbody);
             
             Features.CalculateCarFeatures(_details);
-
-            return true;
         }
 
         public void Show()

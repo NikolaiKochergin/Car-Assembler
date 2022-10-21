@@ -517,9 +517,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7558968858977836666, guid: b782581577bc3204fa55abef89e7be62, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558968858977836666, guid: b782581577bc3204fa55abef89e7be62, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9090886308603994286, guid: b782581577bc3204fa55abef89e7be62, type: 3}
       propertyPath: m_Name
       value: UITaskListWidget
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212081717409049740, guid: b782581577bc3204fa55abef89e7be62, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212081717409049740, guid: b782581577bc3204fa55abef89e7be62, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212081717409049740, guid: b782581577bc3204fa55abef89e7be62, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b782581577bc3204fa55abef89e7be62, type: 3}

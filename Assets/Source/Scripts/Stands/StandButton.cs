@@ -1,18 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace CarAssembler
 {
-    public class StandButton : MonoBehaviour
+    public class StandButton : MonoBehaviour , IPointerDownHandler, IPointerUpHandler
     {
+        public bool IsPointerOnButton { get; private set; }
+        
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                if (Physics.Raycast(ray, out var hit) && hit.collider.gameObject == gameObject) Clicked?.Invoke();
-            }
+            if (Input.GetMouseButtonUp(0)) IsPointerOnButton = false;
         }
 
         public event Action Clicked;
@@ -25,6 +23,17 @@ namespace CarAssembler
         public void Hide()
         {
             gameObject.SetActive(false);
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            IsPointerOnButton = true;
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            IsPointerOnButton = false;
+            Clicked?.Invoke();
         }
     }
 }
