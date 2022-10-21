@@ -15,5 +15,10 @@ namespace CarAssembler
             transform.rotation = Quaternion.Lerp(transform.rotation, _target.transform.rotation,
                 _rotateSpeed * Time.deltaTime);
         }
+
+        public void ChangeTarget(Transform newTarget)
+        {
+            _target = newTarget;
+        }
     }
 }
