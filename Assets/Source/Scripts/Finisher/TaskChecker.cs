@@ -26,7 +26,18 @@ namespace CarAssembler
 
         public IFinisher GetFinisherBy(IReadOnlyList<Task> tasks, Car car)
         {
-            return Finishers[0];
+            if (car.Features.Speed >= tasks[0].TargetValue)
+            {
+                Debug.Log("Finishers[0]");
+                return Finishers[0];
+            }
+            else
+            {
+                Debug.Log("Finishers[1]");
+                return Finishers[1];
+            }
+
+            //return Finishers[0];
         }
     }
 }

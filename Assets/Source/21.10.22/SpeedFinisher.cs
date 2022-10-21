@@ -14,13 +14,18 @@ namespace CarAssembler
 
         public void Show(Action ended)
         {
-            _customer.transform.parent = transform;
             _player.transform.parent = transform;
+            //_customer.transform.parent = _player.transform;
             //_playableDirector.SetReferenceValue("EmojiAngry 1", _test);
             _playableDirector.Play();
             //_playableDirector.
             Debug.Log("FAIL FINISHER");
             ended?.Invoke();
+        }
+
+        public void AddCustomerToPlayer()
+        {
+            _customer.transform.parent = _player.transform;
         }
     }
 }
