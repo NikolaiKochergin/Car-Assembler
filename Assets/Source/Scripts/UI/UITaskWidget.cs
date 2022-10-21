@@ -8,6 +8,7 @@ namespace CarAssembler
     {
         [SerializeField] private Image _iconImage;
         [SerializeField] private Image _brokenIconImage;
+        [SerializeField] private Image _maxValueImage;
         [SerializeField] private Gradient _iconGradient;
         [SerializeField] private int _minValue;
         [SerializeField] private int _maxValue;
@@ -51,10 +52,15 @@ namespace CarAssembler
                 _iconImage.gameObject.SetActive(false);
                 _brokenIconImage.gameObject.SetActive(true);
             }
+            else if (value >= _maxValue)
+            {
+                _maxValueImage.gameObject.SetActive(true);
+            }
             else
             {
                 _iconImage.gameObject.SetActive(true);
                 _brokenIconImage.gameObject.SetActive(false);
+                _maxValueImage.gameObject.SetActive(false);
             }
             
             _iconImage.color = _iconGradient.Evaluate(normalizedValue);
