@@ -7,15 +7,17 @@ namespace CarAssembler
     public class UITaskWidget : MonoBehaviour
     {
         [SerializeField] private Image _iconImage;
+        [SerializeField] private Image _brokenIconImage;
         [SerializeField] private Gradient _iconGradient;
         [SerializeField] private int _minValue;
         [SerializeField] private int _maxValue;
 
         private FeatureType _featureType;
         
-        public void Initialize(Sprite icon, FeatureType featureType)
+        public void Initialize(Sprite icon, Sprite brokenIcon, FeatureType featureType)
         {
             _iconImage.sprite = icon;
+            _brokenIconImage.sprite = brokenIcon;
             _featureType = featureType;
         }
 
@@ -44,6 +46,17 @@ namespace CarAssembler
         {
             float normalizedValue = (value - _minValue) * 1f / (_maxValue - _minValue);
 
+            if (value <= _minValue)
+            {
+                _iconImage.gameObject.SetActive(false);
+                _brokenIconImage.gameObject.SetActive(true);
+            }
+            else
+            {
+                _iconImage.gameObject.SetActive(true);
+                _brokenIconImage.gameObject.SetActive(false);
+            }
+            
             _iconImage.color = _iconGradient.Evaluate(normalizedValue);
         }
 

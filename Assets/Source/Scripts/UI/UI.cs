@@ -20,12 +20,22 @@ namespace CarAssembler
         
         private Dictionary<FeatureType, Sprite> _iconsMap = new();
 
+        [Header("Broken Icons")] 
+        
+        [SerializeField] private Sprite _speedBrokenIcon;
+        [SerializeField] private Sprite _fuelEconomyBrokenIcon;
+        [SerializeField] private Sprite _coolnessBrokenIcon;
+        [SerializeField] private Sprite _comfortBrokenIcon;
+        
+        private Dictionary<FeatureType, Sprite> _brokenIconsMap = new();
+
         public MainMenu MainMenu => _mainMenu;
         public PlayMenu PlayMenu => _playMenu;
         public FinisherMenu FinisherMenu => _finisherMenu;
         public EndLevelMenu EndLevelMenu => _endLevelMenu;
 
         public IReadOnlyDictionary<FeatureType, Sprite> IconsMap => _iconsMap;
+        public IReadOnlyDictionary<FeatureType, Sprite> BrokenIconsMap => _brokenIconsMap;
 
         private void Awake()
         {
@@ -38,6 +48,11 @@ namespace CarAssembler
             _iconsMap.Add(FeatureType.FuelEconomy, _fuelEconomyIcon);
             _iconsMap.Add(FeatureType.Coolness, _coolnessIcon);
             _iconsMap.Add(FeatureType.Comfort, _comfortIcon);
+            
+            _brokenIconsMap.Add(FeatureType.Speed, _speedBrokenIcon);
+            _brokenIconsMap.Add(FeatureType.FuelEconomy, _fuelEconomyBrokenIcon);
+            _brokenIconsMap.Add(FeatureType.Coolness, _coolnessBrokenIcon);
+            _brokenIconsMap.Add(FeatureType.Comfort, _comfortBrokenIcon);
         }
     }
 }

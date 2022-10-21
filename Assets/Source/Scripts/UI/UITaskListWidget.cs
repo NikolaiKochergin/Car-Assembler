@@ -12,6 +12,7 @@ namespace CarAssembler
         private CarFeatures _carFeatures;
 
         private IReadOnlyDictionary<FeatureType, Sprite> _iconsMap;
+        private IReadOnlyDictionary<FeatureType, Sprite> _brokenIconsMap;
 
         private void Awake()
         {
@@ -24,14 +25,15 @@ namespace CarAssembler
                 _carFeatures.CarFeaturesChanged -= OnCarFeaturesChanged;
         }
 
-        public void Initialize(IReadOnlyList<Task> tasks, CarFeatures carFeatures, IReadOnlyDictionary<FeatureType, Sprite> iconsMap)
+        public void Initialize(IReadOnlyList<Task> tasks, CarFeatures carFeatures, IReadOnlyDictionary<FeatureType, Sprite> iconsMap, IReadOnlyDictionary<FeatureType, Sprite> brokenIconsMap)
         {
             _iconsMap = iconsMap;
+            _brokenIconsMap = brokenIconsMap;
             
             foreach (var task in tasks)
             {
                 var spawnedWidget = Instantiate(_taskWidgetPrefab, _content);
-                spawnedWidget.Initialize(_iconsMap[task.FeatureType], task.FeatureType);
+                spawnedWidget.Initialize(_iconsMap[task.FeatureType], _brokenIconsMap[task.FeatureType], task.FeatureType);
                 _taskWidgets.Add(spawnedWidget);
             }
 
