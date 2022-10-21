@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace CarAssembler
 {
@@ -60,6 +59,7 @@ namespace CarAssembler
             OffHighlight();
             _standAnimator.enabled = true;
             _standAnimator.Play(DisableAnimation);
+            _standUI.gameObject.SetActive(false);
         }
     }
 }

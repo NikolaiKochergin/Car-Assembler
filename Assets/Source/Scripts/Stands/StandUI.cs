@@ -8,6 +8,7 @@ namespace CarAssembler
         [SerializeField] private StandFeatureView FeatureViewPrefab;
         [SerializeField] private Transform _content;
         [SerializeField] private StandButton _button;
+        [SerializeField] private Animator _animator;
 
         [Header("Task Icons")]
         
@@ -20,11 +21,11 @@ namespace CarAssembler
         private readonly List<StandFeatureView> _featureViews = new();
 
         public StandButton Button => _button;
+        public Animator Animator => _animator;
 
         private void Awake()
         {
             InitIconsMap();
-            Hide();
         }
 
         public void Initialize(Detail detail)
@@ -45,12 +46,12 @@ namespace CarAssembler
 
         public void Show()
         {
-            gameObject.SetActive(true);
+            _animator.SetTrigger("Appear");
         }
 
         public void Hide()
         {
-            gameObject.SetActive(false);
+            _animator.SetTrigger("Disappear");
         }
 
         private void InitIconsMap()
