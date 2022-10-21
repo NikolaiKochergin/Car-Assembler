@@ -7,6 +7,7 @@ namespace CarAssembler
     {
         [SerializeField] private StandFeatureView FeatureViewPrefab;
         [SerializeField] private Transform _content;
+        [SerializeField] private StandButton _button;
 
         [Header("Task Icons")]
         
@@ -17,6 +18,8 @@ namespace CarAssembler
 
         private readonly Dictionary<FeatureType, Sprite> _iconsMap = new();
         private readonly List<StandFeatureView> _featureViews = new();
+
+        public StandButton Button => _button;
 
         private void Awake()
         {
@@ -37,20 +40,12 @@ namespace CarAssembler
             var view = Instantiate(FeatureViewPrefab, _content);
             view.Initialize(type, _iconsMap[type], value);
             _featureViews.Add(view);
+            if(value == 0) view.Hide();
         }
 
-
-        public void ShowWith(IReadOnlyList<Task> tasks)
+        public void Show()
         {
             gameObject.SetActive(true);
-            
-            foreach (var task in tasks)
-            {
-                foreach (var view in _featureViews)
-                {
-                    if(task.FeatureType == view.Type) view.Show();
-                }
-            }
         }
 
         public void Hide()

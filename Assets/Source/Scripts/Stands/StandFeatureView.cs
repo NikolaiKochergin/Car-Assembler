@@ -14,11 +14,6 @@ namespace CarAssembler
         
         public FeatureType Type { get; private set; }
 
-        private void Awake()
-        {
-            Hide();
-        }
-
         public void Initialize(FeatureType featureType, Sprite icon, int value)
         {
             Type = featureType;
