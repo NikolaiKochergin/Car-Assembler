@@ -20,7 +20,7 @@ namespace CarAssembler
             _playableDirector.Play();
             //_playableDirector.
             Debug.Log("FAIL FINISHER");
-            ended?.Invoke();
+            //ended?.Invoke();
         }
     }
 }

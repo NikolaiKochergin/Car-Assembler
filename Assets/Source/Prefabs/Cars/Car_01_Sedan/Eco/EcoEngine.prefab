@@ -49,9 +49,8 @@ MonoBehaviour:
   _appearParticles: {fileID: 0}
   _features:
     _slotType: 6
-    _speed: -1
-    _fuelEconomy: 1
-    _power: 3
+    _speed: 0
+    _fuelEconomy: 3
     _coolness: -1
     _comfort: 2
     _price: 0
@@ -174,7 +173,6 @@ MonoBehaviour:
     _slotType: 0
     _speed: 0
     _fuelEconomy: 0
-    _power: 0
     _coolness: 0
     _comfort: 0
     _price: 0

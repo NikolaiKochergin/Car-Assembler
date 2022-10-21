@@ -28,13 +28,13 @@ namespace CarAssembler
         {
             if (car.Features.Speed >= tasks[0].TargetValue)
             {
-                Debug.Log("Finishers[0]");
-                return Finishers[0];
+                //Debug.Log("Finishers[0]");
+                return Finishers[1];
             }
             else
             {
-                Debug.Log("Finishers[1]");
-                return Finishers[1];
+               // Debug.Log("Finishers[1]");
+                return Finishers[0];
             }
 
             //return Finishers[0];
