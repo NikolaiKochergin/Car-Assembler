@@ -12,6 +12,7 @@ namespace CarAssembler
         [SerializeField] private Animator _standAnimator;
         [SerializeField] private StandUI _standUI;
         [SerializeField] private Detail[] _detailPrefabs;
+        [SerializeField] private Stand[] _pairStands;
 
         private Detail _currentDetailPrefab;
 
@@ -60,6 +61,15 @@ namespace CarAssembler
             _standAnimator.enabled = true;
             _standAnimator.Play(DisableAnimation);
             _standUI.gameObject.SetActive(false);
+            DisablePairStands();
+        }
+
+        private void DisablePairStands()
+        {
+            foreach (var stand in _pairStands)
+            {
+                if(stand.IsEnable) stand.Disable();
+            }
         }
     }
 }
