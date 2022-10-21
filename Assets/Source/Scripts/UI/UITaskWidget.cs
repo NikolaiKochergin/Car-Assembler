@@ -14,6 +14,8 @@ namespace CarAssembler
         [SerializeField] private int _maxValue;
 
         private FeatureType _featureType;
+
+        public FeatureType Type => _featureType;
         
         public void Initialize(Sprite icon, Sprite brokenIcon, FeatureType featureType)
         {
@@ -47,6 +49,11 @@ namespace CarAssembler
         {
             float normalizedValue = (value - _minValue) * 1f / (_maxValue - _minValue);
 
+            if (value != 0)
+            {
+                Show();
+            }
+            
             if (value <= _minValue)
             {
                 _iconImage.gameObject.SetActive(false);

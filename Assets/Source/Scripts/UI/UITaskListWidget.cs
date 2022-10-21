@@ -30,16 +30,34 @@ namespace CarAssembler
             _iconsMap = iconsMap;
             _brokenIconsMap = brokenIconsMap;
             
+            SpawnWidget(FeatureType.Speed);
+            SpawnWidget(FeatureType.FuelEconomy);
+            SpawnWidget(FeatureType.Coolness);
+            SpawnWidget(FeatureType.Comfort);
+            
             foreach (var task in tasks)
             {
-                var spawnedWidget = Instantiate(_taskWidgetPrefab, _content);
-                spawnedWidget.Initialize(_iconsMap[task.FeatureType], _brokenIconsMap[task.FeatureType], task.FeatureType);
-                _taskWidgets.Add(spawnedWidget);
+                foreach (var widget in _taskWidgets)
+                {
+                    if (widget.Type == task.FeatureType)
+                    {
+                        widget.Show();
+                        widget.transform.SetSiblingIndex(1);
+                    }
+                }
             }
 
             _carFeatures = carFeatures;
             _carFeatures.CarFeaturesChanged += OnCarFeaturesChanged;
             OnCarFeaturesChanged(_carFeatures);
+        }
+
+        private void SpawnWidget(FeatureType type)
+        {
+            var spawnedWidget = Instantiate(_taskWidgetPrefab, _content);
+            spawnedWidget.Initialize(_iconsMap[type], _brokenIconsMap[type], type);
+            spawnedWidget.Hide();
+            _taskWidgets.Add(spawnedWidget);
         }
 
         private void OnCarFeaturesChanged(CarFeatures carFeatures)
