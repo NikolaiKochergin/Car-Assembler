@@ -46,7 +46,7 @@ namespace CarAssembler
                 [typeof(InitialState)] = new InitialState(_playerStateMachine, _uI),
                 [typeof(KatSceneState)] = new KatSceneState(_enterKatScene, _uI),
                 [typeof(PlayState)] = new PlayState(_playerStateMachine, _uI),
-                [typeof(FinisherState)] = new FinisherState(this, _playerStateMachine, _uI, _taskChecker),
+                [typeof(FinisherState)] = new FinisherState(this, _playerStateMachine, _uI, _taskChecker, _player),
                 [typeof(EndLevelState)] = new EndLevelState(_playerStateMachine, _uI)
             };
         }

@@ -10,10 +10,11 @@ namespace CarAssembler
     {
         [SerializeField] private PlayableDirector _playableDirector;
         [SerializeField] private Player _player;
-        [SerializeField] private GameObject _test;
+        //[SerializeField] private GameObject _customer;
 
         public void Show(Action ended)
         {
+            //_customer.transform.parent = transform;
             _player.transform.parent = transform;
             //_playableDirector.SetReferenceValue("EmojiAngry 1", _test);
             _playableDirector.Play();
