@@ -796,7 +796,7 @@ PlayerSettings:
   webGLDecompressionFallback: 1
   scriptingDefineSymbols:
     Android: DREAMTECK_SPLINES;APP_METRICA_TRACK_LOCATION_DISABLED
-    Standalone: DREAMTECK_SPLINES
+    Standalone: DREAMTECK_SPLINES;UEE
     WebGL: DREAMTECK_SPLINES
   additionalCompilerArguments: {}
   platformArchitecture: {}
