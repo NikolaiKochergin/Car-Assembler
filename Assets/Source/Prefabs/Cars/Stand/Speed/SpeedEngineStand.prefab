@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 447132677448429872}
   - component: {fileID: 2436587607561897466}
   m_Layer: 0
-  m_Name: SpeedEngine
+  m_Name: SpeedEngineStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

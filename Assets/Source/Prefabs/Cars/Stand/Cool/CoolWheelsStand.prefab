@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8410266873408980432}
   m_Layer: 0
-  m_Name: CoolWheels
+  m_Name: CoolWheelsStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527746812879374455}
-  m_LocalRotation: {x: 0.008946633, y: -0.4209921, z: 0.01927102, w: 0.90681547}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

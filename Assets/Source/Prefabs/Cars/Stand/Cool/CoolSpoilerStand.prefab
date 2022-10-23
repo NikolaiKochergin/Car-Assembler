@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 893100439181254034}
   - component: {fileID: 3134533206132664664}
   m_Layer: 0
-  m_Name: Spoiler3
+  m_Name: CoolSpoilerStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3495045269838071949}
-  m_LocalRotation: {x: -0.5020808, y: 0.51873946, z: 0.51873964, w: 0.45796672}
-  m_LocalPosition: {x: -0.02, y: 0.58, z: 0.09}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -93.575, y: 47.22, z: 47.22}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &893100439181254034
 MeshFilter:
   m_ObjectHideFlags: 0
