@@ -37,7 +37,7 @@ namespace CarAssembler
 
             _ui.FinisherMenu.Show();
         }
-
+        
         public void Exit()
         {
             _ui.FinisherMenu.Hide();

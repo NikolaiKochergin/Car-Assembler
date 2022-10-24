@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CarAssembler
@@ -7,21 +9,25 @@ namespace CarAssembler
     {
         [SerializeField] private List<MonoBehaviour> _finishers;
 
-        private readonly List<IFinisher> Finishers = new();
+        private List<IFinisher> Finishers;
+
+        private void Start()
+        {
+            Finishers = new List<IFinisher>();
+            
+            foreach (var finisher in _finishers)
+            {
+                Finishers.Add((IFinisher)finisher);
+            }
+        }
 
         private void OnValidate()
         {
-            Finishers.Clear();
-            foreach (var finisher in _finishers)
-                if (finisher && !(finisher is IFinisher))
-                {
-                    Debug.LogError(nameof(finisher) + " needs to implement " + nameof(IFinisher));
-                    _finishers.Remove(finisher);
-                }
-                else
-                {
-                    Finishers.Add((IFinisher) finisher);
-                }
+            foreach (var finisher in _finishers.Where(finisher => finisher && finisher is not IFinisher))
+            {
+                Debug.LogError(nameof(finisher) + " needs to implement " + nameof(IFinisher));
+                _finishers.Remove(finisher);
+            }
         }
 
         public IFinisher GetFinisherBy(IReadOnlyList<Task> tasks, Car car)

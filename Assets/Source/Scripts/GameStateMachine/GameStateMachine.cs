@@ -29,13 +29,11 @@ namespace CarAssembler
 
         private void OnEnable()
         {
-            _uI.MainMenu.StartButton.ButtonPressedDown += SetEnterKatSceneState;
             _playerStateMachine.Player.PlayerMover.EndLevelReached += SetFinisherState;
         }
 
         private void OnDisable()
         {
-            _uI.MainMenu.StartButton.ButtonPressedDown -= SetEnterKatSceneState;
             _playerStateMachine.Player.PlayerMover.EndLevelReached -= SetFinisherState;
         }
 
@@ -43,8 +41,8 @@ namespace CarAssembler
         {
             _statesMap = new Dictionary<Type, IGameState>
             {
-                [typeof(InitialState)] = new InitialState(_playerStateMachine, _uI),
-                [typeof(KatSceneState)] = new KatSceneState(_enterKatScene, _uI),
+                [typeof(InitialState)] = new InitialState(this, _playerStateMachine, _uI),
+                [typeof(KatSceneState)] = new KatSceneState(this, _enterKatScene, _uI, _mainCameraContainer),
                 [typeof(PlayState)] = new PlayState(_playerStateMachine, _uI),
                 [typeof(FinisherState)] = new FinisherState(this, _playerStateMachine, _uI, _taskChecker, _mainCameraContainer),
                 [typeof(EndLevelState)] = new EndLevelState(_playerStateMachine, _uI)
@@ -57,7 +55,7 @@ namespace CarAssembler
             SetState(state);
         }
 
-        private void SetEnterKatSceneState()
+        public void SetEnterKatSceneState()
         {
             var state = GetState<KatSceneState>();
             SetState(state);

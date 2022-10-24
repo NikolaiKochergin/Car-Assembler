@@ -6,12 +6,14 @@ namespace CarAssembler
 {
     public class InitialState : IGameState
     {
+        private readonly GameStateMachine _gameStateMachine;
         private readonly PlayerStateMachine _playerStateMachine;
         private readonly UI _ui;
         private readonly string LevelSetupPath = "LevelSetup/";
 
-        public InitialState(PlayerStateMachine playerStateMachine, UI ui)
+        public InitialState(GameStateMachine gameStateMachine, PlayerStateMachine playerStateMachine, UI ui)
         {
+            _gameStateMachine = gameStateMachine;
             _playerStateMachine = playerStateMachine;
             _ui = ui;
         }
@@ -26,11 +28,11 @@ namespace CarAssembler
 
             _playerStateMachine.SetNonControlledState();
             _ui.MainMenu.Show();
+            _gameStateMachine.SetEnterKatSceneState();
         }
 
         public void Exit()
         {
-            _ui.MainMenu.Hide();
         }
 
         private LevelSetup GetLevelSetup()
