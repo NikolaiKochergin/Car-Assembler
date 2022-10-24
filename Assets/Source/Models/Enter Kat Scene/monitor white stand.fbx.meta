@@ -3,7 +3,57 @@ guid: fbdffa45c1659344bb1d03df313103a9
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black_black
+    second: {fileID: 2100000, guid: ef378e19b6eafe349bdfbb992c49192c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black_shadow_black_shadow1
+    second: {fileID: 2100000, guid: f8b4a1780f595794684659d70c8a7d0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blue
+    second: {fileID: 2100000, guid: e4a580f38f73f424eb1fd58a6f5350dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dark_grey_grey
+    second: {fileID: 2100000, guid: 539e46080e4d9bf4b9f00c728a3422ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: green
+    second: {fileID: 2100000, guid: 3a12bf36728ac8445aad7feccdd9a0b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: orange
+    second: {fileID: 2100000, guid: 436e90dd1038e2b4e9c2bd6ebc69d929, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pink
+    second: {fileID: 2100000, guid: e7e4369c1cd3d794ead8f2626f87ad5e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: switchnobs_Switch_nobs
+    second: {fileID: 2100000, guid: 6b0702dc7f7d02446a08b8086f446ad7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white_white__base
+    second: {fileID: 2100000, guid: 799c6df4068a6f34ca7cbb75b5e40fb6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yellow_Panel_colour
+    second: {fileID: 2100000, guid: b3cccf7a779f3ac45bccc338fbbda05b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +138,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.19999999
+    globalScale: 20
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

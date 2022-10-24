@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,7 +28,7 @@ namespace CarAssembler
 
             if (spawnedDetail.TryGetComponent(out Rigidbody rigidbody))
                 _rigidbodiesDetails.Add(rigidbody);
-            
+
             Features.CalculateCarFeatures(_details);
         }
 

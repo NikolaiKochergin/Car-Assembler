@@ -10,14 +10,12 @@ namespace CarAssembler
         [SerializeField] private PlayerMover _playerMover;
         [SerializeField] private ConveyorAnimator _conveyorAnimator;
         [SerializeField] private UITaskListWidget _taskListWidget;
-        
-        private Car _currentCar;
 
         public ConveyorAnimator ConveyorAnimator => _conveyorAnimator;
         public PlayInput PlayInput => _playInput;
         public PlayerMover PlayerMover => _playerMover;
-        public Car Car => _currentCar;
         public UITaskListWidget TaskListWidget => _taskListWidget;
+        public Car Car { get; private set; }
         public Stand Stand { get; private set; }
         public IReadOnlyList<Task> Tasks { get; private set; }
 
@@ -42,23 +40,23 @@ namespace CarAssembler
         private void SetCar(Car car)
         {
             var spawnedCar = Instantiate(car, transform);
-            _currentCar = spawnedCar;
-            _currentCar.Show();
+            Car = spawnedCar;
+            Car.Show();
         }
 
         public void ExplodeCar()
         {
-            for (int i = 0; i < _currentCar.RigidbodiesDetails.Count; i++)
+            for (int i = 0; i < Car.RigidbodiesDetails.Count; i++)
             {
-                Debug.Log(_currentCar.RigidbodiesDetails[i]);
+                Debug.Log(Car.RigidbodiesDetails[i]);
                 
             }
-            _currentCar.CarExplosion.Explode(_currentCar.RigidbodiesDetails);
+            Car.CarExplosion.Explode(Car.RigidbodiesDetails);
         }
 
         public void SlipCar()
         {
-            _currentCar.CarExplosion.Slip();
+            Car.CarExplosion.Slip();
         }
 
         private void OnStandTaken(Stand _stand)

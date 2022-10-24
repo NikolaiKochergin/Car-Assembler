@@ -29,23 +29,23 @@ namespace CarAssembler
             switch (_featureType)
             {
                 case FeatureType.Speed:
-                    SetIconColorBy(carFeatures.Speed);
+                    SetIconViewBy(carFeatures.Speed);
                     break;
                 case FeatureType.FuelEconomy:
-                    SetIconColorBy(carFeatures.FuelEconomy);
+                    SetIconViewBy(carFeatures.FuelEconomy);
                     break;
                 case FeatureType.Coolness:
-                    SetIconColorBy(carFeatures.Coolness);
+                    SetIconViewBy(carFeatures.Coolness);
                     break;
                 case FeatureType.Comfort:
-                    SetIconColorBy(carFeatures.Comfort);
+                    SetIconViewBy(carFeatures.Comfort);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        private void SetIconColorBy(int value)
+        private void SetIconViewBy(int value)
         {
             float normalizedValue = (value - _minValue) * 1f / (_maxValue - _minValue);
 
