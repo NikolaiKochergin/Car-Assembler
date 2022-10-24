@@ -36,5 +36,17 @@ namespace CarAssembler
             
             CarFeaturesChanged?.Invoke(this);
         }
+
+        public void CalculateCarFeatures(IReadOnlyList<Detail> details, Detail detail)
+        {
+            CalculateCarFeatures(details);
+
+            Speed += detail.Features.Speed;
+            FuelEconomy += detail.Features.FuelEconomy;
+            Coolness += detail.Features.Coolness;
+            Comfort += detail.Features.Comfort;
+            
+            CarFeaturesChanged?.Invoke(this);
+        }
     }
 }

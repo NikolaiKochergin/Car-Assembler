@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,12 +13,14 @@ namespace CarAssembler
 
         public IReadOnlyList<Detail> Details => _details;
         public CarFeatures Features { get; private set; }
+        public CarFeatures PreliliminaryFeatures { get; private set; }
         public IReadOnlyList<Rigidbody> RigidbodiesDetails => _rigidbodiesDetails;
         public CarFinishReaction CarExplosion => _carExpolsion;
 
         private void Awake()
         {
             Features = new CarFeatures();
+            PreliliminaryFeatures = new CarFeatures();
         }
 
         public void TakeDetail(Detail detail)
@@ -29,7 +30,7 @@ namespace CarAssembler
 
             if (spawnedDetail.TryGetComponent(out Rigidbody rigidbody))
                 _rigidbodiesDetails.Add(rigidbody);
-            
+
             Features.CalculateCarFeatures(_details);
         }
 

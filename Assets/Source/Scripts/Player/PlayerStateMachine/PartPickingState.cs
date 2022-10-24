@@ -13,11 +13,15 @@ namespace CarAssembler
 
         public void Enter()
         {
+            _player.Car.PreliliminaryFeatures.CalculateCarFeatures(_player.Car.Details, _player.Stand.Detail);
+            
             _player.Stand.Button.Clicked += OnClicked;
         }
 
         public void Exit()
         {
+            _player.TaskListWidget.OffWidgetsHighlight();
+            
             _player.Stand.Button.Clicked -= OnClicked;
         }
 
