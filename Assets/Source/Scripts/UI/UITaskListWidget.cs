@@ -10,6 +10,7 @@ namespace CarAssembler
 
         private readonly List<UITaskWidget> _taskWidgets = new();
         private CarFeatures _carFeatures;
+        private CarFeatures _preliminaryCarFeatures;
 
         private IReadOnlyDictionary<FeatureType, Sprite> _iconsMap;
         private IReadOnlyDictionary<FeatureType, Sprite> _brokenIconsMap;
@@ -23,9 +24,12 @@ namespace CarAssembler
         {
             if (_carFeatures != null)
                 _carFeatures.CarFeaturesChanged -= OnCarFeaturesChanged;
+            
+            if(_preliminaryCarFeatures != null)
+                _preliminaryCarFeatures.CarFeaturesChanged -= OnPreliminatyCarFeaturesChanged;
         }
 
-        public void Initialize(IReadOnlyList<Task> tasks, CarFeatures carFeatures, IReadOnlyDictionary<FeatureType, Sprite> iconsMap, IReadOnlyDictionary<FeatureType, Sprite> brokenIconsMap)
+        public void Initialize(IReadOnlyList<Task> tasks, CarFeatures carFeatures, CarFeatures preliminaryCarFeatures, IReadOnlyDictionary<FeatureType, Sprite> iconsMap, IReadOnlyDictionary<FeatureType, Sprite> brokenIconsMap)
         {
             _iconsMap = iconsMap;
             _brokenIconsMap = brokenIconsMap;
@@ -43,12 +47,15 @@ namespace CarAssembler
                     {
                         widget.Show();
                         widget.transform.SetSiblingIndex(1);
+                        widget.MakeItMainTask();
                     }
                 }
             }
 
             _carFeatures = carFeatures;
+            _preliminaryCarFeatures = preliminaryCarFeatures;
             _carFeatures.CarFeaturesChanged += OnCarFeaturesChanged;
+            _preliminaryCarFeatures.CarFeaturesChanged += OnPreliminatyCarFeaturesChanged;
             OnCarFeaturesChanged(_carFeatures);
         }
 
@@ -63,6 +70,25 @@ namespace CarAssembler
         private void OnCarFeaturesChanged(CarFeatures carFeatures)
         {
             foreach (var widget in _taskWidgets) widget.SetValueBy(carFeatures);
+        }
+
+        private void OnPreliminatyCarFeaturesChanged(CarFeatures carFeatures)
+        {
+            foreach (var widget in _taskWidgets)
+            {
+                widget.SetValueBy(carFeatures);
+                widget.OnHighlight();
+            }
+        }
+
+        public void OffWidgetsHighlight()
+        {
+            foreach (var widget in _taskWidgets)
+            {
+                widget.OffHighlight();
+            }
+
+            OnCarFeaturesChanged(_carFeatures);
         }
 
         public void Show()

@@ -6,6 +6,7 @@ namespace CarAssembler
 {
     public class UITaskWidget : MonoBehaviour
     {
+        [SerializeField] private Animator _animator;
         [SerializeField] private Image _iconImage;
         [SerializeField] private Image _brokenIconImage;
         [SerializeField] private Image _maxValueImage;
@@ -14,14 +15,26 @@ namespace CarAssembler
         [SerializeField] private int _maxValue;
 
         private FeatureType _featureType;
+        private bool _isMainTask;
+        private int _value;
 
         public FeatureType Type => _featureType;
-        
+
+        private void Awake()
+        {
+            OffHighlight();
+        }
+
         public void Initialize(Sprite icon, Sprite brokenIcon, FeatureType featureType)
         {
             _iconImage.sprite = icon;
             _brokenIconImage.sprite = brokenIcon;
             _featureType = featureType;
+        }
+
+        public void MakeItMainTask()
+        {
+            _isMainTask = true;
         }
 
         public void SetValueBy(CarFeatures carFeatures)
@@ -47,13 +60,15 @@ namespace CarAssembler
 
         private void SetIconViewBy(int value)
         {
-            float normalizedValue = (value - _minValue) * 1f / (_maxValue - _minValue);
-
-            if (value != 0)
-            {
-                Show();
-            }
+            _value = value;
             
+            float normalizedValue = (value - _minValue) * 1f / (_maxValue - _minValue);
+            
+            if(value == 0 && _isMainTask == false)
+                Hide();
+            else
+                Show();
+
             if (value <= _minValue)
             {
                 _iconImage.gameObject.SetActive(false);
@@ -71,6 +86,16 @@ namespace CarAssembler
             }
             
             _iconImage.color = _iconGradient.Evaluate(normalizedValue);
+        }
+
+        public void OnHighlight()
+        {
+            _animator.enabled = true;
+        }
+
+        public void OffHighlight()
+        {
+            _animator.enabled = false;
         }
 
         public void Show()

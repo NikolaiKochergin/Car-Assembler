@@ -18,6 +18,7 @@ namespace CarAssembler
 
         public StandUI UI => _standUI;
         public StandButton Button => _standUI.Button;
+        public Detail Detail => _currentDetailPrefab;
         
         public bool IsEnable { get; private set; }
 
