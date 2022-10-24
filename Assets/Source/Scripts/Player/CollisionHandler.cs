@@ -14,7 +14,7 @@ namespace CarAssembler
                 StandTaken?.Invoke(factoryMachine);
             
             if(obstacle)
-                ObstacleTaken?.Invoke();
+                ObstacleTaken?.Invoke(obstacle);
         }
 
         private void OnTriggerExit(Collider other)
@@ -27,6 +27,6 @@ namespace CarAssembler
 
         public event Action<Stand> StandTaken;
         public event Action<Stand> StandLost;
-        public event Action ObstacleTaken;
+        public event Action<Obstacle> ObstacleTaken;
     }
 }

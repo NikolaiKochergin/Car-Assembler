@@ -25,12 +25,14 @@ namespace CarAssembler
         {
             CollisionHandler.StandTaken += OnStandTaken;
             CollisionHandler.StandLost += OnStandLost;
+            CollisionHandler.ObstacleTaken += OnObstacleTaken;
         }
 
         private void OnDisable()
         {
             CollisionHandler.StandTaken -= OnStandTaken;
             CollisionHandler.StandLost -= OnStandLost;
+            CollisionHandler.ObstacleTaken -= OnObstacleTaken;
         }
 
         public void Initialize(Car car, IReadOnlyList<Task> tasks)
@@ -77,6 +79,12 @@ namespace CarAssembler
                 Stand.OffHighlight();
                 Stand = null;
             }
+        }
+        
+        private void OnObstacleTaken(Obstacle obstacle)
+        {
+            Debug.Log("Столкновение с препятствием");
+            obstacle.Disable();
         }
     }
 }
