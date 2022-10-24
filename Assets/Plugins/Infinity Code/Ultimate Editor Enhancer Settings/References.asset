@@ -176,6 +176,8 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
+  - name: Max
+    path: Assets/Source/Scenes/Max/Max.unity
   - name: 001_Level_1
     path: Assets/Source/Scenes/001_Level_1.unity
   - name: 000_LoadingScene
