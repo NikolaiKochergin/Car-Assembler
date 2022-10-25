@@ -35,8 +35,8 @@ namespace CarAssembler
             _splineFollower.follow = false;
         }
 
-        [ContextMenu("SetBackMove")]
-        public void SetBackMove()
+        [ContextMenu("SetBackwardMove")]
+        public void SetBackwardMove()
         {
             _splineFollower.motion.applyRotationY = false;
             _splineFollower.direction = Spline.Direction.Backward;

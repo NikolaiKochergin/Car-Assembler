@@ -31,11 +31,13 @@ namespace CarAssembler
         private void OnEnable()
         {
             _player.PlayerMover.EndLevelReached += SetNonControlledState;
+            _player.NonControlledStateBegining += SetNonControlledState;
         }
 
         private void OnDisable()
         {
             _player.PlayerMover.EndLevelReached -= SetNonControlledState;
+            _player.NonControlledStateBegining -= SetNonControlledState;
         }
 
         private void InitStates()
@@ -45,7 +47,7 @@ namespace CarAssembler
                 [typeof(IdleState)] = new IdleState(this),
                 [typeof(MoveState)] = new MoveState(this),
                 [typeof(PartPickingState)] = new PartPickingState(this),
-                [typeof(NonControlledState)] = new NonControlledState(_player)
+                [typeof(NonControlledState)] = new NonControlledState(this, _player)
             };
         }
 

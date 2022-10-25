@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,7 +7,8 @@ namespace CarAssembler
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private CollisionHandler CollisionHandler;
+        [SerializeField] private Collider _collider;
+        [SerializeField] private CollisionHandler _collisionHandler;
         [SerializeField] private PlayInput _playInput;
         [SerializeField] private PlayerMover _playerMover;
         [SerializeField] private ConveyorAnimator _conveyorAnimator;
@@ -21,18 +24,23 @@ namespace CarAssembler
         public Stand Stand { get; private set; }
         public IReadOnlyList<Task> Tasks { get; private set; }
 
+        public event Action NonControlledStateBegining;
+        public event Action NonControlledStateEnding;
+
         private void OnEnable()
         {
-            CollisionHandler.StandTaken += OnStandTaken;
-            CollisionHandler.StandLost += OnStandLost;
-            CollisionHandler.ObstacleTaken += OnObstacleTaken;
+            _collisionHandler.StandTaken += OnStandTaken;
+            _collisionHandler.StandLost += OnStandLost;
+            _collisionHandler.ObstacleTaken += OnObstacleTaken;
+            _collisionHandler.BarrierTaken += OnBarrierTaken;
         }
 
         private void OnDisable()
         {
-            CollisionHandler.StandTaken -= OnStandTaken;
-            CollisionHandler.StandLost -= OnStandLost;
-            CollisionHandler.ObstacleTaken -= OnObstacleTaken;
+            _collisionHandler.StandTaken -= OnStandTaken;
+            _collisionHandler.StandLost -= OnStandLost;
+            _collisionHandler.ObstacleTaken -= OnObstacleTaken;
+            _collisionHandler.BarrierTaken -= OnBarrierTaken;
         }
 
         public void Initialize(Car car, IReadOnlyList<Task> tasks)
@@ -83,8 +91,45 @@ namespace CarAssembler
         
         private void OnObstacleTaken(Obstacle obstacle)
         {
-            Debug.Log("Столкновение с препятствием");
+            StartCoroutine(ObstacleTakeShowing());
             obstacle.Disable();
+        }
+
+        private void OnBarrierTaken(Barrier barrier)
+        {
+            StartCoroutine(BarrierTakeShowing());
+        }
+
+        private IEnumerator ObstacleTakeShowing()
+        {
+            _collider.enabled = false;
+            NonControlledStateBegining?.Invoke();
+            _playerMover.StartMove();
+            _playerMover.SetFollowSpeed(20f);
+
+            yield return new WaitForSeconds(0.2f);
+            
+            _playerMover.SetFollowSpeed(5f);
+            _playerMover.StopMove();
+            NonControlledStateEnding?.Invoke();
+            _collider.enabled = true;
+        }
+
+        private IEnumerator BarrierTakeShowing()
+        {
+            _collider.enabled = false;
+            NonControlledStateBegining?.Invoke();
+            _playerMover.StartMove();
+            _playerMover.SetBackwardMove();
+            _playerMover.SetFollowSpeed(10f);
+
+            yield return new WaitForSeconds(2f);
+            
+            _playerMover.SetForwardMove();
+            _playerMover.SetFollowSpeed(5f);
+            _playerMover.StopMove();
+            NonControlledStateEnding?.Invoke();
+            _collider.enabled = true;
         }
     }
 }

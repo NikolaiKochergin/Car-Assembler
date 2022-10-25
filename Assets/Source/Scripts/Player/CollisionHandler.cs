@@ -9,12 +9,16 @@ namespace CarAssembler
         {
             var factoryMachine = other.GetComponent<Stand>();
             var obstacle = other.GetComponent<Obstacle>();
+            var barrier = other.GetComponent<Barrier>();
             
             if(factoryMachine)
                 StandTaken?.Invoke(factoryMachine);
             
             if(obstacle)
                 ObstacleTaken?.Invoke(obstacle);
+            
+            if(barrier)
+                BarrierTaken?.Invoke(barrier);
         }
 
         private void OnTriggerExit(Collider other)
@@ -28,5 +32,6 @@ namespace CarAssembler
         public event Action<Stand> StandTaken;
         public event Action<Stand> StandLost;
         public event Action<Obstacle> ObstacleTaken;
+        public event Action<Barrier> BarrierTaken;
     }
 }
