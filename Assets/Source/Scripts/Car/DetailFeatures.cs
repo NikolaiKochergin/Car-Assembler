@@ -26,7 +26,16 @@ namespace CarAssembler
         Speed,
         FuelEconomy,
         Coolness,
-        Comfort
+        Comfort,
+        Airplane,
+        Angel,
+        Boat,
+        Devil,
+        Elephant,
+        FireTrack,
+        Fish,
+        Offroad,
+        Spring
     }
 
     public enum SlotType
