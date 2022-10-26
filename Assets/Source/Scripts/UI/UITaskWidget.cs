@@ -53,6 +53,33 @@ namespace CarAssembler
                 case FeatureType.Comfort:
                     SetIconViewBy(carFeatures.Comfort);
                     break;
+                case FeatureType.Airplane:
+                    SetIconViewBy(carFeatures.Airplane);
+                    break;
+                case FeatureType.Angel:
+                    SetIconViewBy(carFeatures.Angel);
+                    break;
+                case FeatureType.Boat:
+                    SetIconViewBy(carFeatures.Boat);
+                    break;
+                case FeatureType.Devil:
+                    SetIconViewBy(carFeatures.Devil);
+                    break;
+                case FeatureType.Elephant:
+                    SetIconViewBy(carFeatures.Elephant);
+                    break;
+                case FeatureType.FireTrack:
+                    SetIconViewBy(carFeatures.FireTrack);
+                    break;
+                case FeatureType.Fish:
+                    SetIconViewBy(carFeatures.Fish);
+                    break;
+                case FeatureType.Offroad:
+                    SetIconViewBy(carFeatures.Offroad);
+                    break;
+                case FeatureType.Spring:
+                    SetIconViewBy(carFeatures.Spring);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

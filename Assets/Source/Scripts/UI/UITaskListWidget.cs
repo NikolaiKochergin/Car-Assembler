@@ -9,11 +9,11 @@ namespace CarAssembler
         [SerializeField] private UITaskWidget _taskWidgetPrefab;
 
         private readonly List<UITaskWidget> _taskWidgets = new();
+        private IReadOnlyDictionary<FeatureType, Sprite> _brokenIconsMap;
         private CarFeatures _carFeatures;
-        private CarFeatures _preliminaryCarFeatures;
 
         private IReadOnlyDictionary<FeatureType, Sprite> _iconsMap;
-        private IReadOnlyDictionary<FeatureType, Sprite> _brokenIconsMap;
+        private CarFeatures _preliminaryCarFeatures;
 
         private void Awake()
         {
@@ -24,33 +24,39 @@ namespace CarAssembler
         {
             if (_carFeatures != null)
                 _carFeatures.CarFeaturesChanged -= OnCarFeaturesChanged;
-            
-            if(_preliminaryCarFeatures != null)
+
+            if (_preliminaryCarFeatures != null)
                 _preliminaryCarFeatures.CarFeaturesChanged -= OnPreliminatyCarFeaturesChanged;
         }
 
-        public void Initialize(IReadOnlyList<Task> tasks, CarFeatures carFeatures, CarFeatures preliminaryCarFeatures, IReadOnlyDictionary<FeatureType, Sprite> iconsMap, IReadOnlyDictionary<FeatureType, Sprite> brokenIconsMap)
+        public void Initialize(IReadOnlyList<Task> tasks, CarFeatures carFeatures, CarFeatures preliminaryCarFeatures,
+            IReadOnlyDictionary<FeatureType, Sprite> iconsMap, IReadOnlyDictionary<FeatureType, Sprite> brokenIconsMap)
         {
             _iconsMap = iconsMap;
             _brokenIconsMap = brokenIconsMap;
-            
+
             SpawnWidget(FeatureType.Speed);
             SpawnWidget(FeatureType.FuelEconomy);
             SpawnWidget(FeatureType.Coolness);
             SpawnWidget(FeatureType.Comfort);
-            
+            SpawnWidget(FeatureType.Airplane);
+            SpawnWidget(FeatureType.Angel);
+            SpawnWidget(FeatureType.Boat);
+            SpawnWidget(FeatureType.Devil);
+            SpawnWidget(FeatureType.Elephant);
+            SpawnWidget(FeatureType.FireTrack);
+            SpawnWidget(FeatureType.Fish);
+            SpawnWidget(FeatureType.Offroad);
+            SpawnWidget(FeatureType.Spring);
+
             foreach (var task in tasks)
-            {
-                foreach (var widget in _taskWidgets)
-                {
-                    if (widget.Type == task.FeatureType)
+                for (var i = 0; i < _taskWidgets.Count; i++)
+                    if (_taskWidgets[i].Type == task.FeatureType)
                     {
-                        widget.Show();
-                        widget.transform.SetSiblingIndex(1);
-                        widget.MakeItMainTask();
+                        _taskWidgets[i].Show();
+                        _taskWidgets[i].transform.SetSiblingIndex(i + 1);
+                        _taskWidgets[i].MakeItMainTask();
                     }
-                }
-            }
 
             _carFeatures = carFeatures;
             _preliminaryCarFeatures = preliminaryCarFeatures;
@@ -83,10 +89,7 @@ namespace CarAssembler
 
         public void OffWidgetsHighlight()
         {
-            foreach (var widget in _taskWidgets)
-            {
-                widget.OffHighlight();
-            }
+            foreach (var widget in _taskWidgets) widget.OffHighlight();
 
             OnCarFeaturesChanged(_carFeatures);
         }

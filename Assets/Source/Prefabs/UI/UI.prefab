@@ -443,7 +443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -77.900024, y: -56.699707}
+  m_AnchoredPosition: {x: -77.90015, y: -56.699707}
   m_SizeDelta: {x: 249.43, y: 86.94}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1968093518
@@ -1223,10 +1223,28 @@ MonoBehaviour:
   _fuelEconomyIcon: {fileID: 21300000, guid: 83a8641e3b8b2614695b0e7f3efb4b93, type: 3}
   _coolnessIcon: {fileID: 21300000, guid: 1649e503db704e04698e0f1cd27bcd99, type: 3}
   _comfortIcon: {fileID: 21300000, guid: 97c09b0f9e17d5242abf08ea7fda984e, type: 3}
+  _airplaneIcon: {fileID: 21300000, guid: 97f21e041a1f2f84dafc6b6010c33689, type: 3}
+  _angelIcon: {fileID: 21300000, guid: 2dd3bb61a67049048ac5820432c86e60, type: 3}
+  _boatIcon: {fileID: 21300000, guid: 70b82466442e86e488aaebcd1708fe13, type: 3}
+  _devilIcon: {fileID: 21300000, guid: 3d2fd9fc9bd065e41adb85b7480a4323, type: 3}
+  _elephantIcon: {fileID: 21300000, guid: cf717b2d508c51d4fb3f467b85fc5189, type: 3}
+  _fireTrackIcon: {fileID: 21300000, guid: c588118c296df8549b646d72a0d8d0a3, type: 3}
+  _fishIcon: {fileID: 21300000, guid: 89bf5c2ce9fd18f41bc344f200ae8994, type: 3}
+  _offroadIcon: {fileID: 21300000, guid: 0c9866c0d54022841b70a187b313e176, type: 3}
+  _springIcon: {fileID: 21300000, guid: 8b2270f409f2eb84f8477d8e1ef36aac, type: 3}
   _speedBrokenIcon: {fileID: 21300000, guid: 4f5bc3d0e70a92149b510321dc7454af, type: 3}
   _fuelEconomyBrokenIcon: {fileID: 21300000, guid: e23997a7a7cf28440b57fc0599553d4f, type: 3}
   _coolnessBrokenIcon: {fileID: 21300000, guid: 43a48f932f157964e99c50a9c31cc1a2, type: 3}
   _comfortBrokenIcon: {fileID: 21300000, guid: e2c3dc9a87f669b4ba4960d3fdfcd5be, type: 3}
+  _airplaneBrokenIcon: {fileID: 21300000, guid: b69c9e2ac73531b419af68b67cdc2497, type: 3}
+  _angelBrokenIcon: {fileID: 21300000, guid: 8513c73b752cfc4468fcbaf24cc0aaa0, type: 3}
+  _boatBrokenIcon: {fileID: 21300000, guid: 1ed08525c42a4cd4688654492ef8a6da, type: 3}
+  _devilBrokenIcon: {fileID: 21300000, guid: 82998f0e79804d746b60d6d644170ec8, type: 3}
+  _elephantBrokenIcon: {fileID: 21300000, guid: 69805fe005f0d4448bd0ab3acf33ca5d, type: 3}
+  _fireTrackBrokenIcon: {fileID: 21300000, guid: 89d7ac48ce846604fadcaa5543f0a1de, type: 3}
+  _fishBrokenIcon: {fileID: 21300000, guid: 9f95685158f60d248b53a7b4108128be, type: 3}
+  _offroadBrokenIcon: {fileID: 21300000, guid: 608c7239166f9c94daaac69625480ee6, type: 3}
+  _springBrokenIcon: {fileID: 21300000, guid: bfea15c99322e5c41ac2ca37bc5a8aa6, type: 3}
 --- !u!1 &8709343537567086410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,7 +1576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 95895996076901826, guid: 490ec47f2fcf2fc46b2a5013d6826e98, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 188.407
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 95895996076901826, guid: 490ec47f2fcf2fc46b2a5013d6826e98, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1862,7 +1880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4624718488041841677, guid: 490ec47f2fcf2fc46b2a5013d6826e98, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -354.00006
+      value: -354
       objectReference: {fileID: 0}
     - target: {fileID: 4624718488041841677, guid: 490ec47f2fcf2fc46b2a5013d6826e98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

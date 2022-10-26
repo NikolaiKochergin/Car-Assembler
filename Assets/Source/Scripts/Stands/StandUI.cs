@@ -16,6 +16,15 @@ namespace CarAssembler
         [SerializeField] private Sprite _fuelEconomyIcon;
         [SerializeField] private Sprite _coolnessIcon;
         [SerializeField] private Sprite _comfortIcon;
+        [SerializeField] private Sprite _airplaneIcon;
+        [SerializeField] private Sprite _angelIcon;
+        [SerializeField] private Sprite _boatIcon;
+        [SerializeField] private Sprite _devilIcon;
+        [SerializeField] private Sprite _elephantIcon;
+        [SerializeField] private Sprite _fireTrackIcon;
+        [SerializeField] private Sprite _fishIcon;
+        [SerializeField] private Sprite _offroadIcon;
+        [SerializeField] private Sprite _springIcon;
 
         private readonly Dictionary<FeatureType, Sprite> _iconsMap = new();
         private readonly List<StandFeatureView> _featureViews = new();
@@ -34,6 +43,15 @@ namespace CarAssembler
             CreateFreatureView(FeatureType.FuelEconomy, detail.Features.FuelEconomy);
             CreateFreatureView(FeatureType.Coolness, detail.Features.Coolness);
             CreateFreatureView(FeatureType.Comfort, detail.Features.Comfort);
+            CreateFreatureView(FeatureType.Airplane, detail.Features.Airplane);
+            CreateFreatureView(FeatureType.Angel, detail.Features.Angel);
+            CreateFreatureView(FeatureType.Boat, detail.Features.Boat);
+            CreateFreatureView(FeatureType.Devil, detail.Features.Devil);
+            CreateFreatureView(FeatureType.Elephant, detail.Features.Elephant);
+            CreateFreatureView(FeatureType.FireTrack, detail.Features.FireTrack);
+            CreateFreatureView(FeatureType.Fish, detail.Features.Fish);
+            CreateFreatureView(FeatureType.Offroad, detail.Features.Offroad);
+            CreateFreatureView(FeatureType.Spring, detail.Features.Spring);
         }
 
         private void CreateFreatureView(FeatureType type, int value)
@@ -60,6 +78,15 @@ namespace CarAssembler
             _iconsMap.Add(FeatureType.FuelEconomy, _fuelEconomyIcon);
             _iconsMap.Add(FeatureType.Coolness, _coolnessIcon);
             _iconsMap.Add(FeatureType.Comfort, _comfortIcon);
+            _iconsMap.Add(FeatureType.Airplane, _airplaneIcon);
+            _iconsMap.Add(FeatureType.Angel, _angelIcon);
+            _iconsMap.Add(FeatureType.Boat, _boatIcon);
+            _iconsMap.Add(FeatureType.Devil, _devilIcon);
+            _iconsMap.Add(FeatureType.Elephant, _elephantIcon);
+            _iconsMap.Add(FeatureType.FireTrack, _fireTrackIcon);
+            _iconsMap.Add(FeatureType.Fish, _fishIcon);
+            _iconsMap.Add(FeatureType.Offroad, _offroadIcon);
+            _iconsMap.Add(FeatureType.Spring, _springIcon);
         }
     }
 }
