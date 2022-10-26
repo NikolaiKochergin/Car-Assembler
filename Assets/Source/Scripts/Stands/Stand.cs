@@ -3,7 +3,7 @@ using UnityEngine;
 namespace CarAssembler
 {
     [SelectionBase]
-    public class Stand : MonoBehaviour
+    public class Stand : MonoBehaviour , IDisableable
     {
         private const string DisableAnimation = nameof(DisableAnimation);
         private const string HighlightAnimation = nameof(HighlightAnimation);
@@ -54,7 +54,7 @@ namespace CarAssembler
             return _currentDetailPrefab;
         }
 
-        private void Disable()
+        public void Disable()
         {
             IsEnable = false;
             _selfCollider.enabled = false;
