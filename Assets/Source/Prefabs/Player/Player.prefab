@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2103651885645875608}
   - component: {fileID: 2103651885645875596}
   - component: {fileID: 2103651885645875597}
+  - component: {fileID: 4825045326777965847}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -101,7 +102,7 @@ MonoBehaviour:
   _playerMover: {fileID: 2103651885645875614}
   _conveyorAnimator: {fileID: 0}
   _taskListWidget: {fileID: 0}
-  _animator: {fileID: 0}
+  _animator: {fileID: 4825045326777965847}
 --- !u!114 &2103651885645875612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,9 +1010,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103651885645875606}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 58e270791ec3a9943b9f69a68e8c4d88, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1051,3 +1052,16 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &4825045326777965847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103651885645875606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd8c5e871ea9f7f40ba9ad9eb38fad95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 2103651885645875596}
