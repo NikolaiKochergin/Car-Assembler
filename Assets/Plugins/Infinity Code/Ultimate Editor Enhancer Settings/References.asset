@@ -178,6 +178,8 @@ MonoBehaviour:
   _sceneHistory:
   - name: Max_02
     path: Assets/Source/Scenes/Max/Max_02.unity
+  - name: Max_03
+    path: Assets/Source/Scenes/Max/Max_03.unity
   - name: Max_01
     path: Assets/Source/Scenes/Max/Max_01.unity
   - name: Max
