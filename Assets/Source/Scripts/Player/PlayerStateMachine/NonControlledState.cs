@@ -5,10 +5,10 @@ namespace CarAssembler
         private readonly Player _player;
         private readonly PlayerStateMachine _playerStateMachine;
 
-        public NonControlledState(PlayerStateMachine playerStateMachine, Player player)
+        public NonControlledState(PlayerStateMachine playerStateMachine)
         {
             _playerStateMachine = playerStateMachine;
-            _player = player;
+            _player = playerStateMachine.Player;
         }
 
         public void Enter()

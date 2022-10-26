@@ -91,42 +91,46 @@ namespace CarAssembler
         
         private void OnObstacleTaken(Obstacle obstacle)
         {
-            StartCoroutine(ObstacleTakeShowing());
+            StartCoroutine(ObstacleTakeShowing(obstacle));
             obstacle.Disable();
         }
 
         private void OnBarrierTaken(Barrier barrier)
         {
-            StartCoroutine(BarrierTakeShowing());
+            StartCoroutine(BarrierTakeShowing(barrier));
         }
 
-        private IEnumerator ObstacleTakeShowing()
+        private IEnumerator ObstacleTakeShowing(Obstacle obstacle)
         {
+            var defaultSpeed = _playerMover.MoveSpeed;
+            
             _collider.enabled = false;
             NonControlledStateBegining?.Invoke();
             _playerMover.StartMove();
-            _playerMover.SetFollowSpeed(20f);
+            _playerMover.SetFollowSpeed(obstacle.MoveSpeed);
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(obstacle.MoveDuration);
             
-            _playerMover.SetFollowSpeed(5f);
+            _playerMover.SetFollowSpeed(defaultSpeed);
             _playerMover.StopMove();
             NonControlledStateEnding?.Invoke();
             _collider.enabled = true;
         }
 
-        private IEnumerator BarrierTakeShowing()
+        private IEnumerator BarrierTakeShowing(Barrier barrier)
         {
+            var defaultSpeed = _playerMover.MoveSpeed;
+            
             _collider.enabled = false;
             NonControlledStateBegining?.Invoke();
-            _playerMover.StartMove();
             _playerMover.SetBackwardMove();
-            _playerMover.SetFollowSpeed(10f);
+            _playerMover.SetFollowSpeed(barrier.MoveSpeed);
+            _playerMover.StartMove();
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(barrier.MoveDuration);
             
             _playerMover.SetForwardMove();
-            _playerMover.SetFollowSpeed(5f);
+            _playerMover.SetFollowSpeed(defaultSpeed);
             _playerMover.StopMove();
             NonControlledStateEnding?.Invoke();
             _collider.enabled = true;

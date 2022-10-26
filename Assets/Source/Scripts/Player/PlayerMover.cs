@@ -8,6 +8,8 @@ namespace CarAssembler
     {
         [SerializeField] private SplineFollower _splineFollower;
 
+        public float MoveSpeed => _splineFollower.followSpeed;
+
         private void Start()
         {
             _splineFollower.follow = false;

@@ -47,7 +47,7 @@ namespace CarAssembler
                 [typeof(IdleState)] = new IdleState(this),
                 [typeof(MoveState)] = new MoveState(this),
                 [typeof(PartPickingState)] = new PartPickingState(this),
-                [typeof(NonControlledState)] = new NonControlledState(this, _player)
+                [typeof(NonControlledState)] = new NonControlledState(this)
             };
         }
 
