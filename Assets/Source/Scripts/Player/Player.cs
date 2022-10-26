@@ -102,6 +102,9 @@ namespace CarAssembler
 
         private IEnumerator ObstacleTakeShowing(Obstacle obstacle)
         {
+            if(obstacle.PenaltyDetail)
+                Car.TakeDetail(obstacle.PenaltyDetail);
+            
             var defaultSpeed = _playerMover.MoveSpeed;
             
             _collider.enabled = false;
@@ -119,6 +122,9 @@ namespace CarAssembler
 
         private IEnumerator BarrierTakeShowing(Barrier barrier)
         {
+            if(barrier.PenaltyDetail)
+                Car.TakeDetail(barrier.PenaltyDetail);
+
             var defaultSpeed = _playerMover.MoveSpeed;
             
             _collider.enabled = false;
