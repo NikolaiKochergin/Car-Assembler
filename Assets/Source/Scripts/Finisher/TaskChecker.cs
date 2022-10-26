@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,16 +8,13 @@ namespace CarAssembler
     {
         [SerializeField] private List<MonoBehaviour> _finishers;
 
-        private List<IFinisher> Finishers;
+        private List<IFinisher> _finisherInterfaces;
 
         private void Start()
         {
-            Finishers = new List<IFinisher>();
-            
-            foreach (var finisher in _finishers)
-            {
-                Finishers.Add((IFinisher)finisher);
-            }
+            _finisherInterfaces = new List<IFinisher>();
+
+            foreach (var finisher in _finishers) _finisherInterfaces.Add((IFinisher) finisher);
         }
 
         private void OnValidate()
@@ -33,15 +29,10 @@ namespace CarAssembler
         public IFinisher GetFinisherBy(IReadOnlyList<Task> tasks, Car car)
         {
             if (car.Features.Speed >= tasks[0].TargetValue)
-            {
                 //Debug.Log("Finishers[0]");
-                return Finishers[1];
-            }
-            else
-            {
-               // Debug.Log("Finishers[1]");
-                return Finishers[0];
-            }
+                return _finisherInterfaces[1];
+            // Debug.Log("Finishers[1]");
+            return _finisherInterfaces[0];
 
             //return Finishers[0];
         }

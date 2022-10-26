@@ -1,32 +1,60 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CarAssembler
 {
     [SelectionBase]
-    public class Stand : MonoBehaviour , IDisableable
+    public class Stand : MonoBehaviour, IDisableable
     {
         private const string DisableAnimation = nameof(DisableAnimation);
         private const string HighlightAnimation = nameof(HighlightAnimation);
-        
+
         [SerializeField] private Collider _selfCollider;
         [SerializeField] private Animator _standAnimator;
         [SerializeField] private StandUI _standUI;
         [SerializeField] private Detail[] _detailPrefabs;
-        [SerializeField] private Stand[] _pairStands;
+        [SerializeField] private List<MonoBehaviour> _toDisables;
 
-        private Detail _currentDetailPrefab;
+        private List<IDisableable> _toDisableInterfaces;
 
         public StandUI UI => _standUI;
         public StandButton Button => _standUI.Button;
-        public Detail Detail => _currentDetailPrefab;
-        
+        public Detail Detail { get; private set; }
+
         public bool IsEnable { get; private set; }
 
         private void Start()
         {
+            _toDisableInterfaces = new List<IDisableable>();
+            foreach (var disableable in _toDisables) _toDisableInterfaces.Add((IDisableable) disableable);
+
             IsEnable = true;
-            _currentDetailPrefab = _detailPrefabs[0];
-            _standUI.Initialize(_currentDetailPrefab);
+            Detail = _detailPrefabs[0];
+            _standUI.Initialize(Detail);
+        }
+
+        private void OnValidate()
+        {
+            foreach (var disableable in
+                     _toDisables.Where(disableable => disableable && disableable is not IDisableable))
+            {
+                Debug.LogError(nameof(disableable) + " needs to implement " + nameof(IDisableable));
+                _toDisables.Remove(disableable);
+            }
+        }
+
+        public void Disable()
+        {
+            if(IsEnable == false) return;
+            
+            IsEnable = false;
+            _selfCollider.enabled = false;
+            OffHighlight();
+            _standAnimator.enabled = true;
+            _standAnimator.Play(DisableAnimation);
+            _standUI.gameObject.SetActive(false);
+            DisablePairStands();
         }
 
         public void OnHighlight()
@@ -45,32 +73,19 @@ namespace CarAssembler
 
         public void SetDetailByIndex(int index)
         {
-            _currentDetailPrefab = _detailPrefabs[index];
+            Detail = _detailPrefabs[index];
         }
 
         public Detail GetDetail()
         {
             Disable();
-            return _currentDetailPrefab;
-        }
-
-        public void Disable()
-        {
-            IsEnable = false;
-            _selfCollider.enabled = false;
-            OffHighlight();
-            _standAnimator.enabled = true;
-            _standAnimator.Play(DisableAnimation);
-            _standUI.gameObject.SetActive(false);
-            DisablePairStands();
+            return Detail;
         }
 
         private void DisablePairStands()
         {
-            foreach (var stand in _pairStands)
-            {
-                if(stand.IsEnable) stand.Disable();
-            }
+            foreach (var disableable in _toDisableInterfaces)
+                disableable.Disable();
         }
     }
 }
