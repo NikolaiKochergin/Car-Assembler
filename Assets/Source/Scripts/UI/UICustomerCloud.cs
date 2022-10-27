@@ -9,15 +9,17 @@ namespace CarAssembler
         [SerializeField] private UICloudTaskWidget _cloudTaskWidgetPrefab;
 
         private IReadOnlyDictionary<FeatureType, Sprite> _iconsMap;
-        
-        public void Initialize(IReadOnlyList<Task> tasks, IReadOnlyDictionary<FeatureType, Sprite> iconsMap)
+        private IReadOnlyDictionary<FeatureType, string> _namesMap;
+
+        public void Initialize(IReadOnlyList<Task> tasks, IReadOnlyDictionary<FeatureType, Sprite> iconsMap, IReadOnlyDictionary<FeatureType, string> namesMap)
         {
             _iconsMap = iconsMap;
+            _namesMap = namesMap;
             
             foreach (var task in tasks)
             {
                 var spawnedWidget = Instantiate(_cloudTaskWidgetPrefab, _content);
-                spawnedWidget.Initialize(_iconsMap[task.FeatureType], task.FeatureType.ToString());
+                spawnedWidget.Initialize(_iconsMap[task.FeatureType], namesMap[task.FeatureType]);
             }
         }
     }

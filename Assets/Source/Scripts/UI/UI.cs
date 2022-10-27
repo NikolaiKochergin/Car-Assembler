@@ -10,9 +10,9 @@ namespace CarAssembler
         [SerializeField] private FinisherMenu _finisherMenu;
         [SerializeField] private EndLevelMenu _endLevelMenu;
 
-        [Header("Task Icons")] [SerializeField]
-        private Sprite _speedIcon;
-
+        [Header("Task Icons")]
+        
+        [SerializeField] private Sprite _speedIcon;
         [SerializeField] private Sprite _fuelEconomyIcon;
         [SerializeField] private Sprite _coolnessIcon;
         [SerializeField] private Sprite _comfortIcon;
@@ -27,9 +27,9 @@ namespace CarAssembler
         [SerializeField] private Sprite _springIcon;
         [SerializeField] private Sprite _powerIcon;
 
-        [Header("Broken Icons")] [SerializeField]
-        private Sprite _speedBrokenIcon;
-
+        [Header("Broken Icons")] 
+        
+        [SerializeField] private Sprite _speedBrokenIcon;
         [SerializeField] private Sprite _fuelEconomyBrokenIcon;
         [SerializeField] private Sprite _coolnessBrokenIcon;
         [SerializeField] private Sprite _comfortBrokenIcon;
@@ -44,9 +44,26 @@ namespace CarAssembler
         [SerializeField] private Sprite _springBrokenIcon;
         [SerializeField] private Sprite _powerBrokenIcon;
 
-        private readonly Dictionary<FeatureType, Sprite> _brokenIconsMap = new();
-
+        [Header("Feature Names")] 
+        
+        [SerializeField] private string _speedName;
+        [SerializeField] private string _fuelEconomyName;
+        [SerializeField] private string _coolnessName;
+        [SerializeField] private string _comfortName;
+        [SerializeField] private string _airplaneName;
+        [SerializeField] private string _angelName;
+        [SerializeField] private string _boatName;
+        [SerializeField] private string _devilName;
+        [SerializeField] private string _elephantName;
+        [SerializeField] private string _fireTrackName;
+        [SerializeField] private string _fishName;
+        [SerializeField] private string _offroadName;
+        [SerializeField] private string _springName;
+        [SerializeField] private string _powerName;
+        
         private readonly Dictionary<FeatureType, Sprite> _iconsMap = new();
+        private readonly Dictionary<FeatureType, Sprite> _brokenIconsMap = new();
+        private readonly Dictionary<FeatureType, string> _namesOfFeatureMap = new();
 
         public MainMenu MainMenu => _mainMenu;
         public PlayMenu PlayMenu => _playMenu;
@@ -55,6 +72,7 @@ namespace CarAssembler
 
         public IReadOnlyDictionary<FeatureType, Sprite> IconsMap => _iconsMap;
         public IReadOnlyDictionary<FeatureType, Sprite> BrokenIconsMap => _brokenIconsMap;
+        public IReadOnlyDictionary<FeatureType, string> NamesOfFeatureMap => _namesOfFeatureMap;
 
         private void Awake()
         {
@@ -92,6 +110,21 @@ namespace CarAssembler
             _brokenIconsMap.Add(FeatureType.Offroad, _offroadBrokenIcon);
             _brokenIconsMap.Add(FeatureType.Spring, _springBrokenIcon);
             _brokenIconsMap.Add(FeatureType.Power, _powerBrokenIcon);
+            
+            _namesOfFeatureMap.Add(FeatureType.Speed, _speedName);
+            _namesOfFeatureMap.Add(FeatureType.FuelEconomy, _fuelEconomyName);
+            _namesOfFeatureMap.Add(FeatureType.Coolness, _coolnessName);
+            _namesOfFeatureMap.Add(FeatureType.Comfort, _comfortName);
+            _namesOfFeatureMap.Add(FeatureType.Airplane, _airplaneName);
+            _namesOfFeatureMap.Add(FeatureType.Angel, _angelName);
+            _namesOfFeatureMap.Add(FeatureType.Boat, _boatName);
+            _namesOfFeatureMap.Add(FeatureType.Devil, _devilName);
+            _namesOfFeatureMap.Add(FeatureType.Elephant, _elephantName);
+            _namesOfFeatureMap.Add(FeatureType.FireTrack, _fireTrackName);
+            _namesOfFeatureMap.Add(FeatureType.Fish, _fishName);
+            _namesOfFeatureMap.Add(FeatureType.Offroad, _offroadName);
+            _namesOfFeatureMap.Add(FeatureType.Spring, _springName);
+            _namesOfFeatureMap.Add(FeatureType.Power, _powerName);
         }
     }
 }

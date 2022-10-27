@@ -1718,6 +1718,20 @@ MonoBehaviour:
   _offroadBrokenIcon: {fileID: 21300000, guid: 608c7239166f9c94daaac69625480ee6, type: 3}
   _springBrokenIcon: {fileID: 21300000, guid: bfea15c99322e5c41ac2ca37bc5a8aa6, type: 3}
   _powerBrokenIcon: {fileID: 21300000, guid: e2531dbb210c447358dfd4dd637545c5, type: 3}
+  _speedName: Speed
+  _fuelEconomyName: Fuel Economy
+  _coolnessName: Coolness
+  _comfortName: Comfort
+  _airplaneName: Airplane
+  _angelName: Angel
+  _boatName: Boat
+  _devilName: Devil
+  _elephantName: Elephant
+  _fireTrackName: Fire Track
+  _fishName: Fish
+  _offroadName: Offroad
+  _springName: Spring
+  _powerName: Power
 --- !u!1 &8709343537567086410
 GameObject:
   m_ObjectHideFlags: 0
