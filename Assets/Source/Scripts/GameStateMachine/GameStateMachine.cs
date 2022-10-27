@@ -27,16 +27,6 @@ namespace CarAssembler
             SetStateByDefault();
         }
 
-        private void OnEnable()
-        {
-            //_playerStateMachine.Player.PlayerMover.EndLevelReached += SetFinisherState;
-        }
-
-        private void OnDisable()
-        {
-            //_playerStateMachine.Player.PlayerMover.EndLevelReached -= SetFinisherState;
-        }
-
         private void InitStates()
         {
             _statesMap = new Dictionary<Type, IGameState>

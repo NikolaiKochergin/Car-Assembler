@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3136119469697098377}
   - component: {fileID: 1490194507548741242}
   - component: {fileID: 5287277888240615303}
-  - component: {fileID: 3310484588159515193}
   m_Layer: 5
   m_Name: YokeButton
   m_TagString: Untagged
@@ -92,20 +91,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3310484588159515193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273060786762114566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 471f24d08d7a6034f9cb32c87f416b1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _yoke: {fileID: 6701211102786501804}
-  _button: {fileID: 5287277888240615303}
 --- !u!1 &420214240631630831
 GameObject:
   m_ObjectHideFlags: 0

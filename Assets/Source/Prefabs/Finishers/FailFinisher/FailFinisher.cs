@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -10,9 +8,11 @@ namespace CarAssembler
     {
         [SerializeField] private PlayableDirector _playableDirector;
         [SerializeField] private Player _player;
+        [SerializeField] private FailRace _failRace;
+
         //[SerializeField] private GameObject _customer;
 
-        public IRace Race { get; }
+        public IRace Race => _failRace;
 
         public void Show(Action ended)
         {

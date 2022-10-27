@@ -17,7 +17,7 @@ namespace CarAssembler
             _finisherInterfaces = new List<IFinisher>();
             foreach (var finisher in _finishers) _finisherInterfaces.Add((IFinisher) finisher);
             
-            CurrentFinisher = _finisherInterfaces[1];
+            CurrentFinisher = _finisherInterfaces[0];
         }
 
         private void OnValidate()
@@ -32,12 +32,12 @@ namespace CarAssembler
         public IFinisher GetFinisherBy(IReadOnlyList<Task> tasks, Car car)
         {
             if (car.Features.Speed >= tasks[0].TargetValue)
-                //Debug.Log("Finishers[0]");
+            {
+                CurrentFinisher = _finisherInterfaces[1];
                 return _finisherInterfaces[1];
-            // Debug.Log("Finishers[1]");
+            }
+            
             return _finisherInterfaces[0];
-
-            //return Finishers[0];
         }
     }
 }

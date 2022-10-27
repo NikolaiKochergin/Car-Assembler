@@ -23,6 +23,8 @@ namespace CarAssembler
 
         public void Enter()
         {
+            _ui.FinisherMenu.Show();
+            
             var finisher = _taskChecker.GetFinisherBy(_playerStateMachine.Player.Tasks, _playerStateMachine.Player.Car);
 
             if (finisher is MonoBehaviour mono)
@@ -31,9 +33,11 @@ namespace CarAssembler
                 _mainCameraContainer.Follower.ChangeTarget(transformFinisher);
             }
 
-            finisher.Show(_gameStateMachine.SetRaceState);
-
-            _ui.FinisherMenu.Show();
+            finisher.Show(() =>
+            {
+                _mainCameraContainer.Follower.ChangeTarget(_playerStateMachine.Player.transform);
+                _gameStateMachine.SetRaceState();
+            });
         }
         
         public void Exit()
