@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +9,10 @@ namespace CarAssembler
         [SerializeField] private PlayMenu _playMenu;
         [SerializeField] private FinisherMenu _finisherMenu;
         [SerializeField] private EndLevelMenu _endLevelMenu;
-        
-        [Header("Task Icons")] 
-        
-        [SerializeField] private Sprite _speedIcon;
+
+        [Header("Task Icons")] [SerializeField]
+        private Sprite _speedIcon;
+
         [SerializeField] private Sprite _fuelEconomyIcon;
         [SerializeField] private Sprite _coolnessIcon;
         [SerializeField] private Sprite _comfortIcon;
@@ -26,12 +25,11 @@ namespace CarAssembler
         [SerializeField] private Sprite _fishIcon;
         [SerializeField] private Sprite _offroadIcon;
         [SerializeField] private Sprite _springIcon;
-        
-        private Dictionary<FeatureType, Sprite> _iconsMap = new();
+        [SerializeField] private Sprite _powerIcon;
 
-        [Header("Broken Icons")] 
-        
-        [SerializeField] private Sprite _speedBrokenIcon;
+        [Header("Broken Icons")] [SerializeField]
+        private Sprite _speedBrokenIcon;
+
         [SerializeField] private Sprite _fuelEconomyBrokenIcon;
         [SerializeField] private Sprite _coolnessBrokenIcon;
         [SerializeField] private Sprite _comfortBrokenIcon;
@@ -44,8 +42,11 @@ namespace CarAssembler
         [SerializeField] private Sprite _fishBrokenIcon;
         [SerializeField] private Sprite _offroadBrokenIcon;
         [SerializeField] private Sprite _springBrokenIcon;
-        
-        private Dictionary<FeatureType, Sprite> _brokenIconsMap = new();
+        [SerializeField] private Sprite _powerBrokenIcon;
+
+        private readonly Dictionary<FeatureType, Sprite> _brokenIconsMap = new();
+
+        private readonly Dictionary<FeatureType, Sprite> _iconsMap = new();
 
         public MainMenu MainMenu => _mainMenu;
         public PlayMenu PlayMenu => _playMenu;
@@ -75,7 +76,8 @@ namespace CarAssembler
             _iconsMap.Add(FeatureType.Fish, _fishIcon);
             _iconsMap.Add(FeatureType.Offroad, _offroadIcon);
             _iconsMap.Add(FeatureType.Spring, _springIcon);
-            
+            _iconsMap.Add(FeatureType.Power, _powerIcon);
+
             _brokenIconsMap.Add(FeatureType.Speed, _speedBrokenIcon);
             _brokenIconsMap.Add(FeatureType.FuelEconomy, _fuelEconomyBrokenIcon);
             _brokenIconsMap.Add(FeatureType.Coolness, _coolnessBrokenIcon);
@@ -89,6 +91,7 @@ namespace CarAssembler
             _brokenIconsMap.Add(FeatureType.Fish, _fishBrokenIcon);
             _brokenIconsMap.Add(FeatureType.Offroad, _offroadBrokenIcon);
             _brokenIconsMap.Add(FeatureType.Spring, _springBrokenIcon);
+            _brokenIconsMap.Add(FeatureType.Power, _powerBrokenIcon);
         }
     }
 }

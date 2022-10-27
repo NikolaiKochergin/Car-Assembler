@@ -25,7 +25,7 @@ namespace CarAssembler
             _ui.PlayMenu.CustomerCloud.Initialize(levelSetup.Tasks, _ui.IconsMap);
             _playerStateMachine.Player.TaskListWidget.Initialize(levelSetup.Tasks,
                 _playerStateMachine.Player.Car.Features, 
-                _playerStateMachine.Player.Car.PreliliminaryFeatures,
+                _playerStateMachine.Player.Car.PreliminaryFeatures,
                 _ui.IconsMap, _ui.BrokenIconsMap);
 
             _playerStateMachine.SetNonControlledState();

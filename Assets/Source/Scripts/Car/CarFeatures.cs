@@ -20,6 +20,7 @@ namespace CarAssembler
             Fish = 0;
             Offroad = 0;
             Spring = 0;
+            Power = 0;
         }
 
         public int Speed { get; private set; }
@@ -35,6 +36,7 @@ namespace CarAssembler
         public int Fish { get; private set; }
         public int Offroad { get; private set; }
         public int Spring { get; private set; }
+        public int Power { get; private set; }
 
         public event Action<CarFeatures> CarFeaturesChanged;
 
@@ -53,6 +55,7 @@ namespace CarAssembler
             Fish = 0;
             Offroad = 0;
             Spring = 0;
+            Power = 0;
             foreach (var detail in details)
             {
                 Speed += detail.Features.Speed;
@@ -68,6 +71,7 @@ namespace CarAssembler
                 Fish += detail.Features.Fish;
                 Offroad += detail.Features.Offroad;
                 Spring += detail.Features.Spring;
+                Power += detail.Features.Power;
             }
             
             CarFeaturesChanged?.Invoke(this);
@@ -90,6 +94,7 @@ namespace CarAssembler
             Fish += detail.Features.Fish;
             Offroad += detail.Features.Offroad;
             Spring += detail.Features.Spring;
+            Power += detail.Features.Power;
             
             CarFeaturesChanged?.Invoke(this);
         }

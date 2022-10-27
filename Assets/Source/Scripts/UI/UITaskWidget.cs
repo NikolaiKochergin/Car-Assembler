@@ -80,6 +80,9 @@ namespace CarAssembler
                 case FeatureType.Spring:
                     SetIconViewBy(carFeatures.Spring);
                     break;
+                case FeatureType.Power:
+                    SetIconViewBy(carFeatures.Power);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

@@ -13,14 +13,14 @@ namespace CarAssembler
 
         public IReadOnlyList<Detail> Details => _details;
         public CarFeatures Features { get; private set; }
-        public CarFeatures PreliliminaryFeatures { get; private set; }
+        public CarFeatures PreliminaryFeatures { get; private set; }
         public IReadOnlyList<Rigidbody> RigidbodiesDetails => _rigidbodiesDetails;
         public CarFinishReaction CarExplosion => _carExpolsion;
 
         private void Awake()
         {
             Features = new CarFeatures();
-            PreliliminaryFeatures = new CarFeatures();
+            PreliminaryFeatures = new CarFeatures();
         }
 
         public void TakeDetail(Detail detail)

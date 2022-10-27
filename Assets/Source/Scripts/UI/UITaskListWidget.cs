@@ -48,6 +48,7 @@ namespace CarAssembler
             SpawnWidget(FeatureType.Fish);
             SpawnWidget(FeatureType.Offroad);
             SpawnWidget(FeatureType.Spring);
+            SpawnWidget(FeatureType.Power);
 
             foreach (var task in tasks)
                 for (var i = 0; i < _taskWidgets.Count; i++)
