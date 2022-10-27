@@ -11,9 +11,15 @@ namespace CarAssembler
         [SerializeField] private PlayableDirector _playableDirector;
         [SerializeField] private Player _player;
         [SerializeField] private GameObject _customer;
+        [SerializeField] private SpeedRace _speedRace;
+
+        public IRace Race => _speedRace;
+
+        private Action Ended;
 
         public void Show(Action ended)
         {
+            Ended = ended;
             _player.transform.parent = transform;
             //_customer.transform.parent = _player.transform;
             //_playableDirector.SetReferenceValue("EmojiAngry 1", _test);
@@ -26,6 +32,13 @@ namespace CarAssembler
         public void AddCustomerToPlayer()
         {
             _customer.transform.parent = _player.transform;
+        }
+
+        public void SetEnded()
+        {
+            _player.transform.parent = null;
+            _playableDirector.Stop();
+            Ended?.Invoke();
         }
     }
 }

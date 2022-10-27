@@ -20,6 +20,7 @@ namespace CarAssembler
         public void Exit()
         {
             _ui.PlayMenu.Hide();
+            _playerStateMachine.Player.TaskListWidget.Hide();
         }
     }
 }

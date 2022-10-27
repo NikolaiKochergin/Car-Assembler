@@ -29,12 +29,12 @@ namespace CarAssembler
 
         private void OnEnable()
         {
-            _playerStateMachine.Player.PlayerMover.EndLevelReached += SetFinisherState;
+            //_playerStateMachine.Player.PlayerMover.EndLevelReached += SetFinisherState;
         }
 
         private void OnDisable()
         {
-            _playerStateMachine.Player.PlayerMover.EndLevelReached -= SetFinisherState;
+            //_playerStateMachine.Player.PlayerMover.EndLevelReached -= SetFinisherState;
         }
 
         private void InitStates()
@@ -45,7 +45,7 @@ namespace CarAssembler
                 [typeof(KatSceneState)] = new KatSceneState(this, _enterKatScene, _uI, _mainCameraContainer),
                 [typeof(PlayState)] = new PlayState(_playerStateMachine, _uI),
                 [typeof(FinisherState)] = new FinisherState(this, _playerStateMachine, _uI, _taskChecker, _mainCameraContainer),
-                [typeof(RaceState)] = new RaceState(_playerStateMachine, _uI),
+                [typeof(RaceState)] = new RaceState(_playerStateMachine, _uI, _taskChecker),
                 [typeof(EndLevelState)] = new EndLevelState(_playerStateMachine, _uI)
             };
         }
@@ -68,13 +68,14 @@ namespace CarAssembler
             SetState(state);
         }
 
-        private void SetFinisherState()
+        public void SetFinisherState()
         {
             var state = GetState<FinisherState>();
             SetState(state);
         }
 
-        private void SetRaceState()
+        [ContextMenu("RaceState")]
+        public void SetRaceState()
         {
             var state = GetState<RaceState>();
             SetState(state);

@@ -12,6 +12,8 @@ namespace CarAssembler
         [SerializeField] private Player _player;
         //[SerializeField] private GameObject _customer;
 
+        public IRace Race { get; }
+
         public void Show(Action ended)
         {
             //_customer.transform.parent = transform;

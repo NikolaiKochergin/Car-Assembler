@@ -26,7 +26,7 @@ namespace CarAssembler
 
         public event Action NonControlledStateBegining;
         public event Action NonControlledStateEnding;
-        public event Action YokeEventTeken;
+        public event Action YokeEventTaken;
 
         private void OnEnable()
         {
@@ -105,7 +105,7 @@ namespace CarAssembler
 
         private void OnYokeEventTaken()
         {
-            YokeEventTeken?.Invoke();
+            YokeEventTaken?.Invoke();
         }
 
         private IEnumerator ObstacleTakeShowing(Obstacle obstacle)

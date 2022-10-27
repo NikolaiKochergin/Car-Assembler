@@ -8,6 +8,8 @@ namespace CarAssembler
     {
         [SerializeField] private float _duration;
 
+        public IRace Race { get; }
+
         public void Show(Action ended)
         {
             StartCoroutine(FinisherShowing(ended));

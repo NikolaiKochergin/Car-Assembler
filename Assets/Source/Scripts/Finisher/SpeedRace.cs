@@ -20,6 +20,7 @@ namespace CarAssembler
             _player.transform.rotation = _playerStartPoint.rotation;
 
             _player.PlayerMover.SplineFollower.spline = _spline;
+            _player.PlayerMover.SplineFollower.SetPercent(0);
             _player.PlayerMover.StartMove();
 
         }

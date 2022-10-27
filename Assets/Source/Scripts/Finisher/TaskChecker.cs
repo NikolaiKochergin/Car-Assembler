@@ -9,12 +9,15 @@ namespace CarAssembler
         [SerializeField] private List<MonoBehaviour> _finishers;
 
         private List<IFinisher> _finisherInterfaces;
+        
+        public IFinisher CurrentFinisher { get; private set; }
 
         private void Start()
         {
             _finisherInterfaces = new List<IFinisher>();
-
             foreach (var finisher in _finishers) _finisherInterfaces.Add((IFinisher) finisher);
+            
+            CurrentFinisher = _finisherInterfaces[1];
         }
 
         private void OnValidate()
