@@ -171,7 +171,16 @@ MonoBehaviour:
     _fuelEconomy: 0
     _coolness: 0
     _comfort: 0
-    _price: 0
+    _airplane: 0
+    _angel: 0
+    _boat: 0
+    _devil: 0
+    _elephant: 0
+    _fireTrack: 0
+    _fish: 0
+    _offroad: 0
+    _spring: 0
+    _power: 0
 --- !u!1 &3615271181306046155
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,10 +346,19 @@ MonoBehaviour:
   _features:
     _slotType: 4
     _speed: 2
-    _fuelEconomy: -1
+    _fuelEconomy: 0
     _coolness: 1
-    _comfort: -3
-    _price: 0
+    _comfort: -1
+    _airplane: 0
+    _angel: 0
+    _boat: 0
+    _devil: 0
+    _elephant: 0
+    _fireTrack: 0
+    _fish: 0
+    _offroad: 0
+    _spring: 0
+    _power: 0
 --- !u!1 &6092615938776288539
 GameObject:
   m_ObjectHideFlags: 0
