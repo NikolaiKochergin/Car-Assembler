@@ -45,6 +45,7 @@ namespace CarAssembler
                 [typeof(KatSceneState)] = new KatSceneState(this, _enterKatScene, _uI, _mainCameraContainer),
                 [typeof(PlayState)] = new PlayState(_playerStateMachine, _uI),
                 [typeof(FinisherState)] = new FinisherState(this, _playerStateMachine, _uI, _taskChecker, _mainCameraContainer),
+                [typeof(RaceState)] = new RaceState(),
                 [typeof(EndLevelState)] = new EndLevelState(_playerStateMachine, _uI)
             };
         }
@@ -70,6 +71,12 @@ namespace CarAssembler
         private void SetFinisherState()
         {
             var state = GetState<FinisherState>();
+            SetState(state);
+        }
+
+        private void SetRaceState()
+        {
+            var state = GetState<RaceState>();
             SetState(state);
         }
 
