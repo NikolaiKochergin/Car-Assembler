@@ -26,6 +26,7 @@ namespace CarAssembler
 
         public event Action NonControlledStateBegining;
         public event Action NonControlledStateEnding;
+        public event Action YokeEventTeken;
 
         private void OnEnable()
         {
@@ -33,6 +34,7 @@ namespace CarAssembler
             _collisionHandler.StandLost += OnStandLost;
             _collisionHandler.ObstacleTaken += OnObstacleTaken;
             _collisionHandler.BarrierTaken += OnBarrierTaken;
+            _collisionHandler.YokeEventTaken += OnYokeEventTaken;
         }
 
         private void OnDisable()
@@ -41,6 +43,7 @@ namespace CarAssembler
             _collisionHandler.StandLost -= OnStandLost;
             _collisionHandler.ObstacleTaken -= OnObstacleTaken;
             _collisionHandler.BarrierTaken -= OnBarrierTaken;
+            _collisionHandler.YokeEventTaken -= OnYokeEventTaken;
         }
 
         public void Initialize(Car car, IReadOnlyList<Task> tasks)
@@ -98,6 +101,11 @@ namespace CarAssembler
         private void OnBarrierTaken(Barrier barrier)
         {
             StartCoroutine(BarrierTakeShowing(barrier));
+        }
+
+        private void OnYokeEventTaken()
+        {
+            YokeEventTeken?.Invoke();
         }
 
         private IEnumerator ObstacleTakeShowing(Obstacle obstacle)

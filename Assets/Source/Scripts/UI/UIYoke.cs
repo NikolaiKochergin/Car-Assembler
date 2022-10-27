@@ -7,7 +7,8 @@ namespace CarAssembler
         [SerializeField] private RectTransform _yokeArrow;
         [SerializeField] private float _maxAngle;
         [SerializeField] [Min(0.1f)] private float _duration = 1;
-        [SerializeField] private AnimationCurve _curve;
+        [SerializeField] private AnimationCurve _inputCurve;
+        [SerializeField] private AnimationCurve _arrowAnimationCurve;
         
         private bool _isRightArrowMove = true;
 
@@ -25,9 +26,10 @@ namespace CarAssembler
             if (_currentTime >= 1 | _currentTime <= 0)
                 _isRightArrowMove = !_isRightArrowMove;
 
-            InputValue = _curve.Evaluate(_currentTime);
+            InputValue = _inputCurve.Evaluate(_currentTime);
+            var arrowDirectionValue = _arrowAnimationCurve.Evaluate(_currentTime);
 
-            _yokeArrow.localRotation = Quaternion.Euler(0, 0, _maxAngle * InputValue);
+            _yokeArrow.localRotation = Quaternion.Euler(0, 0, _maxAngle * arrowDirectionValue);
         }
     }
 }

@@ -433,7 +433,40 @@ MonoBehaviour:
   _yokeArrow: {fileID: 4871022617343865905}
   _maxAngle: 78
   _duration: 1
-  _curve:
+  _inputCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: -0.00023628482
+      outSlope: -0.00023628482
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.11052426
+    - serializedVersion: 3
+      time: 0.5021221
+      value: 1.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.5
+      inSlope: -0.030378517
+      outSlope: -0.030378517
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11063168
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _arrowAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -829,10 +862,10 @@ RectTransform:
   m_Father: {fileID: 8709343536940363042}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5080891089768297163
 MonoBehaviour:
@@ -846,7 +879,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4a3066abc89794eade5f9b0374d5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 0}
+  _rectTransform: {fileID: 8238855276196848277}
+  _uiYoke: {fileID: 6701211102786501804}
+  _yokeButton: {fileID: 5287277888240615303}
 --- !u!1 &6005512983988145736
 GameObject:
   m_ObjectHideFlags: 0
