@@ -7,6 +7,7 @@ namespace CarAssembler
     {
         [SerializeField] private MainMenu _mainMenu;
         [SerializeField] private PlayMenu _playMenu;
+        [SerializeField] private RaceMenu _raceMenu;
         [SerializeField] private FinisherMenu _finisherMenu;
         [SerializeField] private EndLevelMenu _endLevelMenu;
 
@@ -67,6 +68,7 @@ namespace CarAssembler
 
         public MainMenu MainMenu => _mainMenu;
         public PlayMenu PlayMenu => _playMenu;
+        public RaceMenu RaceMenu => _raceMenu;
         public FinisherMenu FinisherMenu => _finisherMenu;
         public EndLevelMenu EndLevelMenu => _endLevelMenu;
 
