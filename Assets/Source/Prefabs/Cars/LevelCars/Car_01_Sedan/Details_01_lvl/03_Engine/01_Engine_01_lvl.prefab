@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 640452249116217462}
   - component: {fileID: 4561174970216161235}
   - component: {fileID: 1776805506740120345}
+  - component: {fileID: 5269783983380603908}
   m_Layer: 0
   m_Name: engine3 (1)
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5269783983380603908
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263609295715453644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2212009239438826721, guid: 148787888623ed9489f0a6e6e18339dc, type: 3}
 --- !u!1 &598582903081968922
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,4 +235,13 @@ MonoBehaviour:
     _fuelEconomy: -2
     _coolness: 3
     _comfort: -2
-    _price: 0
+    _airplane: 0
+    _angel: 0
+    _boat: 0
+    _devil: 0
+    _elephant: 0
+    _fireTrack: 0
+    _fish: 0
+    _offroad: 0
+    _spring: 0
+    _power: 0

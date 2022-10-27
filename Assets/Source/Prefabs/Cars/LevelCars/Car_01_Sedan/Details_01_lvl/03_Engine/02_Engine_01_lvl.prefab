@@ -53,7 +53,16 @@ MonoBehaviour:
     _fuelEconomy: 3
     _coolness: -1
     _comfort: 2
-    _price: 0
+    _airplane: 0
+    _angel: 0
+    _boat: 0
+    _devil: 0
+    _elephant: 0
+    _fireTrack: 0
+    _fish: 0
+    _offroad: 0
+    _spring: 0
+    _power: 0
 --- !u!54 &547768500828765589
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -81,7 +90,6 @@ GameObject:
   - component: {fileID: 444384938390815247}
   - component: {fileID: 2030879829354492761}
   - component: {fileID: 5157355055862520504}
-  - component: {fileID: 8543638611078799543}
   - component: {fileID: 2003412056478370612}
   m_Layer: 0
   m_Name: CommonEngine1
@@ -156,26 +164,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8543638611078799543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1851580881842316881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a99e28bf1f1c76140a096b6892f320cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _appearParticles: {fileID: 0}
-  _features:
-    _slotType: 0
-    _speed: 0
-    _fuelEconomy: 0
-    _coolness: 0
-    _comfort: 0
-    _price: 0
 --- !u!64 &2003412056478370612
 MeshCollider:
   m_ObjectHideFlags: 0
