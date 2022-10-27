@@ -48,15 +48,20 @@ namespace CarAssembler
             SpawnWidget(FeatureType.Fish);
             SpawnWidget(FeatureType.Offroad);
             SpawnWidget(FeatureType.Spring);
+            SpawnWidget(FeatureType.Power);
 
-            foreach (var task in tasks)
-                for (var i = 0; i < _taskWidgets.Count; i++)
-                    if (_taskWidgets[i].Type == task.FeatureType)
+            for (int i = tasks.Count - 1 ; i >= 0; i--)
+            {
+                foreach (var widget in _taskWidgets)
+                {
+                    if (widget.Type == tasks[i].FeatureType)
                     {
-                        _taskWidgets[i].Show();
-                        _taskWidgets[i].transform.SetSiblingIndex(i + 1);
-                        _taskWidgets[i].MakeItMainTask();
+                        widget.Show();
+                        widget.transform.SetSiblingIndex(1);
+                        widget.MakeItMainTask();
                     }
+                }
+            }
 
             _carFeatures = carFeatures;
             _preliminaryCarFeatures = preliminaryCarFeatures;

@@ -346,6 +346,7 @@ MonoBehaviour:
   _fishIcon: {fileID: 21300000, guid: 89bf5c2ce9fd18f41bc344f200ae8994, type: 3}
   _offroadIcon: {fileID: 21300000, guid: 0c9866c0d54022841b70a187b313e176, type: 3}
   _springIcon: {fileID: 21300000, guid: 8b2270f409f2eb84f8477d8e1ef36aac, type: 3}
+  _powerIcon: {fileID: 21300000, guid: 221db54c6537e4c20bbbd4071f86e4fd, type: 3}
 --- !u!95 &5876868227525189674
 Animator:
   serializedVersion: 4

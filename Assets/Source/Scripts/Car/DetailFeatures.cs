@@ -20,6 +20,7 @@ namespace CarAssembler
         [SerializeField] private int _fish;
         [SerializeField] private int _offroad;
         [SerializeField] private int _spring;
+        [SerializeField] private int _power;
 
         public SlotType Slot => _slotType;
         public int Speed => _speed;
@@ -35,6 +36,7 @@ namespace CarAssembler
         public int Fish => _fish;
         public int Offroad => _offroad;
         public int Spring => _spring;
+        public int Power => _power;
     }
 
     public enum FeatureType
@@ -51,7 +53,8 @@ namespace CarAssembler
         FireTrack,
         Fish,
         Offroad,
-        Spring
+        Spring,
+        Power
     }
 
     public enum SlotType

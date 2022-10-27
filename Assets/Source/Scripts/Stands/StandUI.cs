@@ -5,6 +5,9 @@ namespace CarAssembler
 {
     public class StandUI : MonoBehaviour
     {
+        private const string Appear = nameof(Appear);
+        private const string Disappear = nameof(Disappear);
+        
         [SerializeField] private StandFeatureView FeatureViewPrefab;
         [SerializeField] private Transform _content;
         [SerializeField] private StandButton _button;
@@ -25,6 +28,7 @@ namespace CarAssembler
         [SerializeField] private Sprite _fishIcon;
         [SerializeField] private Sprite _offroadIcon;
         [SerializeField] private Sprite _springIcon;
+        [SerializeField] private Sprite _powerIcon;
 
         private readonly Dictionary<FeatureType, Sprite> _iconsMap = new();
         private readonly List<StandFeatureView> _featureViews = new();
@@ -52,6 +56,7 @@ namespace CarAssembler
             CreateFreatureView(FeatureType.Fish, detail.Features.Fish);
             CreateFreatureView(FeatureType.Offroad, detail.Features.Offroad);
             CreateFreatureView(FeatureType.Spring, detail.Features.Spring);
+            CreateFreatureView(FeatureType.Power, detail.Features.Power);
         }
 
         private void CreateFreatureView(FeatureType type, int value)
@@ -64,12 +69,12 @@ namespace CarAssembler
 
         public void Show()
         {
-            _animator.SetTrigger("Appear");
+            _animator.SetTrigger(Appear);
         }
 
         public void Hide()
         {
-            _animator.SetTrigger("Disappear");
+            _animator.SetTrigger(Disappear);
         }
 
         private void InitIconsMap()
@@ -87,6 +92,7 @@ namespace CarAssembler
             _iconsMap.Add(FeatureType.Fish, _fishIcon);
             _iconsMap.Add(FeatureType.Offroad, _offroadIcon);
             _iconsMap.Add(FeatureType.Spring, _springIcon);
+            _iconsMap.Add(FeatureType.Power, _powerIcon);
         }
     }
 }
