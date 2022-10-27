@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1682923729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1682923731}
+  - component: {fileID: 1682923730}
+  m_Layer: 0
+  m_Name: FailRace
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1682923731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682923729}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -38.45, y: 0, z: -118.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1105649160576923775}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1682923730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682923729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3287a61d37fd8498b675ad4034c792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1835810645
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +124,7 @@ Transform:
   - {fileID: 537469423311141538}
   - {fileID: 8538461238327191733}
   - {fileID: 1835810647}
+  - {fileID: 1682923731}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -111,7 +156,7 @@ PlayableDirector:
   - key: {fileID: -3037338774806898531, guid: 9029f3d9da9da2145919b124158f67cb, type: 2}
     value: {fileID: 0}
   - key: {fileID: -4015701228998126012, guid: 9029f3d9da9da2145919b124158f67cb, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 900025143}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1105649160576923773
@@ -128,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playableDirector: {fileID: 1105649160576923774}
   _player: {fileID: 0}
-  _failRace: {fileID: 0}
+  _failRace: {fileID: 1682923730}
 --- !u!1 &5245455439634872061
 GameObject:
   m_ObjectHideFlags: 0
