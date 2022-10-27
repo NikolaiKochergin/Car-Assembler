@@ -111,7 +111,7 @@ PlayableDirector:
   - key: {fileID: -3037338774806898531, guid: 9029f3d9da9da2145919b124158f67cb, type: 2}
     value: {fileID: 0}
   - key: {fileID: -4015701228998126012, guid: 9029f3d9da9da2145919b124158f67cb, type: 2}
-    value: {fileID: 900025143}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1105649160576923773
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playableDirector: {fileID: 1105649160576923774}
   _player: {fileID: 0}
+  _failRace: {fileID: 0}
 --- !u!1 &5245455439634872061
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +653,15 @@ PrefabInstance:
     - target: {fileID: 4742810695639007508, guid: 088fafcfd6cc6654f99a835bd4126412, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.00093823235
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134268532739095479, guid: 088fafcfd6cc6654f99a835bd4126412, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'thumb_01_l'\n\tTransform 'index_02_r'\n\tTransform
+        'spine_02'\n\tTransform 'thumb_02_r'\n\tTransform 'index_02_l'\n\tTransform
+        'thumb_01_r'\n\tTransform 'thumb_02_l'\n\tTransform 'thigh_l'\n\tTransform
+        'calf_l'\n\tTransform 'foot_l'\n\tand more ..."
       objectReference: {fileID: 0}
     - target: {fileID: 5219077971879650066, guid: 088fafcfd6cc6654f99a835bd4126412, type: 3}
       propertyPath: m_LocalRotation.w

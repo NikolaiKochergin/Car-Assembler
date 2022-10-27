@@ -142,6 +142,8 @@ GameObject:
   - component: {fileID: 1318744272764385775}
   - component: {fileID: 1318744272764385774}
   - component: {fileID: 2074443364}
+  - component: {fileID: 3205342120106327862}
+  - component: {fileID: 2074443369}
   m_Layer: 0
   m_Name: SpeedFinisher
   m_TagString: Untagged
@@ -200,8 +202,6 @@ PlayableDirector:
     value: {fileID: 1318744273255152480}
   - key: {fileID: 6293084228369208348, guid: 4dc43398b73d2de4588e4ac61f96e37c, type: 2}
     value: {fileID: 1318744272764385774}
-  - key: {fileID: 1973168719511986596, guid: 4dc43398b73d2de4588e4ac61f96e37c, type: 2}
-    value: {fileID: 0}
   - key: {fileID: -3960833812907149245, guid: 4dc43398b73d2de4588e4ac61f96e37c, type: 2}
     value: {fileID: 0}
   - key: {fileID: 4765755336137194772, guid: 4dc43398b73d2de4588e4ac61f96e37c, type: 2}
@@ -223,6 +223,7 @@ MonoBehaviour:
   _playableDirector: {fileID: 1318744272764385773}
   _player: {fileID: 0}
   _customer: {fileID: 1009635426940599097}
+  _speedRace: {fileID: 0}
 --- !u!114 &1318744272764385774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +269,51 @@ MonoBehaviour:
   m_Events:
     m_Signals: []
     m_Events: []
+--- !u!114 &3205342120106327862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318744272764385771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals: []
+    m_Events: []
+--- !u!114 &2074443369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318744272764385771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: ff867b6cc99c1ee4c85ba92cd987045b, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1318744272764385775}
+          m_TargetAssemblyTypeName: CarAssembler.SpeedFinisher, Assembly-CSharp
+          m_MethodName: SetEnded
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1009635425882834517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2255,7 +2301,12 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 78c7d231ba3490042a04e4a89946cb68, type: 2}
     - target: {fileID: 5866666021909216657, guid: 141e9d62e854b974788930daa03fc696, type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'thumb_01_l'\n\tTransform 'index_02_r'\n\tTransform
+        'spine_02'\n\tTransform 'thumb_02_r'\n\tTransform 'index_02_l'\n\tTransform
+        'thumb_01_r'\n\tTransform 'thumb_02_l'\n\tTransform 'thigh_l'\n\tTransform
+        'calf_l'\n\tTransform 'foot_l'\n\tand more ..."
       objectReference: {fileID: 0}
     - target: {fileID: 6867591863709789056, guid: 141e9d62e854b974788930daa03fc696, type: 3}
       propertyPath: m_LocalPosition.x

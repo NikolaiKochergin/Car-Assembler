@@ -15,7 +15,6 @@ public class EndLevelState : IGameState
     public void Enter()
     {
         _ui.EndLevelMenu.Show();
-        _ui.EndLevelMenu.MoneyWidget.Enable();
         SaveGame();
     }
 
