@@ -16,7 +16,11 @@ MonoBehaviour:
   _favoriteWindows: []
   _quickAccessItems: []
   _sceneHistory:
+  - name: 001_Level_UI
+    path: Assets/Source/Scenes/001_Level_UI.unity
   - name: 001_Level_1
     path: Assets/Source/Scenes/001_Level_1.unity
+  - name: 000_LoadingScene
+    path: Assets/Source/Scenes/000_LoadingScene.unity
   - name: 002_Level_2
     path: Assets/Source/Scenes/002_Level_2.unity
