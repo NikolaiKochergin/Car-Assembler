@@ -15,4 +15,8 @@ MonoBehaviour:
   _bookmarks: []
   _favoriteWindows: []
   _quickAccessItems: []
-  _sceneHistory: []
+  _sceneHistory:
+  - name: NewColors
+    path: Assets/Source/Scenes/NewColors.unity
+  - name: Finishers
+    path: Assets/Source/Scenes/Finishers.unity
