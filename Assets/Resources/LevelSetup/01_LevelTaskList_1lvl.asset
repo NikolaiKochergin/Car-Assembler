@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _car: {fileID: 8730819298682107201, guid: b8d8dc0e21acabf4182970852f36c45a, type: 3}
   _tasks:
-  - _featureType: 2
+  - _featureType: 0
     _targetValue: 5
-  - _featureType: 7
+  - _featureType: 2
     _targetValue: 5

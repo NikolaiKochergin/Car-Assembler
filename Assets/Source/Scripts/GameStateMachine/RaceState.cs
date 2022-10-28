@@ -23,6 +23,7 @@ namespace CarAssembler
             _playerStateMachine.SetNonControlledState();
             _playerStateMachine.Player.YokeEventTaken += OnYokeEventTaken;
             _checker.CurrentFinisher.Race.StartRace();
+            _defaultSpeed = _player.PlayerMover.SplineFollower.followSpeed;
         }
 
         public void Exit()
@@ -37,7 +38,6 @@ namespace CarAssembler
             _ui.RaceMenu.YokeButton.gameObject.SetActive(true);
             _ui.RaceMenu.Yoke.gameObject.SetActive(true);
             
-            _defaultSpeed = _player.PlayerMover.MoveSpeed;
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed * 0.5f);
 
             _ui.RaceMenu.YokeButton.onClick.AddListener(OnClicked);

@@ -9,6 +9,7 @@ namespace CarAssembler
         [SerializeField] private Player _player;
         [SerializeField] private SplineComputer _spline;
         [SerializeField] private Transform _playerStartPoint;
+        [SerializeField] private Rival _rival;
 
 
         public event Action RaceEnded;
@@ -22,7 +23,7 @@ namespace CarAssembler
             _player.PlayerMover.SplineFollower.spline = _spline;
             _player.PlayerMover.SplineFollower.SetPercent(0);
             _player.PlayerMover.StartMove();
-
+            _rival.StartMove();
         }
     }
 }
