@@ -6,15 +6,17 @@ namespace CarAssembler
         private readonly UI _ui;
         private readonly Player _player;
         private readonly TaskChecker _checker;
+        private readonly MainCameraContainer _mainCameraContainer;
 
         private float _defaultSpeed;
 
-        public RaceState(PlayerStateMachine playerStateMachine, UI ui, TaskChecker checker)
+        public RaceState(PlayerStateMachine playerStateMachine, UI ui, TaskChecker checker, MainCameraContainer mainCameraContainer)
         {
             _playerStateMachine = playerStateMachine;
             _ui = ui;
             _player = playerStateMachine.Player;
             _checker = checker;
+            _mainCameraContainer = mainCameraContainer;
         }
         
         public void Enter()
@@ -24,6 +26,7 @@ namespace CarAssembler
             _playerStateMachine.Player.YokeEventTaken += OnYokeEventTaken;
             _checker.CurrentFinisher.Race.StartRace();
             _defaultSpeed = _player.PlayerMover.SplineFollower.followSpeed;
+            _mainCameraContainer.SetRacePosition();
         }
 
         public void Exit()

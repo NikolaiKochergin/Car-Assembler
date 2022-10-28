@@ -18,5 +18,10 @@ namespace CarAssembler
         {
             _animator.Play(CameraRide);
         }
+
+        public void Disable()
+        {
+            _animator.enabled = false;
+        }
     }
 }
