@@ -13,10 +13,10 @@ namespace CarAssembler
         [SerializeField] private PlayerMover _playerMover;
         [SerializeField] private ConveyorAnimator _conveyorAnimator;
         [SerializeField] private UITaskListWidget _taskListWidget;
-        [SerializeField] private ContainerAnimator _animator;
+        [SerializeField] private AnimatorContainer _animator;
 
         public ConveyorAnimator ConveyorAnimator => _conveyorAnimator;
-        public ContainerAnimator containerAnimator => _animator;
+        public AnimatorContainer animatorContainer => _animator;
         public PlayInput PlayInput => _playInput;
         public PlayerMover PlayerMover => _playerMover;
         public UITaskListWidget TaskListWidget => _taskListWidget;
