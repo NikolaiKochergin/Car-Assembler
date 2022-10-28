@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Elements
+  m_Name: Ground2
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_ValidKeywords:
   - _CELPRIMARYMODE_SINGLE
@@ -122,8 +122,8 @@ Material:
     - _VertexColorsEnabled: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.8301887, g: 0.382809, b: 0.18326804, a: 1}
-    - _ColorDim: {r: 0.8113208, g: 0.35336286, b: 0.14848696, a: 1}
+    - _Color: {r: 0.2699893, g: 0.3924569, b: 0.6037736, a: 1}
+    - _ColorDim: {r: 0.17254902, g: 0.37254903, b: 0.7176471, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimExtra: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
