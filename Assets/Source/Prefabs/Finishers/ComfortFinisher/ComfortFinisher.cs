@@ -17,7 +17,7 @@ namespace CarAssembler
 
         public void Show(Action ended)
         {
-            _player.containerAnimator.Enable();
+            _player.animatorContainer.Enable();
             _player.transform.parent = transform;
             //_customer.transform.parent = _player.transform;
             //_playableDirector.SetReferenceValue("EmojiAngry 1", _test);

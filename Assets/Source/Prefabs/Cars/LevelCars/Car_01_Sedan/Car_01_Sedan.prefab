@@ -67447,6 +67447,7 @@ MonoBehaviour:
   - {fileID: 1599145976102568543}
   - {fileID: 1231767178028366985}
   - {fileID: 3800672304458337150}
+  _speedParticles: []
 --- !u!95 &5261789394151308883
 Animator:
   serializedVersion: 4
