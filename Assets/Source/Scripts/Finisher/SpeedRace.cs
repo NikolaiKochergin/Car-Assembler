@@ -11,9 +11,13 @@ namespace CarAssembler
         [SerializeField] private Transform _playerStartPoint;
         [SerializeField] private Rival _rival;
 
+        private void Awake()
+        {
+            Hide();
+        }
 
         public event Action RaceEnded;
-        
+
         [ContextMenu("StartRace")]
         public void StartRace()
         {
@@ -24,6 +28,16 @@ namespace CarAssembler
             _player.PlayerMover.SplineFollower.SetPercent(0);
             _player.PlayerMover.StartMove();
             _rival.StartMove();
+        }
+
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

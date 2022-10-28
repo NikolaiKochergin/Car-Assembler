@@ -27,6 +27,8 @@ namespace CarAssembler
             
             var finisher = _taskChecker.GetFinisherBy(_playerStateMachine.Player.Tasks, _playerStateMachine.Player.Car);
 
+            finisher.Race.Show();
+            
             if (finisher is MonoBehaviour mono)
             {
                 Transform transformFinisher = mono.transform;
