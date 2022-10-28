@@ -18,9 +18,11 @@ MonoBehaviour:
   _sceneHistory:
   - name: 001_Level_1
     path: Assets/Source/Scenes/001_Level_1.unity
-  - name: 001_Level_UI
-    path: Assets/Source/Scenes/001_Level_UI.unity
+  - name: NewColors
+    path: Assets/Source/Scenes/NewColors.unity
   - name: Max_01
     path: Assets/Source/Scenes/Max/Max_01.unity
+  - name: 001_Level_UI
+    path: Assets/Source/Scenes/001_Level_UI.unity
   - name: 002_Level_2
     path: Assets/Source/Scenes/002_Level_2.unity
