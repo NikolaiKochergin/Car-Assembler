@@ -24,6 +24,7 @@ namespace CarAssembler
             _ui.RaceMenu.Show();
             _playerStateMachine.SetNonControlledState();
             _playerStateMachine.Player.YokeEventTaken += OnYokeEventTaken;
+            _ui.RaceMenu.CountDownView.ShowCountDown();
             _checker.CurrentFinisher.Race.StartRace();
             _defaultSpeed = _player.PlayerMover.SplineFollower.followSpeed;
             _mainCameraContainer.SetRacePosition();

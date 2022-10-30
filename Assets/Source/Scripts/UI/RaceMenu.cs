@@ -7,8 +7,10 @@ namespace CarAssembler
     {
         [SerializeField] private UIYoke _uiYoke;
         [SerializeField] private Button _yokeButton;
+        [SerializeField] private CountDownView _countDownView;
 
         public UIYoke Yoke => _uiYoke;
         public Button YokeButton => _yokeButton;
+        public CountDownView CountDownView => _countDownView;
     }
 }
