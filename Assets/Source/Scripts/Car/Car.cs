@@ -45,6 +45,7 @@ namespace CarAssembler
         public void TakeDetail(Detail detail)
         {
             var spawnedDetail = Instantiate(detail, _model);
+            spawnedDetail.PlayParticle();
             _details.Add(spawnedDetail);
 
             if (_currentWheels == null && spawnedDetail.Features.Slot == SlotType.Wheels)

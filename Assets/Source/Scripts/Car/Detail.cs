@@ -15,15 +15,17 @@ namespace CarAssembler
                 _features = features;
         }
 
+        public void PlayParticle()
+        {
+            if (_appearParticles != null)
+            {
+                _appearParticles.Play();
+            }
+        }
+
         public void Show()
         {
             gameObject.SetActive(true);
-            if (_appearParticles != null)
-            {
-                print("PlayParticle");
-                _appearParticles.Play();
-            }
-
         }
 
         public void Hide()
