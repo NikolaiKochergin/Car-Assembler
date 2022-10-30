@@ -19,7 +19,11 @@ namespace CarAssembler
         {
             gameObject.SetActive(true);
             if (_appearParticles != null)
+            {
+                print("PlayParticle");
                 _appearParticles.Play();
+            }
+
         }
 
         public void Hide()
