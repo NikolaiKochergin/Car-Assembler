@@ -16,8 +16,7 @@ namespace CarAssembler
         {
             _mainCameraAnimator.Disable();
             
-            Camera.main.transform.localPosition = _racePoint.localPosition;
-            Camera.main.transform.localRotation = _racePoint.localRotation;
+            Camera.main.transform.SetLocalPositionAndRotation(_racePoint.localPosition, _racePoint.localRotation);
         }
     }
 }

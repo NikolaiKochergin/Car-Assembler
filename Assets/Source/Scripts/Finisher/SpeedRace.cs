@@ -10,6 +10,7 @@ namespace CarAssembler
         [SerializeField] private SplineComputer _spline;
         [SerializeField] private Transform _playerStartPoint;
         [SerializeField] private Rival _rival;
+        [SerializeField] private CountDown _countDown;
 
         private void Awake()
         {
@@ -21,13 +22,15 @@ namespace CarAssembler
         [ContextMenu("StartRace")]
         public void StartRace()
         {
-            _player.transform.position = _playerStartPoint.position;
-            _player.transform.rotation = _playerStartPoint.rotation;
-
             _player.PlayerMover.SplineFollower.spline = _spline;
             _player.PlayerMover.SplineFollower.SetPercent(0);
-            _player.PlayerMover.StartMove();
-            _rival.StartMove();
+            _player.transform.SetPositionAndRotation(_playerStartPoint.position,_playerStartPoint.rotation);
+
+            _countDown.ShowCountDown(() =>
+            {
+                _player.PlayerMover.StartMove();
+                _rival.StartMove();
+            });
         }
 
         public void Show()

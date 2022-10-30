@@ -35,15 +35,13 @@ namespace CarAssembler
                 _mainCameraContainer.Follower.ChangeTarget(transformFinisher);
             }
 
-            finisher.Show(() =>
-            {
-                _mainCameraContainer.Follower.ChangeTarget(_playerStateMachine.Player.transform);
-                _gameStateMachine.SetRaceState();
-            });
+            finisher.Show(_gameStateMachine.SetRaceState);
         }
         
         public void Exit()
         {
+            _mainCameraContainer.Follower.ChangeTarget(_playerStateMachine.Player.transform);
+            _mainCameraContainer.transform.position = _playerStateMachine.Player.transform.position;
             _ui.FinisherMenu.Hide();
         }
     }
