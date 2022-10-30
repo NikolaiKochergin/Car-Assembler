@@ -50,13 +50,7 @@ namespace CarAssembler
 
             if (_currentWheels == null && spawnedDetail.Features.Slot == SlotType.Wheels)
             {
-                //_currentWheels = spawnedDetail;
                 _currentWheels = spawnedDetail.GetComponentsInChildren<Wheel>().ToList();
-
-                for (int i = 0; i < _currentWheels.Count; i++)
-                {
-                    print(_currentWheels);
-                }
             }
             
             if (spawnedDetail.TryGetComponent(out Rigidbody rigidbody))

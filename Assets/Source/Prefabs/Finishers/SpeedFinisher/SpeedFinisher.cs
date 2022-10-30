@@ -21,12 +21,7 @@ namespace CarAssembler
         {
             Ended = ended;
             _player.transform.parent = transform;
-            //_customer.transform.parent = _player.transform;
-            //_playableDirector.SetReferenceValue("EmojiAngry 1", _test);
             _playableDirector.Play();
-            //_playableDirector.
-            Debug.Log("FAIL FINISHER");
-            //ended?.Invoke();
         }
 
         public void AddCustomerToPlayer()
