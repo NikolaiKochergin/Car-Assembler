@@ -12,6 +12,10 @@ namespace CarAssembler
 
         public event Action RaceEnded;
 
+        public void Initialize(Player player, UI ui, MainCameraContainer mainCameraContainer)
+        {
+        }
+
         public void StartRace()
         {
             RaceEnded?.Invoke();

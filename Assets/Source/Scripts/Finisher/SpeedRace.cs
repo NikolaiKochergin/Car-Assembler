@@ -6,28 +6,48 @@ namespace CarAssembler
 {
     public class SpeedRace : MonoBehaviour, IRace
     {
-        [SerializeField] private Player _player;
         [SerializeField] private SplineComputer _spline;
         [SerializeField] private Transform _playerStartPoint;
         [SerializeField] private Rival _rival;
         [SerializeField] private CountDown _countDown;
         [SerializeField] [Min(0)] private float _startSpeed = 6;
 
+        private Player _player;
+        private UI _ui;
+        private MainCameraContainer _mainCameraContainer;
+        
+        private float _defaultSpeed;
+        private float _speedMultiplier;
+
         private void Awake()
         {
             Hide();
+            _defaultSpeed = _startSpeed;
+            _speedMultiplier = 1;
         }
 
         public event Action RaceEnded;
 
-        [ContextMenu("StartRace")]
+        public void Initialize(Player player, UI ui, MainCameraContainer mainCameraContainer)
+        {
+            _player = player;
+            _ui = ui;
+            _mainCameraContainer = mainCameraContainer;
+
+            _player.YokeEventTaken += OnYokeEventTaken;
+            player.YokeEventEnded -= OnYokeEventEnded;
+        }
+
         public void StartRace()
         {
+            _mainCameraContainer.SetRacePosition();
+            
             _player.PlayerMover.SetFollowSpeed(_startSpeed);
             _player.PlayerMover.SplineFollower.spline = _spline;
             _player.PlayerMover.SplineFollower.SetPercent(0);
             _player.transform.SetPositionAndRotation(_playerStartPoint.position,_playerStartPoint.rotation);
 
+            _ui.RaceMenu.CountDownView.ShowCountDown();
             _countDown.ShowCountDown(() =>
             {
                 _player.PlayerMover.StartMove();
@@ -36,10 +56,52 @@ namespace CarAssembler
                 _rival.StartRotationWheels();
             });
         }
+        
+        private void OnYokeEventTaken()
+        {
+            _ui.RaceMenu.YokeButton.gameObject.SetActive(true);
+            _ui.RaceMenu.Yoke.gameObject.SetActive(true);
+
+            _speedMultiplier = 1;
+            
+            _player.PlayerMover.SetFollowSpeed(_defaultSpeed * 0.5f);
+            
+            _ui.RaceMenu.YokeButton.onClick.AddListener(OnClicked);
+        }
+
+        private void OnYokeEventEnded()
+        {
+            _ui.RaceMenu.YokeButton.onClick.RemoveListener(OnClicked);
+            
+            _ui.RaceMenu.YokeButton.gameObject.SetActive(false);
+            _ui.RaceMenu.Yoke.gameObject.SetActive(false);
+            
+            _player.PlayerMover.SetFollowSpeed(_defaultSpeed * _speedMultiplier);
+
+            if (_player.Car.CurrentWheels != null)
+            {
+                _player.ChangeRotationWheels(_player.PlayerMover.MoveSpeed);
+            }
+        }
+
+        private void OnClicked()
+        {
+            _speedMultiplier = _ui.RaceMenu.Yoke.InputValue;
+            
+            OnYokeEventEnded();
+        }
 
         public void SetRivalSpeedMultiplier(float value)
         {
             _rival.SetSpeedMultiplier(value);
+        }
+
+        public void StopRace()
+        {
+            _player.YokeEventTaken -= OnYokeEventTaken;
+            _player.YokeEventEnded -= OnYokeEventEnded;
+            
+            RaceEnded?.Invoke();
         }
 
         public void Show()
