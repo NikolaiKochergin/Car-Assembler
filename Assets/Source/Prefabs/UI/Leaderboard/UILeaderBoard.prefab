@@ -203,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 228547902049524213}
   - component: {fileID: 222836530233781954}
+  - component: {fileID: 7901893265018244102}
   m_Layer: 5
   m_Name: UILeaderBoard
   m_TagString: Untagged
@@ -245,6 +246,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerResultPrefab: {fileID: 8019625471198836810, guid: 4180c159d3ca2164c8340f732cb40d5d, type: 3}
   _content: {fileID: 4708235269256008427}
+--- !u!95 &7901893265018244102
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6113560850451940847}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4db73d46e5a7f1a49aa11e0f5d091e09, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6733883183541658730
 GameObject:
   m_ObjectHideFlags: 0
