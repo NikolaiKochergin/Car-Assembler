@@ -29,6 +29,7 @@ namespace CarAssembler
             _countDown.ShowCountDown(() =>
             {
                 _player.PlayerMover.StartMove();
+                _player.StartRotationWheels();
                 _rival.StartMove();
             });
         }
