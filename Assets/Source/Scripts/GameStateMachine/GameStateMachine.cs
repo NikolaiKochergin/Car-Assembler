@@ -14,11 +14,16 @@ namespace CarAssembler
         [SerializeField] private MainCameraContainer _mainCameraContainer;
 
         private IGameState _currentState;
-
         private Dictionary<Type, IGameState> _statesMap;
+
+        public PlayerStateMachine PlayerStateMachine => _playerStateMachine;
+        
 
         private void Awake()
         {
+            _playerStateMachine = FindObjectOfType<PlayerStateMachine>();
+            _uI = FindObjectOfType<UI>();
+            _mainCameraContainer = FindObjectOfType<MainCameraContainer>();
             InitStates();
         }
 
@@ -35,7 +40,7 @@ namespace CarAssembler
                 [typeof(KatSceneState)] = new KatSceneState(this, _enterKatScene, _uI, _mainCameraContainer),
                 [typeof(PlayState)] = new PlayState(_playerStateMachine, _uI),
                 [typeof(FinisherState)] = new FinisherState(this, _playerStateMachine, _uI, _taskChecker, _mainCameraContainer),
-                [typeof(RaceState)] = new RaceState(_playerStateMachine, _uI, _taskChecker, _mainCameraContainer),
+                [typeof(RaceState)] = new RaceState(this, _uI, _taskChecker, _mainCameraContainer),
                 [typeof(EndLevelState)] = new EndLevelState(_playerStateMachine, _uI, _mainCameraContainer)
             };
         }

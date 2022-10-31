@@ -42,9 +42,9 @@ namespace CarAssembler
         {
             _mainCameraContainer.SetRacePosition();
             
-            _player.PlayerMover.SetFollowSpeed(_startSpeed);
             _player.PlayerMover.SplineFollower.spline = _spline;
             _player.PlayerMover.SplineFollower.SetPercent(0);
+            _player.PlayerMover.SetFollowSpeed(_defaultSpeed);
             _player.transform.SetPositionAndRotation(_playerStartPoint.position,_playerStartPoint.rotation);
 
             _ui.RaceMenu.CountDownView.ShowCountDown();
@@ -98,6 +98,8 @@ namespace CarAssembler
 
         public void StopRace()
         {
+            _player.PlayerMover.StopMove();
+            
             _player.YokeEventTaken -= OnYokeEventTaken;
             _player.YokeEventEnded -= OnYokeEventEnded;
             
