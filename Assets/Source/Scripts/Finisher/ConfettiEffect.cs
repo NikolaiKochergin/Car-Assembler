@@ -4,7 +4,7 @@ namespace CarAssembler
 {
     public class ConfettiEffect : MonoBehaviour
     {
-        [SerializeField] private ParticleSystem _confettiEffect;
+        [SerializeField] private ParticleSystem[] _finishLineEffect;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -12,8 +12,11 @@ namespace CarAssembler
 
             if (player)
             {
-                if(_confettiEffect)
-                    _confettiEffect.Play();
+                foreach (var effect in _finishLineEffect)
+                {
+                    if (effect)
+                        effect.Play();
+                }
             }
         }
     }
