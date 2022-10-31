@@ -31,6 +31,7 @@ namespace CarAssembler
                 _player.PlayerMover.StartMove();
                 _player.StartRotationWheels();
                 _rival.StartMove();
+                _rival.StartRotationWheels();
             });
         }
 
