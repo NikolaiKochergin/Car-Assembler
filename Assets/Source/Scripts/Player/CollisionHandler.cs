@@ -28,9 +28,13 @@ namespace CarAssembler
         private void OnTriggerExit(Collider other)
         {
             var factoryMachine = other.GetComponent<Stand>();
+            var yokeEvent = other.GetComponent<YokeEvent>();
             
             if(factoryMachine)
                 StandLost?.Invoke(factoryMachine);
+            
+            if(yokeEvent)
+                YokeEventEnded?.Invoke();
         }
 
         public event Action<Stand> StandTaken;
@@ -38,5 +42,6 @@ namespace CarAssembler
         public event Action<Obstacle> ObstacleTaken;
         public event Action<Barrier> BarrierTaken;
         public event Action YokeEventTaken;
+        public event Action YokeEventEnded;
     }
 }

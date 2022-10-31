@@ -26,6 +26,7 @@ namespace CarAssembler
             _ui.RaceMenu.Show();
             _playerStateMachine.SetNonControlledState();
             _playerStateMachine.Player.YokeEventTaken += OnYokeEventTaken;
+            _playerStateMachine.Player.YokeEventEnded += OnYokeEventEnded;
             _ui.RaceMenu.CountDownView.ShowCountDown();
             _checker.CurrentFinisher.Race.StartRace();
             _defaultSpeed = _player.PlayerMover.SplineFollower.followSpeed;
@@ -37,6 +38,7 @@ namespace CarAssembler
             _ui.RaceMenu.Hide();
             _player.PlayerMover.StartMove();
             _playerStateMachine.Player.YokeEventTaken -= OnYokeEventTaken;
+            _playerStateMachine.Player.YokeEventEnded -= OnYokeEventEnded;
         }
 
         private void OnYokeEventTaken()
@@ -49,22 +51,26 @@ namespace CarAssembler
             _ui.RaceMenu.YokeButton.onClick.AddListener(OnClicked);
         }
 
-        private void OnClicked()
+        private void OnYokeEventEnded()
         {
             _ui.RaceMenu.YokeButton.onClick.RemoveListener(OnClicked);
             
             _ui.RaceMenu.YokeButton.gameObject.SetActive(false);
             _ui.RaceMenu.Yoke.gameObject.SetActive(false);
 
-            var speedMultiplier = _ui.RaceMenu.Yoke.InputValue;
-            
-            _player.PlayerMover.SetFollowSpeed(_defaultSpeed * speedMultiplier);
-            
             if (_player.Car.CurrentWheels != null)
             {
                 Debug.Log("ChangeRotationWheels");
                 _player.ChangeRotationWheels(_player.PlayerMover.MoveSpeed);
             }
+        }
+
+        private void OnClicked()
+        {
+            var speedMultiplier = _ui.RaceMenu.Yoke.InputValue;
+            _player.PlayerMover.SetFollowSpeed(_defaultSpeed * speedMultiplier);
+            
+            OnYokeEventEnded();
         }
     }
 }
