@@ -149,5 +149,32 @@ namespace CarAssembler
             NonControlledStateEnding?.Invoke();
             _collider.enabled = true;
         }
+
+        public void ChangeRotationWheels(float multiplierSpeed)
+        {
+            for (int i = 0; i < Car.CurrentWheels.Count; i++)
+            {
+                Car.CurrentWheels[i].ChangeSpeedRotation(multiplierSpeed);
+            }
+        }
+        
+        public void StopRotationWheels()
+        {
+            for (int i = 0; i < Car.CurrentWheels.Count; i++)
+            {
+                Car.CurrentWheels[i].Disable();
+                //_currentWheels[i].Disable();
+            }
+        }
+
+        public void StartRotationWheels()
+        {
+            for (int i = 0; i < Car.CurrentWheels.Count; i++)
+            {
+                Debug.Log("StartRotationWheels");
+                Car.CurrentWheels[i].Enable();
+                //_currentWheels[i].Enable();
+            }
+        }
     }
 }

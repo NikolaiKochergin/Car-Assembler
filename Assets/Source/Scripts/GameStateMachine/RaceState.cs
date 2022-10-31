@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace CarAssembler
 {
     public class RaceState : IGameState
@@ -43,7 +45,7 @@ namespace CarAssembler
             _ui.RaceMenu.Yoke.gameObject.SetActive(true);
             
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed * 0.5f);
-
+            
             _ui.RaceMenu.YokeButton.onClick.AddListener(OnClicked);
         }
 
@@ -57,6 +59,12 @@ namespace CarAssembler
             var speedMultiplier = _ui.RaceMenu.Yoke.InputValue;
             
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed * speedMultiplier);
+            
+            if (_player.Car.CurrentWheels != null)
+            {
+                Debug.Log("ChangeRotationWheels");
+                _player.ChangeRotationWheels(_player.PlayerMover.MoveSpeed);
+            }
         }
     }
 }

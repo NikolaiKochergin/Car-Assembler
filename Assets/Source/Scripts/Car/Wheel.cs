@@ -8,10 +8,22 @@ namespace CarAssembler
     {
         [SerializeField] private float _speed;
 
+        public float StartSpeed { get; private set; }
         public float Speed => _speed;
 
         public abstract void Update();
 
+        public void Initialize()
+        {
+            Disable();
+            StartSpeed = _speed;
+        }
+
+        public void ChangeSpeedRotation(float multiplierSpeed)
+        {
+            _speed *= (multiplierSpeed * 0.19f);//MAGIC INT
+        }
+        
         public void Enable()
         {
             enabled = true;
@@ -19,7 +31,8 @@ namespace CarAssembler
 
         public void Disable()
         {
-            enabled = true;
+            //_speed = StartSpeed;
+            enabled = false;
         }
     }
 }

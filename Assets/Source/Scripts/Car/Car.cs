@@ -18,28 +18,12 @@ namespace CarAssembler
         public CarFeatures PreliminaryFeatures { get; private set; }
         public IReadOnlyList<Rigidbody> RigidbodiesDetails => _rigidbodiesDetails;
         public CarFinishReaction CarExplosion => _carExpolsion;
-        public List<Wheel> CurrentWheels => _currentWheels;
+        public IReadOnlyList<Wheel> CurrentWheels => _currentWheels;
 
         private void Awake()
         {
             Features = new CarFeatures();
             PreliminaryFeatures = new CarFeatures();
-        }
-
-        public void StopRotationWheels()
-        {
-            for (int i = 0; i < _currentWheels.Count; i++)
-            {
-                _currentWheels[i].Disable();
-            }
-        }
-
-        public void StartRotationWheels()
-        {
-            for (int i = 0; i < _currentWheels.Count; i++)
-            {
-                _currentWheels[i].Enable();
-            }
         }
 
         public void TakeDetail(Detail detail)
@@ -51,6 +35,10 @@ namespace CarAssembler
             if (_currentWheels == null && spawnedDetail.Features.Slot == SlotType.Wheels)
             {
                 _currentWheels = spawnedDetail.GetComponentsInChildren<Wheel>().ToList();
+                foreach (var wheel in _currentWheels)
+                {
+                    wheel.Initialize();
+                }
             }
             
             if (spawnedDetail.TryGetComponent(out Rigidbody rigidbody))
