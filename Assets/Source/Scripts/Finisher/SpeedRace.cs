@@ -11,6 +11,7 @@ namespace CarAssembler
         [SerializeField] private Transform _playerStartPoint;
         [SerializeField] private Rival _rival;
         [SerializeField] private CountDown _countDown;
+        [SerializeField] [Min(0)] private float _startSpeed = 6;
 
         private void Awake()
         {
@@ -22,6 +23,7 @@ namespace CarAssembler
         [ContextMenu("StartRace")]
         public void StartRace()
         {
+            _player.PlayerMover.SetFollowSpeed(_startSpeed);
             _player.PlayerMover.SplineFollower.spline = _spline;
             _player.PlayerMover.SplineFollower.SetPercent(0);
             _player.transform.SetPositionAndRotation(_playerStartPoint.position,_playerStartPoint.rotation);
@@ -33,6 +35,11 @@ namespace CarAssembler
                 _rival.StartMove();
                 _rival.StartRotationWheels();
             });
+        }
+
+        public void SetRivalSpeedMultiplier(float value)
+        {
+            _rival.SetSpeedMultiplier(value);
         }
 
         public void Show()

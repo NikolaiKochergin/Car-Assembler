@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace CarAssembler
 {
     public class RaceState : IGameState
@@ -11,6 +9,7 @@ namespace CarAssembler
         private readonly MainCameraContainer _mainCameraContainer;
 
         private float _defaultSpeed;
+        private float _speedMultiplier;
 
         public RaceState(PlayerStateMachine playerStateMachine, UI ui, TaskChecker checker, MainCameraContainer mainCameraContainer)
         {
@@ -46,6 +45,8 @@ namespace CarAssembler
         {
             _ui.RaceMenu.YokeButton.gameObject.SetActive(true);
             _ui.RaceMenu.Yoke.gameObject.SetActive(true);
+
+            _speedMultiplier = 1;
             
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed * 0.5f);
             
@@ -58,6 +59,8 @@ namespace CarAssembler
             
             _ui.RaceMenu.YokeButton.gameObject.SetActive(false);
             _ui.RaceMenu.Yoke.gameObject.SetActive(false);
+            
+            _player.PlayerMover.SetFollowSpeed(_defaultSpeed * _speedMultiplier);
 
             if (_player.Car.CurrentWheels != null)
             {
@@ -67,8 +70,7 @@ namespace CarAssembler
 
         private void OnClicked()
         {
-            var speedMultiplier = _ui.RaceMenu.Yoke.InputValue;
-            _player.PlayerMover.SetFollowSpeed(_defaultSpeed * speedMultiplier);
+            _speedMultiplier = _ui.RaceMenu.Yoke.InputValue;
             
             OnYokeEventEnded();
         }
