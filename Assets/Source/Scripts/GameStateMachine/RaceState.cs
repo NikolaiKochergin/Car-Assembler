@@ -23,7 +23,7 @@ namespace CarAssembler
         
         public void Enter()
         {
-            _playerStateMachine.Player.ParticleContainer.PlayFogCarParticle();
+            //_playerStateMachine.Player.ParticleContainer.PlayFogCarParticle();
             _ui.RaceMenu.Show();
             _playerStateMachine.SetNonControlledState();
             _playerStateMachine.Player.YokeEventTaken += OnYokeEventTaken;
