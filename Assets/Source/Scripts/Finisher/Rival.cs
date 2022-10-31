@@ -13,6 +13,7 @@ namespace CarAssembler
 
         private void Awake()
         {
+            StopRotationWheels();//refactoring
             _defaultSpeed = _splineFollower.followSpeed;
         }
 
