@@ -6,11 +6,12 @@ namespace CarAssembler
 {
     public class ParticleContainer : MonoBehaviour
     {
-        [SerializeField] private ParticleSystem _fogCarParticle;
+        [SerializeField] private ParticleSystem[] _fogCarParticles;
 
         public void PlayFogCarParticle()
         {
-            _fogCarParticle.Play();
+            
+            //_fogCarParticles.Play();
         }
     }
 }
