@@ -14,8 +14,6 @@ namespace CarAssembler
             {
                 if(_confettiEffect)
                     _confettiEffect.Play();
-                
-                Debug.Log("Finisher");
             }
         }
     }
