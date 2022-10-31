@@ -17,7 +17,6 @@ public class EndLevelState : IGameState
     public void Enter()
     {
         _ui.EndLevelMenu.Show();
-        _mainCameraContainer.CameraAnimator.ShowEndLevelAnimation();
         SaveGame();
     }
 

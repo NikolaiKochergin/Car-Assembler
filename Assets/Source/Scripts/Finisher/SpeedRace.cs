@@ -96,12 +96,14 @@ namespace CarAssembler
             _rival.SetSpeedMultiplier(value);
         }
 
+        //Used in Race Spline Computer trigger
         public void StopRace()
         {
             _player.PlayerMover.StopMove();
             
             _player.YokeEventTaken -= OnYokeEventTaken;
             _player.YokeEventEnded -= OnYokeEventEnded;
+            _mainCameraContainer.CameraAnimator.ShowEndLevelAnimation();
             
             RaceEnded?.Invoke();
         }
