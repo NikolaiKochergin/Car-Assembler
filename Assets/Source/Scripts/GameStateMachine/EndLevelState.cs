@@ -5,16 +5,19 @@ public class EndLevelState : IGameState
 {
     private readonly PlayerStateMachine _playerStateMachine;
     private readonly UI _ui;
+    private readonly MainCameraContainer _mainCameraContainer;
 
-    public EndLevelState(PlayerStateMachine playerStateMachine, UI ui)
+    public EndLevelState(PlayerStateMachine playerStateMachine, UI ui, MainCameraContainer mainCameraContainer)
     {
         _playerStateMachine = playerStateMachine;
         _ui = ui;
+        _mainCameraContainer = mainCameraContainer;
     }
 
     public void Enter()
     {
         _ui.EndLevelMenu.Show();
+        _mainCameraContainer.CameraAnimator.ShowEndLevelAnimation();
         SaveGame();
     }
 
