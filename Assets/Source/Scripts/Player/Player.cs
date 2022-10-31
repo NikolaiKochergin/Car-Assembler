@@ -14,6 +14,7 @@ namespace CarAssembler
         [SerializeField] private ConveyorAnimator _conveyorAnimator;
         [SerializeField] private UITaskListWidget _taskListWidget;
         [SerializeField] private AnimatorContainer _animator;
+        [SerializeField] private ParticleContainer _particleContainer;
 
         public ConveyorAnimator ConveyorAnimator => _conveyorAnimator;
         public AnimatorContainer animatorContainer => _animator;
@@ -23,6 +24,7 @@ namespace CarAssembler
         public Car Car { get; private set; }
         public Stand Stand { get; private set; }
         public IReadOnlyList<Task> Tasks { get; private set; }
+        public ParticleContainer ParticleContainer => _particleContainer;
 
         public event Action NonControlledStateBegining;
         public event Action NonControlledStateEnding;

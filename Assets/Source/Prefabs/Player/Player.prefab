@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2103651885645875596}
   - component: {fileID: 2103651885645875597}
   - component: {fileID: 4825045326777965847}
+  - component: {fileID: 4004372661605490506}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -38,7 +39,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6901675272136428302}
+  - {fileID: 6901675271573202296}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -103,6 +106,7 @@ MonoBehaviour:
   _conveyorAnimator: {fileID: 0}
   _taskListWidget: {fileID: 0}
   _animator: {fileID: 4825045326777965847}
+  _particleContainer: {fileID: 0}
 --- !u!114 &2103651885645875612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,6 +1067,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d06baac9ef0b21a4fa15fb3e5983a9bd, type: 2}
     - {fileID: 11400000, guid: 45117a4411d6fbc41b7a1a3cddcfc78e, type: 2}
     - {fileID: 11400000, guid: ecad0eed8bc952743a553a8ab21a006d, type: 2}
+    - {fileID: 11400000, guid: 5198d104cc2f3a04b97bce9ccdbf04be, type: 2}
+    - {fileID: 11400000, guid: 8d28b8e1a6df2b740914dd67ace569e3, type: 2}
+    - {fileID: 11400000, guid: 62fa80ae445371d41bbecbf2d08ebb0d, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -1106,6 +1113,60 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6901675272154808066}
+          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6901675271554830708}
+          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2103651885645875601}
+          m_TargetAssemblyTypeName: CarAssembler.Player, Assembly-CSharp
+          m_MethodName: StartRotationWheels
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2103651885645875601}
+          m_TargetAssemblyTypeName: CarAssembler.Player, Assembly-CSharp
+          m_MethodName: StopRotationWheels
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &4825045326777965847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1119,3 +1180,162 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 2103651885645875596}
+--- !u!114 &4004372661605490506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103651885645875606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42409d3caa0c58547b24aaf7bdb1437b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fogCarParticle: {fileID: 0}
+--- !u!1001 &6901675271572752484
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2103651885645875600}
+    m_Modifications:
+    - target: {fileID: 141978, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_Name
+      value: WheelSpeedVFX (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.514
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.709
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.764
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19831056, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496173945, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_Events.m_Signals.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f306f781b0aa9224ebcf34234c3e788d, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+--- !u!198 &6901675271554830708 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19831056, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+  m_PrefabInstance: {fileID: 6901675271572752484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6901675271573202296 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+  m_PrefabInstance: {fileID: 6901675271572752484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6901675272136615442
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2103651885645875600}
+    m_Modifications:
+    - target: {fileID: 141978, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_Name
+      value: WheelSpeedVFX (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.585
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.709
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.764
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496173945, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+      propertyPath: m_Events.m_Signals.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f306f781b0aa9224ebcf34234c3e788d, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+--- !u!4 &6901675272136428302 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 453916, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+  m_PrefabInstance: {fileID: 6901675272136615442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6901675272154808066 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19831056, guid: de70193d0252f6141855239c969ce1cd, type: 3}
+  m_PrefabInstance: {fileID: 6901675272136615442}
+  m_PrefabAsset: {fileID: 0}
