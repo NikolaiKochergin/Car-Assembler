@@ -60,7 +60,6 @@ namespace CarAssembler
 
             if (_player.Car.CurrentWheels != null)
             {
-                Debug.Log("ChangeRotationWheels");
                 _player.ChangeRotationWheels(_player.PlayerMover.MoveSpeed);
             }
         }

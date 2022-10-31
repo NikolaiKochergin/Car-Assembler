@@ -171,7 +171,6 @@ namespace CarAssembler
             for (int i = 0; i < Car.CurrentWheels.Count; i++)
             {
                 Car.CurrentWheels[i].Disable();
-                //_currentWheels[i].Disable();
             }
         }
 
@@ -179,9 +178,7 @@ namespace CarAssembler
         {
             for (int i = 0; i < Car.CurrentWheels.Count; i++)
             {
-                Debug.Log("StartRotationWheels");
                 Car.CurrentWheels[i].Enable();
-                //_currentWheels[i].Enable();
             }
         }
     }
