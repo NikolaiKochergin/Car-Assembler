@@ -21,7 +21,7 @@ namespace CarAssembler
         
         private void Awake()
         {
-            Hide();
+            //Hide();
             _defaultSpeed = _startSpeed;
             _speedMultiplier = 1;
         }
@@ -37,6 +37,9 @@ namespace CarAssembler
 
         public void StartRace()
         {
+            _mainCameraContainer.SetRacePosition();
+            
+            
             _player.PlayerMover.SplineFollower.spline = _spline;
             _player.PlayerMover.SplineFollower.SetPercent(0);
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed);
@@ -46,7 +49,7 @@ namespace CarAssembler
             _countDown.ShowCountDown(() =>
             {
                 _player.PlayerMover.StartMove();
-                _player.StartRotationWheels();
+                //_player.StartRotationWheels();
                 _rival.StartMove();
                 _rival.StartRotationWheels();
             });
