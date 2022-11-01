@@ -33,6 +33,9 @@ namespace CarAssembler
             _player = player;
             _ui = ui;
             _mainCameraContainer = mainCameraContainer;
+            
+            _player.QuickTimeEventTaken += OnQuickTimeEventTaken;
+            _player.QuickTimeEventEnded -= OnYokeEventEnded;
         }
 
         public void StartRace()
@@ -54,11 +57,37 @@ namespace CarAssembler
                 _rival.StartRotationWheels();
             });
         }
+        
+        private void OnQuickTimeEventTaken()
+        {
+            _ui.RaceMenu.TapMessage.Show();
+
+            _speedMultiplier = 1;
+            
+            _player.PlayerMover.SetFollowSpeed(_defaultSpeed * 0.5f);
+            _rival.SetSpeedMultiplier(0.5f);
+        }
+
+        private void OnYokeEventEnded()
+        {
+            _ui.RaceMenu.TapMessage.Hide();
+            
+            _player.PlayerMover.SetFollowSpeed(_defaultSpeed * _speedMultiplier);
+            _rival.SetSpeedMultiplier(3.6f - _speedMultiplier);
+
+            if (_player.Car.CurrentWheels != null)
+            {
+                _player.ChangeRotationWheels(_player.PlayerMover.MoveSpeed);
+            }
+        }
 
         //Used in Race Spline Computer trigger
         public void StopRace()
         {
             _player.PlayerMover.StopMove();
+            
+            _player.QuickTimeEventTaken -= OnQuickTimeEventTaken;
+            _player.QuickTimeEventEnded -= OnYokeEventEnded;
             
             _mainCameraContainer.CameraAnimator.ShowEndLevelAnimation();
             

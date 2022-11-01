@@ -10,7 +10,7 @@ namespace CarAssembler
             var factoryMachine = other.GetComponent<Stand>();
             var obstacle = other.GetComponent<Obstacle>();
             var barrier = other.GetComponent<Barrier>();
-            var yokeEvent = other.GetComponent<YokeEvent>();
+            var quickTimaEvent = other.GetComponent<QuickTimeEvent>();
             
             if(factoryMachine)
                 StandTaken?.Invoke(factoryMachine);
@@ -21,27 +21,27 @@ namespace CarAssembler
             if(barrier)
                 BarrierTaken?.Invoke(barrier);
             
-            if(yokeEvent)
-                YokeEventTaken?.Invoke();
+            if(quickTimaEvent)
+                QuickTimeEventTaken?.Invoke();
         }
 
         private void OnTriggerExit(Collider other)
         {
             var factoryMachine = other.GetComponent<Stand>();
-            var yokeEvent = other.GetComponent<YokeEvent>();
+            var yokeEvent = other.GetComponent<QuickTimeEvent>();
             
             if(factoryMachine)
                 StandLost?.Invoke(factoryMachine);
             
             if(yokeEvent)
-                YokeEventEnded?.Invoke();
+                QuickTimeEventEnded?.Invoke();
         }
 
         public event Action<Stand> StandTaken;
         public event Action<Stand> StandLost;
         public event Action<Obstacle> ObstacleTaken;
         public event Action<Barrier> BarrierTaken;
-        public event Action YokeEventTaken;
-        public event Action YokeEventEnded;
+        public event Action QuickTimeEventTaken;
+        public event Action QuickTimeEventEnded;
     }
 }

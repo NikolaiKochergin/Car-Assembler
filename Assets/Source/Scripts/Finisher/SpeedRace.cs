@@ -34,8 +34,8 @@ namespace CarAssembler
             _ui = ui;
             _mainCameraContainer = mainCameraContainer;
 
-            _player.YokeEventTaken += OnYokeEventTaken;
-            player.YokeEventEnded -= OnYokeEventEnded;
+            _player.QuickTimeEventTaken += OnQuickTimeEventTaken;
+            _player.QuickTimeEventEnded -= OnYokeEventEnded;
         }
 
         public void StartRace()
@@ -57,7 +57,7 @@ namespace CarAssembler
             });
         }
         
-        private void OnYokeEventTaken()
+        private void OnQuickTimeEventTaken()
         {
             _ui.RaceMenu.YokeButton.gameObject.SetActive(true);
             _ui.RaceMenu.Yoke.gameObject.SetActive(true);
@@ -103,8 +103,8 @@ namespace CarAssembler
         {
             _player.PlayerMover.StopMove();
             
-            _player.YokeEventTaken -= OnYokeEventTaken;
-            _player.YokeEventEnded -= OnYokeEventEnded;
+            _player.QuickTimeEventTaken -= OnQuickTimeEventTaken;
+            _player.QuickTimeEventEnded -= OnYokeEventEnded;
             _mainCameraContainer.CameraAnimator.ShowEndLevelAnimation();
             
             _player.StopRotationWheels();

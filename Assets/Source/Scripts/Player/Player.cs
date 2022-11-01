@@ -28,8 +28,8 @@ namespace CarAssembler
 
         public event Action NonControlledStateBegining;
         public event Action NonControlledStateEnding;
-        public event Action YokeEventTaken;
-        public event Action YokeEventEnded;
+        public event Action QuickTimeEventTaken;
+        public event Action QuickTimeEventEnded;
 
         private void OnEnable()
         {
@@ -37,8 +37,8 @@ namespace CarAssembler
             _collisionHandler.StandLost += OnStandLost;
             _collisionHandler.ObstacleTaken += OnObstacleTaken;
             _collisionHandler.BarrierTaken += OnBarrierTaken;
-            _collisionHandler.YokeEventTaken += OnYokeEventTaken;
-            _collisionHandler.YokeEventEnded += OnYokeEventEnded;
+            _collisionHandler.QuickTimeEventTaken += OnQuickTimeEventTaken;
+            _collisionHandler.QuickTimeEventEnded += OnQuickTimeEventEnded;
         }
 
         private void OnDisable()
@@ -47,8 +47,8 @@ namespace CarAssembler
             _collisionHandler.StandLost -= OnStandLost;
             _collisionHandler.ObstacleTaken -= OnObstacleTaken;
             _collisionHandler.BarrierTaken -= OnBarrierTaken;
-            _collisionHandler.YokeEventTaken -= OnYokeEventTaken;
-            _collisionHandler.YokeEventEnded -= OnYokeEventEnded;
+            _collisionHandler.QuickTimeEventTaken -= OnQuickTimeEventTaken;
+            _collisionHandler.QuickTimeEventEnded -= OnQuickTimeEventEnded;
         }
 
         public void Initialize(Car car, IReadOnlyList<Task> tasks)
@@ -103,14 +103,14 @@ namespace CarAssembler
             StartCoroutine(BarrierTakeShowing(barrier));
         }
 
-        private void OnYokeEventTaken()
+        private void OnQuickTimeEventTaken()
         {
-            YokeEventTaken?.Invoke();
+            QuickTimeEventTaken?.Invoke();
         }
 
-        private void OnYokeEventEnded()
+        private void OnQuickTimeEventEnded()
         {
-            YokeEventEnded?.Invoke();
+            QuickTimeEventEnded?.Invoke();
         }
 
         private IEnumerator ObstacleTakeShowing(Obstacle obstacle)
