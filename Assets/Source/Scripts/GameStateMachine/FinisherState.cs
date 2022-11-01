@@ -10,14 +10,13 @@ namespace CarAssembler
         private readonly UI _ui;
         private readonly MainCameraContainer _mainCameraContainer;
 
-        public FinisherState(GameStateMachine gameStateMachine, PlayerStateMachine playerStateMachine, UI ui,
-            TaskChecker taskChecker, MainCameraContainer mainCameraContainer)
+        public FinisherState(GameStateMachine gameStateMachine)
         {
             _gameStateMachine = gameStateMachine;
-            _playerStateMachine = playerStateMachine;
-            _ui = ui;
-            _taskChecker = taskChecker;
-            _mainCameraContainer = mainCameraContainer;
+            _playerStateMachine = gameStateMachine.PlayerStateMachine;
+            _ui = gameStateMachine.UI;
+            _taskChecker = gameStateMachine.TaskChecker;
+            _mainCameraContainer = gameStateMachine.MainCameraContainer;
         }
 
 
@@ -41,6 +40,7 @@ namespace CarAssembler
         public void Exit()
         {
             _mainCameraContainer.Follower.ChangeTarget(_playerStateMachine.Player.transform);
+            _mainCameraContainer.transform.position = _playerStateMachine.transform.position;
             _mainCameraContainer.transform.position = _playerStateMachine.Player.transform.position;
             _ui.FinisherMenu.Hide();
         }

@@ -1,35 +1,37 @@
-using CarAssembler;
 using UnityEngine.SceneManagement;
 
-public class EndLevelState : IGameState
+namespace CarAssembler
 {
-    private readonly PlayerStateMachine _playerStateMachine;
-    private readonly UI _ui;
-    private readonly MainCameraContainer _mainCameraContainer;
-
-    public EndLevelState(PlayerStateMachine playerStateMachine, UI ui, MainCameraContainer mainCameraContainer)
+    public class EndLevelState : IGameState
     {
-        _playerStateMachine = playerStateMachine;
-        _ui = ui;
-        _mainCameraContainer = mainCameraContainer;
-    }
+        private readonly PlayerStateMachine _playerStateMachine;
+        private readonly UI _ui;
+        private readonly MainCameraContainer _mainCameraContainer;
 
-    public void Enter()
-    {
-        _ui.EndLevelMenu.Show();
-        SaveGame();
-    }
+        public EndLevelState(GameStateMachine gameStateMachine)
+        {
+            _playerStateMachine = gameStateMachine.PlayerStateMachine;
+            _ui = gameStateMachine.UI;
+            _mainCameraContainer = gameStateMachine.MainCameraContainer;
+        }
 
-    public void Exit()
-    {
-        _ui.EndLevelMenu.Hide();
-    }
+        public void Enter()
+        {
+            _ui.EndLevelMenu.Show();
+            SaveGame();
+        }
 
-    private void SaveGame()
-    {
-        Data data = Storage.Load();
+        public void Exit()
+        {
+            _ui.EndLevelMenu.Hide();
+        }
 
-        data.Level = SceneManager.GetActiveScene().buildIndex + 1;
-        Storage.Save(data);
+        private void SaveGame()
+        {
+            Data data = Storage.Load();
+
+            data.Level = SceneManager.GetActiveScene().buildIndex + 1;
+            Storage.Save(data);
+        }
     }
 }

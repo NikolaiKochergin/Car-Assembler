@@ -7,28 +7,24 @@ namespace CarAssembler
 {
     public class GameStateMachine : MonoBehaviour
     {
-        [SerializeField] private PlayerStateMachine _playerStateMachine;
-        [SerializeField] private UI _uI;
         [SerializeField] private PlayableDirector _enterKatScene;
-        [SerializeField] private TaskChecker _taskChecker;
-        [SerializeField] private MainCameraContainer _mainCameraContainer;
 
         private IGameState _currentState;
         private Dictionary<Type, IGameState> _statesMap;
 
-        public PlayerStateMachine PlayerStateMachine => _playerStateMachine;
-        
-
-        private void Awake()
-        {
-            _playerStateMachine = FindObjectOfType<PlayerStateMachine>();
-            _uI = FindObjectOfType<UI>();
-            _mainCameraContainer = FindObjectOfType<MainCameraContainer>();
-            InitStates();
-        }
+        public PlayerStateMachine PlayerStateMachine { get; private set; }
+        public UI UI { get; private set; }
+        public TaskChecker TaskChecker { get; private set; }
+        public MainCameraContainer MainCameraContainer { get; private set; }
 
         private void Start()
         {
+            PlayerStateMachine = FindObjectOfType<PlayerStateMachine>();
+            UI = FindObjectOfType<UI>();
+            TaskChecker = FindObjectOfType<TaskChecker>();
+            MainCameraContainer = FindObjectOfType<MainCameraContainer>();
+            
+            InitStates();
             SetStateByDefault();
         }
 
@@ -36,12 +32,12 @@ namespace CarAssembler
         {
             _statesMap = new Dictionary<Type, IGameState>
             {
-                [typeof(InitialState)] = new InitialState(this, _playerStateMachine, _uI),
-                [typeof(KatSceneState)] = new KatSceneState(this, _enterKatScene, _uI, _mainCameraContainer),
-                [typeof(PlayState)] = new PlayState(_playerStateMachine, _uI),
-                [typeof(FinisherState)] = new FinisherState(this, _playerStateMachine, _uI, _taskChecker, _mainCameraContainer),
-                [typeof(RaceState)] = new RaceState(this, _uI, _taskChecker, _mainCameraContainer),
-                [typeof(EndLevelState)] = new EndLevelState(_playerStateMachine, _uI, _mainCameraContainer)
+                [typeof(InitialState)] = new InitialState(this),
+                [typeof(KatSceneState)] = new KatSceneState(this, _enterKatScene),
+                [typeof(PlayState)] = new PlayState(this),
+                [typeof(FinisherState)] = new FinisherState(this),
+                [typeof(RaceState)] = new RaceState(this),
+                [typeof(EndLevelState)] = new EndLevelState(this)
             };
         }
 

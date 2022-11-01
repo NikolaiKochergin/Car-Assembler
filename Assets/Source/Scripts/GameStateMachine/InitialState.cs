@@ -11,11 +11,11 @@ namespace CarAssembler
         private readonly UI _ui;
         private readonly string LevelSetupPath = "LevelSetup/";
 
-        public InitialState(GameStateMachine gameStateMachine, PlayerStateMachine playerStateMachine, UI ui)
+        public InitialState(GameStateMachine gameStateMachine)
         {
             _gameStateMachine = gameStateMachine;
-            _playerStateMachine = playerStateMachine;
-            _ui = ui;
+            _playerStateMachine = gameStateMachine.PlayerStateMachine;
+            _ui = gameStateMachine.UI;
         }
 
         public void Enter()

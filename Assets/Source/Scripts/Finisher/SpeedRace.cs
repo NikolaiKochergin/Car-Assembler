@@ -65,6 +65,7 @@ namespace CarAssembler
             _speedMultiplier = 1;
             
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed * 0.5f);
+            _rival.SetSpeedMultiplier(0.5f);
             
             _ui.RaceMenu.YokeButton.onClick.AddListener(OnClicked);
         }
@@ -77,6 +78,7 @@ namespace CarAssembler
             _ui.RaceMenu.Yoke.gameObject.SetActive(false);
             
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed * _speedMultiplier);
+            _rival.SetSpeedMultiplier(3.6f - _speedMultiplier);
 
             if (_player.Car.CurrentWheels != null)
             {
@@ -104,6 +106,9 @@ namespace CarAssembler
             _player.YokeEventTaken -= OnYokeEventTaken;
             _player.YokeEventEnded -= OnYokeEventEnded;
             _mainCameraContainer.CameraAnimator.ShowEndLevelAnimation();
+            
+            _player.StopRotationWheels();
+            _rival.StopRotationWheels();
             
             RaceEnded?.Invoke();
         }
