@@ -28,7 +28,7 @@ namespace CarAssembler
 
         public event Action NonControlledStateBegining;
         public event Action NonControlledStateEnding;
-        public event Action QuickTimeEventTaken;
+        public event Action<QuickTimeEvent> QuickTimeEventTaken;
         public event Action QuickTimeEventEnded;
 
         private void OnEnable()
@@ -103,9 +103,9 @@ namespace CarAssembler
             StartCoroutine(BarrierTakeShowing(barrier));
         }
 
-        private void OnQuickTimeEventTaken()
+        private void OnQuickTimeEventTaken(QuickTimeEvent quickTimeEvent)
         {
-            QuickTimeEventTaken?.Invoke();
+            QuickTimeEventTaken?.Invoke(quickTimeEvent);
         }
 
         private void OnQuickTimeEventEnded()

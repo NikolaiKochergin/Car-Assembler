@@ -18,6 +18,7 @@ namespace CarAssembler
         
         private float _defaultSpeed;
         private float _speedMultiplier;
+        private QuickTimeEvent _currentQuickTimeEvent;
 
         private void Awake()
         {
@@ -35,7 +36,7 @@ namespace CarAssembler
             _mainCameraContainer = mainCameraContainer;
 
             _player.QuickTimeEventTaken += OnQuickTimeEventTaken;
-            _player.QuickTimeEventEnded -= OnYokeEventEnded;
+            _player.QuickTimeEventEnded += OnYokeEventEnded;
         }
 
         public void StartRace()
@@ -57,8 +58,10 @@ namespace CarAssembler
             });
         }
         
-        private void OnQuickTimeEventTaken()
+        private void OnQuickTimeEventTaken(QuickTimeEvent quickTimeEvent)
         {
+            _currentQuickTimeEvent = quickTimeEvent;
+            
             _ui.RaceMenu.YokeButton.gameObject.SetActive(true);
             _ui.RaceMenu.Yoke.gameObject.SetActive(true);
 
@@ -72,6 +75,8 @@ namespace CarAssembler
 
         private void OnYokeEventEnded()
         {
+            _currentQuickTimeEvent.Hide();
+            
             _ui.RaceMenu.YokeButton.onClick.RemoveListener(OnClicked);
             
             _ui.RaceMenu.YokeButton.gameObject.SetActive(false);
