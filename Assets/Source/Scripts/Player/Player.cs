@@ -66,11 +66,6 @@ namespace CarAssembler
 
         public void ExplodeCar()
         {
-            for (int i = 0; i < Car.RigidbodiesDetails.Count; i++)
-            {
-                Debug.Log(Car.RigidbodiesDetails[i]);
-                
-            }
             Car.CarExplosion.Explode(Car.RigidbodiesDetails);
         }
 
