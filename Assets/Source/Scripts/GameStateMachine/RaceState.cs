@@ -9,14 +9,14 @@ namespace CarAssembler
         private readonly TaskChecker _checker;
         private readonly MainCameraContainer _mainCameraContainer;
 
-        public RaceState(GameStateMachine gameStateMachine, UI ui, TaskChecker checker, MainCameraContainer mainCameraContainer)
+        public RaceState(GameStateMachine gameStateMachine)
         {
             _gameStateMachine = gameStateMachine;
             _playerStateMachine = gameStateMachine.PlayerStateMachine;
-            _ui = ui;
+            _ui = gameStateMachine.UI;
             _player = gameStateMachine.PlayerStateMachine.Player;
-            _checker = checker;
-            _mainCameraContainer = mainCameraContainer;
+            _checker = gameStateMachine.TaskChecker;
+            _mainCameraContainer = gameStateMachine.MainCameraContainer;
         }
         
         public void Enter()

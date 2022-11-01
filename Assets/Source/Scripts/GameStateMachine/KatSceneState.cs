@@ -9,12 +9,12 @@ namespace CarAssembler
         private readonly UI _ui;
         private readonly MainCameraContainer _mainCameraContainer;
 
-        public KatSceneState(GameStateMachine gameStateMachine, PlayableDirector director, UI ui, MainCameraContainer mainCameraContainer)
+        public KatSceneState(GameStateMachine gameStateMachine, PlayableDirector director)
         {
             _gameStateMachine = gameStateMachine;
             _enterKatScene = director;
-            _ui = ui;
-            _mainCameraContainer = mainCameraContainer;
+            _ui = gameStateMachine.UI;
+            _mainCameraContainer = gameStateMachine.MainCameraContainer;
         }
 
         public void Enter()

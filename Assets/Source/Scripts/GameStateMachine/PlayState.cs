@@ -5,10 +5,10 @@ namespace CarAssembler
         private readonly PlayerStateMachine _playerStateMachine;
         private readonly UI _ui;
 
-        public PlayState(PlayerStateMachine playerStateMachine, UI ui)
+        public PlayState(GameStateMachine gameStateMachine)
         {
-            _playerStateMachine = playerStateMachine;
-            _ui = ui;
+            _playerStateMachine = gameStateMachine.PlayerStateMachine;
+            _ui = gameStateMachine.UI;
         }
 
         public void Enter()
