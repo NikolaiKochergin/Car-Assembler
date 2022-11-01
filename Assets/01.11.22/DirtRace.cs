@@ -19,15 +19,15 @@ namespace CarAssembler
 
         private float _defaultSpeed;
         private bool _isOnQuickTimeEvent;
+        
         private MainCameraContainer _mainCameraContainer;
-
         private Player _player;
         private float _speedMultiplier;
         private UI _ui;
 
         private void Awake()
         {
-            //Hide();
+            Hide();
             _defaultSpeed = _startSpeed;
             _speedMultiplier = 1;
         }
