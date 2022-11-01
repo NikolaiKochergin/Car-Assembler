@@ -2982,7 +2982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8709343537843420695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3316,7 +3316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4708235269256008427, guid: 5b4ad84efbff1e14cb80acc559adc402, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6113560850451940847, guid: 5b4ad84efbff1e14cb80acc559adc402, type: 3}
       propertyPath: m_Name

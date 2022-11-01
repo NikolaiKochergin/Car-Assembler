@@ -2,12 +2,12 @@ namespace CarAssembler
 {
     public class RaceState : IGameState
     {
+        private readonly TaskChecker _checker;
         private readonly GameStateMachine _gameStateMachine;
+        private readonly MainCameraContainer _mainCameraContainer;
+        private readonly Player _player;
         private readonly PlayerStateMachine _playerStateMachine;
         private readonly UI _ui;
-        private readonly Player _player;
-        private readonly TaskChecker _checker;
-        private readonly MainCameraContainer _mainCameraContainer;
 
         public RaceState(GameStateMachine gameStateMachine)
         {
@@ -18,7 +18,7 @@ namespace CarAssembler
             _checker = gameStateMachine.TaskChecker;
             _mainCameraContainer = gameStateMachine.MainCameraContainer;
         }
-        
+
         public void Enter()
         {
             _ui.RaceMenu.Show();

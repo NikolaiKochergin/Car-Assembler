@@ -49,13 +49,12 @@ namespace CarAssembler
             _mainCameraContainer = mainCameraContainer;
 
             _player.QuickTimeEventTaken += OnQuickTimeEventTaken;
-            _player.QuickTimeEventEnded -= OnQuickTimeEventEnded;
+            _player.QuickTimeEventEnded += OnQuickTimeEventEnded;
         }
 
         public void StartRace()
         {
             _mainCameraContainer.SetRacePosition();
-
 
             _player.PlayerMover.SplineFollower.spline = _spline;
             _player.PlayerMover.SplineFollower.SetPercent(0);
@@ -84,6 +83,8 @@ namespace CarAssembler
 
         private void OnQuickTimeEventTaken(QuickTimeEvent quickTimeEvent)
         {
+            _isOnQuickTimeEvent = true;
+            
             _ui.RaceMenu.TapMessage.Show();
 
             _speedMultiplier = 1;
@@ -91,19 +92,26 @@ namespace CarAssembler
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed * 0.5f);
             _rival.SetSpeedMultiplier(0.5f);
 
-            _isOnQuickTimeEvent = true;
         }
 
         private void OnQuickTimeEventEnded()
         {
+            _isOnQuickTimeEvent = false;
+
+            if (_changeSpeedCoroutine != null)
+            {
+                StopCoroutine(_changeSpeedCoroutine);
+                _changeSpeedCoroutine = null;
+            }
+            
             _ui.RaceMenu.TapMessage.Hide();
 
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed);
             _rival.SetSpeedMultiplier(1);
 
-            if (_player.Car.CurrentWheels != null) _player.ChangeRotationWheels(_player.PlayerMover.MoveSpeed);
+            if (_player.Car.CurrentWheels != null) 
+                _player.ChangeRotationWheels(_player.PlayerMover.MoveSpeed);
 
-            _isOnQuickTimeEvent = false;
         }
 
         //Used in Race Spline Computer trigger

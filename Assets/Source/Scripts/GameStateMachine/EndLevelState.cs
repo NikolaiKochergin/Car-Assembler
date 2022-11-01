@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace CarAssembler
@@ -18,6 +19,7 @@ namespace CarAssembler
         public void Enter()
         {
             _ui.EndLevelMenu.Show();
+            Debug.Log("check");
             SaveGame();
         }
 
