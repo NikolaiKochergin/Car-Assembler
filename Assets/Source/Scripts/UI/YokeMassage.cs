@@ -26,7 +26,7 @@ namespace CarAssembler
 
         private void ShowValue()
         {
-            if (_yoke.InputValue >= 1)
+            if (_yoke.InputValue >= 1.5f)
             {
                 StartCoroutine(MessageShowing(_excelentText));
             }

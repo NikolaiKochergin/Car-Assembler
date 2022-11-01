@@ -40,6 +40,7 @@ namespace CarAssembler
         public void Exit()
         {
             _mainCameraContainer.Follower.ChangeTarget(_playerStateMachine.Player.transform);
+            _mainCameraContainer.transform.position = _playerStateMachine.transform.position;
             _mainCameraContainer.transform.position = _playerStateMachine.Player.transform.position;
             _ui.FinisherMenu.Hide();
         }
