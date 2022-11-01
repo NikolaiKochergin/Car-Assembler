@@ -16,6 +16,8 @@ MonoBehaviour:
   _favoriteWindows: []
   _quickAccessItems: []
   _sceneHistory:
+  - name: 004_Level_4_Dirt
+    path: Assets/Source/Scenes/#BuildLevels/004_Level_4_Dirt.unity
   - name: 001_Level_1
     path: Assets/Source/Scenes/#BuildLevels/001_Level_1.unity
   - name: 002_Level_2
