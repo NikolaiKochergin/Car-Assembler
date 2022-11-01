@@ -217,10 +217,10 @@ MonoBehaviour:
   _appearParticles: {fileID: 3145461063232419960}
   _features:
     _slotType: 7
-    _speed: -1
+    _speed: 0
     _fuelEconomy: 0
     _coolness: 0
-    _comfort: 0
+    _comfort: -1
     _airplane: 0
     _angel: 0
     _boat: 0
@@ -228,9 +228,9 @@ MonoBehaviour:
     _elephant: 0
     _fireTrack: 0
     _fish: 0
-    _offroad: 2
+    _offroad: 3
     _spring: 0
-    _power: 0
+    _power: 2
 --- !u!1001 &1347650464327896777
 PrefabInstance:
   m_ObjectHideFlags: 0

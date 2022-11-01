@@ -182,7 +182,7 @@ MonoBehaviour:
     _speed: 0
     _fuelEconomy: 0
     _coolness: 0
-    _comfort: 3
+    _comfort: 4
     _airplane: 0
     _angel: 0
     _boat: 0
@@ -190,9 +190,9 @@ MonoBehaviour:
     _elephant: 0
     _fireTrack: 0
     _fish: 0
-    _offroad: -1
+    _offroad: -2
     _spring: 0
-    _power: 0
+    _power: -2
 --- !u!54 &7946863819595384868
 Rigidbody:
   m_ObjectHideFlags: 0

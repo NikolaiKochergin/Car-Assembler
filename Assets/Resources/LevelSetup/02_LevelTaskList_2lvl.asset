@@ -16,5 +16,5 @@ MonoBehaviour:
   _tasks:
   - _featureType: 11
     _targetValue: 10
-  - _featureType: 11
+  - _featureType: 13
     _targetValue: 10
