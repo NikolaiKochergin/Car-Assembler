@@ -16,10 +16,16 @@ MonoBehaviour:
   _favoriteWindows: []
   _quickAccessItems: []
   _sceneHistory:
-  - name: 004_Level_4
-    path: Assets/Source/Scenes/#BuildLevels/004_Level_4.unity
   - name: 003_Level_3
     path: Assets/Source/Scenes/#BuildLevels/003_Level_3.unity
+  - name: 004_Level_4
+    path: Assets/Source/Scenes/#BuildLevels/004_Level_4.unity
+  - name: 005_Level_5_Fly
+    path: Assets/Source/Scenes/#BuildLevels/005_Level_5_Fly.unity
+  - name: 006_Level_6_Lowride
+    path: Assets/Source/Scenes/#BuildLevels/006_Level_6_Lowride.unity
+  - name: 001_Level_1
+    path: Assets/Source/Scenes/#BuildLevels/001_Level_1.unity
   - name: 002_Level_2
     path: Assets/Source/Scenes/#BuildLevels/002_Level_2.unity
   - name: Max_03
@@ -28,8 +34,6 @@ MonoBehaviour:
     path: Assets/Source/Scenes/Max/Max_02.unity
   - name: 004_Level_4_Dirt
     path: Assets/Source/Scenes/#BuildLevels/004_Level_4_Dirt.unity
-  - name: 001_Level_1
-    path: Assets/Source/Scenes/#BuildLevels/001_Level_1.unity
   - name: NewColors
     path: Assets/Source/Scenes/Vlad/NewColors.unity
   - name: NewColors
@@ -50,7 +54,3 @@ MonoBehaviour:
     path: Assets/Source/Scenes/001_Level_1.unity
   - name: 002_Level_2
     path: Assets/Source/Scenes/002_Level_2.unity
-  - name: 001_Level_UI_and_camera
-    path: Assets/Source/Scenes/001_Level_UI_and_camera.unity
-  - name: 001_Level_UI
-    path: Assets/Source/Scenes/001_Level_UI.unity
