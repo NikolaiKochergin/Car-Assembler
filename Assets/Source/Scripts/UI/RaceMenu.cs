@@ -9,10 +9,12 @@ namespace CarAssembler
         [SerializeField] private Button _yokeButton;
         [SerializeField] private CountDownView _countDownView;
         [SerializeField] private UITapMessage _uiTapMessage;
+        [SerializeField] private UILowride _uiLowride;
 
         public UIYoke Yoke => _uiYoke;
         public Button YokeButton => _yokeButton;
         public CountDownView CountDownView => _countDownView;
         public UITapMessage TapMessage => _uiTapMessage;
+        public UILowride Lowride => _uiLowride;
     }
 }
