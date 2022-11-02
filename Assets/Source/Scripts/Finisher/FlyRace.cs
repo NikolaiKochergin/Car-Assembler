@@ -37,7 +37,7 @@ namespace CarAssembler
         {
             if(_isInRace == false) return;
 
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 _targetOffsetY += 4;
             }
