@@ -5037,8 +5037,8 @@ MonoBehaviour:
     _speed: 3
     _fuelEconomy: 0
     _coolness: 0
-    _comfort: 0
-    _airplane: 4
+    _comfort: -3
+    _airplane: 5
     _angel: 0
     _boat: 0
     _devil: 0
