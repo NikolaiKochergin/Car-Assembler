@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3807511029518694045}
+  - component: {fileID: 5298266227521765617}
+  - component: {fileID: 4676629731948076686}
   m_Layer: 0
   m_Name: CarSport_04_lvl
   m_TagString: Untagged
@@ -32,6 +34,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5298266227521765617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4583872459335773223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ce21f6e4a37a14095f11119feb94ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _model: {fileID: 3807511029518694045}
+  _carExpolsion: {fileID: 4676629731948076686}
+  _rigidbodiesDetails: []
+--- !u!114 &4676629731948076686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4583872459335773223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dfecc83c91dc24e8373648e97b455b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionParticlies: []
+  _speedParticles: []
 --- !u!1 &4586007842144283491
 GameObject:
   m_ObjectHideFlags: 0
