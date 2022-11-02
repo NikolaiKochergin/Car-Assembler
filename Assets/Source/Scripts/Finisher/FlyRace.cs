@@ -13,9 +13,13 @@ namespace CarAssembler
         [SerializeField] [Min(0)] private float _startSpeed = 6;
         [SerializeField] private AnimationCurve _changeSpeedCurve;
         [SerializeField] [Min(0)] private float _changeSpeedDuration = 1;
+        [SerializeField] [Min(0)] private float _maxPositionY = 5;
 
         private float _defaultSpeed;
         private bool _isOnQuickTimeEvent;
+        private bool _isInRace;
+        private float _targetOffsetY;
+        private float _targetRotationX;
 
         private MainCameraContainer _mainCameraContainer;
         private Player _player;
@@ -27,6 +31,33 @@ namespace CarAssembler
             Hide();
             _defaultSpeed = _startSpeed;
             _speedMultiplier = 1;
+        }
+
+        private void Update()
+        {
+            if(_isInRace == false) return;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                _targetOffsetY += 4;
+            }
+
+            _targetOffsetY -= 4 * Time.deltaTime;
+            _targetOffsetY = Mathf.Clamp(_targetOffsetY, 0, _maxPositionY);
+
+            if (_targetOffsetY - _player.PlayerMover.SplineFollower.motion.offset.y > 0)
+                _targetRotationX = -30f;
+            else if(_targetOffsetY - _player.PlayerMover.SplineFollower.motion.offset.y < 0)
+                _targetRotationX = 30f;
+            else
+                _targetRotationX = 0f;
+
+            _player.PlayerMover.SplineFollower.motion.offset = Vector2.MoveTowards(_player.PlayerMover.SplineFollower.motion.offset,
+                    new Vector2(0, _targetOffsetY), 4 * Time.deltaTime);
+
+            _player.PlayerMover.SplineFollower.motion.rotationOffset = Vector3.Lerp(
+                _player.PlayerMover.SplineFollower.motion.rotationOffset,
+                new Vector3(_targetRotationX, 0, 0), 5 *  Time.deltaTime);
         }
 
         public event Action RaceEnded;
@@ -53,9 +84,12 @@ namespace CarAssembler
             _ui.RaceMenu.CountDownView.ShowCountDown();
             _countDown.ShowCountDown(() =>
             {
+                _targetOffsetY = _player.PlayerMover.SplineFollower.motion.offset.y;
+                _targetRotationX = _player.PlayerMover.SplineFollower.motion.rotationOffset.x;
                 _player.PlayerMover.StartMove();
                 //_player.StartRotationWheels();
                 _rival.StartMove();
+                _isInRace = true;
             });
         }
 
@@ -78,18 +112,19 @@ namespace CarAssembler
             _player.QuickTimeEventEnded -= OnQuickTimeEventEnded;
 
             _mainCameraContainer.CameraAnimator.ShowEndLevelAnimation();
-
+            _isInRace = false;
+            
             RaceEnded?.Invoke();
         }
 
         private void OnQuickTimeEventTaken(QuickTimeEvent quickTimeEvent)
         {
-            Debug.Log("Тут что то должно происходить на вроде в триггер");
+            _player.PlayerMover.SetFollowSpeed(_defaultSpeed * 0.5f);
         }
 
         private void OnQuickTimeEventEnded()
         {
-            Debug.Log("Тут что то должно происходить на выходе из триггера");
+            _player.PlayerMover.SetFollowSpeed(_defaultSpeed);
         }
     }
 }
