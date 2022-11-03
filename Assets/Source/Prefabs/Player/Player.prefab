@@ -48,7 +48,6 @@ GameObject:
   - component: {fileID: 2103651885645875615}
   - component: {fileID: 2103651885645875614}
   - component: {fileID: 2103651885645875608}
-  - component: {fileID: 2103651885645875596}
   - component: {fileID: 2103651885645875597}
   - component: {fileID: 4825045326777965847}
   - component: {fileID: 4004372661605490506}
@@ -135,7 +134,7 @@ MonoBehaviour:
   _playerMover: {fileID: 2103651885645875614}
   _conveyorAnimator: {fileID: 0}
   _taskListWidget: {fileID: 0}
-  _animatorContainer: {fileID: 0}
+  _animatorContainer: {fileID: 4825045326777965847}
   _particleContainer: {fileID: 0}
   _slots:
   - {fileID: 4147931406597990747}
@@ -1063,26 +1062,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!95 &2103651885645875596
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2103651885645875606}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 58e270791ec3a9943b9f69a68e8c4d88, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2103651885645875597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,7 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8c5e871ea9f7f40ba9ad9eb38fad95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 2103651885645875596}
+  _animator: {fileID: 6587149138407646753}
 --- !u!114 &4004372661605490506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,6 +1407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5550166794198082280}
+  - component: {fileID: 6587149138407646753}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -1454,6 +1434,26 @@ Transform:
   m_Father: {fileID: 2103651885645875600}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6587149138407646753
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6319506088298746235}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 090d4daf3f8489c4383b904146b99972, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2976493641695364288
 PrefabInstance:
   m_ObjectHideFlags: 0
