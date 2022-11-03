@@ -270,6 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4049367125979645725}
   - component: {fileID: 4049367125979645727}
+  - component: {fileID: 325805866899734079}
   m_Layer: 0
   m_Name: 01_Wheels_01_lvl
   m_TagString: Untagged
@@ -326,6 +327,23 @@ MonoBehaviour:
     _offroad: 0
     _spring: 0
     _power: 0
+--- !u!114 &325805866899734079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049367125979645724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea441edafb3490a4ea7ffc151526785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wheels:
+  - {fileID: 5584842582992910906}
+  - {fileID: 3914526464802610148}
+  - {fileID: 4917036828473912052}
+  - {fileID: 8655643832026112894}
 --- !u!1 &6989063353608597164
 GameObject:
   m_ObjectHideFlags: 0
