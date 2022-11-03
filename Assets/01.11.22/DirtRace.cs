@@ -65,6 +65,8 @@ namespace CarAssembler
             _countDown.ShowCountDown(() =>
             {
                 _player.PlayerMover.StartMove();
+                _player.AnimatorContainer.Enable();
+                _player.AnimatorContainer.ShowDefaultDirtRace();
                 //_player.StartRotationWheels();
                 _rival.StartMove();
                 _rival.StartRotationWheels();
