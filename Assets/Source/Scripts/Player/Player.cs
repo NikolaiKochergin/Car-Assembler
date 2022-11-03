@@ -13,12 +13,14 @@ namespace CarAssembler
         [SerializeField] private PlayerMover _playerMover;
         [SerializeField] private ConveyorAnimator _conveyorAnimator;
         [SerializeField] private UITaskListWidget _taskListWidget;
-        [SerializeField] private AnimatorContainer _animator;
+        [SerializeField] private AnimatorContainer _animatorContainer;
         [SerializeField] private ParticleContainer _particleContainer;
         [SerializeField] private List<Slot> _slots;
+        
+        [SerializeField] private Transform _model;
 
         public ConveyorAnimator ConveyorAnimator => _conveyorAnimator;
-        public AnimatorContainer animatorContainer => _animator;
+        public AnimatorContainer AnimatorContainer => _animatorContainer;
         public PlayInput PlayInput => _playInput;
         public PlayerMover PlayerMover => _playerMover;
         public UITaskListWidget TaskListWidget => _taskListWidget;
@@ -60,7 +62,7 @@ namespace CarAssembler
 
         private void SetCar(Car car)
         {
-            var spawnedCar = Instantiate(car, transform);
+            var spawnedCar = Instantiate(car, _model);
             Car = spawnedCar;
             Car.Initialize(_slots);
             Car.Show();
