@@ -11,19 +11,20 @@ namespace CarAssembler
         [SerializeField] private Rival _rival;
         [SerializeField] private CountDown _countDown;
         [SerializeField] [Min(0)] private float _startSpeed = 6;
-        [SerializeField] private AnimationCurve _changeSpeedCurve;
-        [SerializeField] [Min(0)] private float _changeSpeedDuration = 1;
-        [SerializeField] [Min(0)] private float _maxPositionY = 5;
+        [SerializeField] private float _minPositionY = -1;
+        [SerializeField] private float _maxPositionY = 5;
+        [SerializeField] [Min(0)] private float _gravityFactor = 4;
 
         private float _defaultSpeed;
-        private bool _isOnQuickTimeEvent;
+        private bool _isControlled;
         private bool _isInRace;
-        private float _targetOffsetY;
-        private float _targetRotationX;
+        private bool _isOnQuickTimeEvent;
 
         private MainCameraContainer _mainCameraContainer;
         private Player _player;
         private float _speedMultiplier;
+        private float _targetOffsetY;
+        private float _targetRotationX;
         private UI _ui;
 
         private void Awake()
@@ -35,29 +36,29 @@ namespace CarAssembler
 
         private void Update()
         {
-            if(_isInRace == false) return;
+            if (_isInRace == false) return;
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                _targetOffsetY += 4;
-            }
+            if (_isControlled)
+                if (Input.GetMouseButton(0))
+                    _targetOffsetY = _maxPositionY;
+                else
+                    _targetOffsetY = _minPositionY;
 
-            _targetOffsetY -= 4 * Time.deltaTime;
-            _targetOffsetY = Mathf.Clamp(_targetOffsetY, 0, _maxPositionY);
 
             if (_targetOffsetY - _player.PlayerMover.SplineFollower.motion.offset.y > 0)
                 _targetRotationX = -30f;
-            else if(_targetOffsetY - _player.PlayerMover.SplineFollower.motion.offset.y < 0)
+            else if (_targetOffsetY - _player.PlayerMover.SplineFollower.motion.offset.y < 0)
                 _targetRotationX = 30f;
             else
                 _targetRotationX = 0f;
 
-            _player.PlayerMover.SplineFollower.motion.offset = Vector2.MoveTowards(_player.PlayerMover.SplineFollower.motion.offset,
-                    new Vector2(0, _targetOffsetY), 4 * Time.deltaTime);
+            _player.PlayerMover.SplineFollower.motion.offset = Vector2.MoveTowards(
+                _player.PlayerMover.SplineFollower.motion.offset,
+                new Vector2(0, _targetOffsetY), 6 * Time.deltaTime);
 
             _player.PlayerMover.SplineFollower.motion.rotationOffset = Vector3.Lerp(
                 _player.PlayerMover.SplineFollower.motion.rotationOffset,
-                new Vector3(_targetRotationX, 0, 0), 5 *  Time.deltaTime);
+                new Vector3(_targetRotationX, 0, 0), 8 * Time.deltaTime);
         }
 
         public event Action RaceEnded;
@@ -80,6 +81,7 @@ namespace CarAssembler
             _player.PlayerMover.SplineFollower.SetPercent(0);
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed);
             _player.transform.SetPositionAndRotation(_playerStartPoint.position, _playerStartPoint.rotation);
+            _player.Car.transform.localPosition = new Vector3(0, -0.45f, -1.15f);
 
             _ui.RaceMenu.CountDownView.ShowCountDown();
             _countDown.ShowCountDown(() =>
@@ -90,6 +92,7 @@ namespace CarAssembler
                 //_player.StartRotationWheels();
                 _rival.StartMove();
                 _isInRace = true;
+                _isControlled = true;
             });
         }
 
@@ -104,6 +107,13 @@ namespace CarAssembler
         }
 
         //Used in Race Spline Computer trigger
+        public void PrepareToStopRace()
+        {
+            _targetOffsetY = 0;
+            _isControlled = false;
+        }
+
+        //Used in Race Spline Computer trigger
         public void StopRace()
         {
             _player.PlayerMover.StopMove();
@@ -113,7 +123,7 @@ namespace CarAssembler
 
             _mainCameraContainer.CameraAnimator.ShowEndLevelAnimation();
             _isInRace = false;
-            
+
             RaceEnded?.Invoke();
         }
 
