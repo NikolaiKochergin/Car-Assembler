@@ -15,6 +15,7 @@ namespace CarAssembler
         [SerializeField] private UITaskListWidget _taskListWidget;
         [SerializeField] private AnimatorContainer _animator;
         [SerializeField] private ParticleContainer _particleContainer;
+        [SerializeField] private List<Slot> _slots;
 
         public ConveyorAnimator ConveyorAnimator => _conveyorAnimator;
         public AnimatorContainer animatorContainer => _animator;
@@ -61,6 +62,7 @@ namespace CarAssembler
         {
             var spawnedCar = Instantiate(car, transform);
             Car = spawnedCar;
+            Car.Initialize(_slots);
             Car.Show();
         }
 
