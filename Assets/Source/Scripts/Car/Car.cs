@@ -9,6 +9,7 @@ namespace CarAssembler
         [SerializeField] private Transform _model;
         [SerializeField] private CarFinishReaction _carExpolsion;
         [SerializeField] private List<Rigidbody> _rigidbodiesDetails;
+        [SerializeField] private List<Slot> _slots;
 
         private readonly List<Detail> _details = new();
         private List<Wheel> _currentWheels;
@@ -28,7 +29,17 @@ namespace CarAssembler
 
         public void TakeDetail(Detail detail)
         {
-            var spawnedDetail = Instantiate(detail, _model);
+            Transform parent = _model;
+            
+            foreach (var slot in _slots)
+            {
+                if (slot.SlotType == detail.Features.Slot)
+                {
+                    parent = slot.transform;
+                }
+            }
+            
+            var spawnedDetail = Instantiate(detail, parent);
             spawnedDetail.PlayParticle();
             _details.Add(spawnedDetail);
 
