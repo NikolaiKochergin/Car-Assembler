@@ -16,7 +16,6 @@ namespace CarAssembler
         [SerializeField] private AnimatorContainer _animatorContainer;
         [SerializeField] private ParticleContainer _particleContainer;
         [SerializeField] private List<Slot> _slots;
-        
         [SerializeField] private Transform _model;
 
         public ConveyorAnimator ConveyorAnimator => _conveyorAnimator;
@@ -24,6 +23,7 @@ namespace CarAssembler
         public PlayInput PlayInput => _playInput;
         public PlayerMover PlayerMover => _playerMover;
         public UITaskListWidget TaskListWidget => _taskListWidget;
+        public Transform Model => _model;
         public Car Car { get; private set; }
         public Stand Stand { get; private set; }
         public IReadOnlyList<Task> Tasks { get; private set; }

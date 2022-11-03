@@ -67,7 +67,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103651885645875606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -969,9 +969,9 @@ MonoBehaviour:
   _dontLerpDirection: 0
   _physicsMode: 0
   _motion:
-    _hasOffset: 0
+    _hasOffset: 1
     _hasRotationOffset: 0
-    _offset: {x: 0, y: 0}
+    _offset: {x: 0, y: 0.2}
     _rotationOffset: {x: 0, y: 0, z: 0}
     _baseScale: {x: 1, y: 1, z: 1}
     _2dMode: 0

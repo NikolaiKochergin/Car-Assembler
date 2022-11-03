@@ -13,7 +13,7 @@ namespace CarAssembler
         [SerializeField] [Min(0)] private float _startSpeed = 6;
         [SerializeField] private float _minPositionY = -1;
         [SerializeField] private float _maxPositionY = 5;
-        [SerializeField] [Min(0)] private float _gravityFactor = 4;
+        [SerializeField] private Vector3 _modelOffset;
 
         private float _defaultSpeed;
         private bool _isControlled;
@@ -81,7 +81,8 @@ namespace CarAssembler
             _player.PlayerMover.SplineFollower.SetPercent(0);
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed);
             _player.transform.SetPositionAndRotation(_playerStartPoint.position, _playerStartPoint.rotation);
-            _player.Car.transform.localPosition = new Vector3(0, -0.45f, -1.15f);
+            
+            _player.Model.transform.localPosition = _modelOffset;
 
             _ui.RaceMenu.CountDownView.ShowCountDown();
             _countDown.ShowCountDown(() =>
