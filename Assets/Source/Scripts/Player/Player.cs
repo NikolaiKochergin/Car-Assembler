@@ -182,5 +182,10 @@ namespace CarAssembler
                 Car.CurrentWheels[i].Enable();
             }
         }
+
+        public void ResetPositionModel()
+        {
+            _model.transform.position = Vector3.zero;
+        }
     }
 }

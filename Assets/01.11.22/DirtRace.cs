@@ -55,7 +55,9 @@ namespace CarAssembler
         public void StartRace()
         {
             _mainCameraContainer.SetRacePosition();
-
+            
+            _player.AnimatorContainer.Enable();
+            _player.AnimatorContainer.ShowIdle();
             _player.PlayerMover.SplineFollower.spline = _spline;
             _player.PlayerMover.SplineFollower.SetPercent(0);
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed);
@@ -65,8 +67,9 @@ namespace CarAssembler
             _countDown.ShowCountDown(() =>
             {
                 _player.PlayerMover.StartMove();
-                _player.AnimatorContainer.Enable();
+
                 _player.AnimatorContainer.ShowDefaultDirtRace();
+                _player.ParticleContainer.PlayDirtFall();
                 //_player.StartRotationWheels();
                 _rival.StartMove();
                 _rival.StartRotationWheels();
@@ -85,6 +88,7 @@ namespace CarAssembler
 
         private void OnQuickTimeEventTaken(QuickTimeEvent quickTimeEvent)
         {
+            _player.AnimatorContainer.ShowDirtRace();
             _isOnQuickTimeEvent = true;
             
             _ui.RaceMenu.TapMessage.Show();
@@ -98,6 +102,7 @@ namespace CarAssembler
 
         private void OnQuickTimeEventEnded()
         {
+            _player.AnimatorContainer.ShowDefaultDirtRace();
             _isOnQuickTimeEvent = false;
 
             if (_changeSpeedCoroutine != null)
