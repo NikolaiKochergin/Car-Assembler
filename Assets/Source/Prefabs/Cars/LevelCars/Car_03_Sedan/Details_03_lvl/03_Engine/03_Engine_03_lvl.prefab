@@ -48,11 +48,20 @@ MonoBehaviour:
   _appearParticles: {fileID: 0}
   _features:
     _slotType: 6
-    _speed: 3
-    _fuelEconomy: -3
-    _coolness: 0
-    _comfort: 1
-    _price: 0
+    _speed: 0
+    _fuelEconomy: 0
+    _coolness: 1
+    _comfort: 0
+    _airplane: 0
+    _angel: 0
+    _boat: 0
+    _devil: 2
+    _elephant: 0
+    _fireTrack: 0
+    _fish: 0
+    _offroad: 0
+    _spring: 0
+    _power: 0
 --- !u!1 &6472408239907760862
 GameObject:
   m_ObjectHideFlags: 0

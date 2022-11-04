@@ -51,7 +51,7 @@ MonoBehaviour:
     _speed: 0
     _fuelEconomy: 0
     _coolness: 1
-    _comfort: -2
+    _comfort: 0
     _airplane: 0
     _angel: 0
     _boat: 0
@@ -61,6 +61,7 @@ MonoBehaviour:
     _fish: 0
     _offroad: 0
     _spring: 0
+    _power: 0
 --- !u!1 &8612118508364805394
 GameObject:
   m_ObjectHideFlags: 0

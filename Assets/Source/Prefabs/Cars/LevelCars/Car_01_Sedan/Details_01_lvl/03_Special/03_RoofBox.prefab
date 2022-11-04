@@ -55,7 +55,7 @@ MonoBehaviour:
     _speed: -2
     _fuelEconomy: 0
     _coolness: -3
-    _comfort: 6
+    _comfort: 0
     _airplane: 0
     _angel: 0
     _boat: 0

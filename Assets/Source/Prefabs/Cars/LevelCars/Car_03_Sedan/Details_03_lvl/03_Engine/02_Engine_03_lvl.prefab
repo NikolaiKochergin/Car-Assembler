@@ -50,10 +50,19 @@ MonoBehaviour:
   _features:
     _slotType: 6
     _speed: 0
-    _fuelEconomy: 3
+    _fuelEconomy: 0
     _coolness: -1
-    _comfort: 2
-    _price: 0
+    _comfort: 0
+    _airplane: 0
+    _angel: 0
+    _boat: 0
+    _devil: 2
+    _elephant: 0
+    _fireTrack: 0
+    _fish: 0
+    _offroad: 0
+    _spring: 0
+    _power: 0
 --- !u!54 &547768500828765589
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -175,7 +184,16 @@ MonoBehaviour:
     _fuelEconomy: 0
     _coolness: 0
     _comfort: 0
-    _price: 0
+    _airplane: 0
+    _angel: 0
+    _boat: 0
+    _devil: 0
+    _elephant: 0
+    _fireTrack: 0
+    _fish: 0
+    _offroad: 0
+    _spring: 0
+    _power: 0
 --- !u!64 &2003412056478370612
 MeshCollider:
   m_ObjectHideFlags: 0
