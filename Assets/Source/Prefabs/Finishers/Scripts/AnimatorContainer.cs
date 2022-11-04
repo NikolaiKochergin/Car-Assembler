@@ -5,6 +5,7 @@ public class AnimatorContainer : MonoBehaviour
     private const string DefaultDirtRace = nameof(DefaultDirtRace);
     private const string DirtRace = nameof(DirtRace);
     private const string Idle = nameof(Idle);
+    private const string Lowride = nameof(Lowride);
     
     [SerializeField] private Animator _animator;
 
@@ -26,6 +27,11 @@ public class AnimatorContainer : MonoBehaviour
     public void ShowIdle()
     {
         _animator.SetTrigger(Idle);
+    }
+
+    public void ShowLowride()
+    {
+        _animator.SetTrigger(Lowride);
     }
     
     public void Enable()

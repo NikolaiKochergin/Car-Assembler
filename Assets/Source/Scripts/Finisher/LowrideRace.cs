@@ -67,7 +67,9 @@ namespace CarAssembler
         public void StartRace()
         {
             _mainCameraContainer.SetRacePosition();
-            
+            _player.AnimatorContainer.Enable();
+            _player.AnimatorContainer.ShowIdle();
+
             _player.transform.SetPositionAndRotation(_playerStartPoint.position, _playerStartPoint.rotation);
             
             _ui.RaceMenu.Lowride.Show();
@@ -76,6 +78,7 @@ namespace CarAssembler
             _ui.RaceMenu.CountDownView.ShowCountDown();
             _countDown.ShowCountDown(() =>
             {
+                _player.AnimatorContainer.ShowLowride();
                 _isInRace = true;
             });
         }

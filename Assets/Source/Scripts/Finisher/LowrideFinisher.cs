@@ -13,6 +13,7 @@ namespace CarAssembler
         public IRace Race => _lowrideRace;
         
         private Action Ended;
+        
         public void Show(Action ended)
         {
             Ended = ended;
