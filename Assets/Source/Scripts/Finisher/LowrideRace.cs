@@ -32,9 +32,9 @@ namespace CarAssembler
             if(_isInRace == false) return;
             
             if (Input.GetMouseButtonDown(0))
-            {
                 _playerEnergy += 0.5f;
-            }
+
+            _player.AnimatorContainer.BlendLowride(_ui.RaceMenu.Lowride.PlayerSlider.Filler.fillAmount);//refactoring
 
             if(_playerEnergy > 0)
                 _playerEnergy -= Time.deltaTime;

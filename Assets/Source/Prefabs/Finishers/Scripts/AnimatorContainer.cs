@@ -6,6 +6,7 @@ public class AnimatorContainer : MonoBehaviour
     private const string DirtRace = nameof(DirtRace);
     private const string Idle = nameof(Idle);
     private const string Lowride = nameof(Lowride);
+    private const string LowrideValue = nameof(LowrideValue);
     
     [SerializeField] private Animator _animator;
 
@@ -32,6 +33,11 @@ public class AnimatorContainer : MonoBehaviour
     public void ShowLowride()
     {
         _animator.SetTrigger(Lowride);
+    }
+
+    public void BlendLowride(float value)
+    {
+        _animator.SetFloat(LowrideValue, value);
     }
     
     public void Enable()
