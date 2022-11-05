@@ -66,10 +66,10 @@ namespace CarAssembler
 
         public void StartRace()
         {
-            _mainCameraContainer.SetRacePosition();
             _player.AnimatorContainer.Enable();
             _player.AnimatorContainer.ShowIdle();
-
+            _mainCameraContainer.SetRacePosition();
+            
             _player.transform.SetPositionAndRotation(_playerStartPoint.position, _playerStartPoint.rotation);
             
             _ui.RaceMenu.Lowride.Show();
