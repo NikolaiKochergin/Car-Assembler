@@ -43,6 +43,7 @@ namespace CarAssembler
             _mainCameraContainer.transform.position = _playerStateMachine.transform.position;
             _mainCameraContainer.transform.position = _playerStateMachine.Player.transform.position;
             _ui.FinisherMenu.Hide();
+            _playerStateMachine.Player.Model.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(Vector3.zero));
         }
     }
 }
