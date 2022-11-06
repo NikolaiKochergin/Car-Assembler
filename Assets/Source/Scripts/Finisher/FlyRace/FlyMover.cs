@@ -53,6 +53,11 @@ namespace CarAssembler
             _targetOffsetY = _minPositionY;
         }
 
+        public void MoveToZero()
+        {
+            _targetOffsetY = 0f;
+        }
+
         public void Enable()
         {
             enabled = true;

@@ -1,6 +1,7 @@
 using System;
 using Dreamteck.Splines;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace CarAssembler
 {
@@ -11,21 +12,23 @@ namespace CarAssembler
         [SerializeField] private Rival _rival;
         [SerializeField] private CountDown _countDown;
         [SerializeField] [Min(0)] private float _startSpeed = 6;
-        [SerializeField] private float _minPositionY = -1;
-        [SerializeField] private float _maxPositionY = 5;
+        [SerializeField] [Min(0)] private float _speedReductionMultiplier = 0.5f;
         [SerializeField] private Vector3 _modelOffset;
+
+        [SerializeField] private FlyMover _playerFlyMover;
+        [SerializeField] private FlyMover _rivalFlyMover;
 
         private float _defaultSpeed;
         private bool _isControlled;
-        private bool _isInRace;
         private bool _isOnQuickTimeEvent;
 
         private MainCameraContainer _mainCameraContainer;
         private Player _player;
         private float _speedMultiplier;
-        private float _targetOffsetY;
-        private float _targetRotationX;
         private UI _ui;
+
+        private float _rivalChangeDirectionTimer;
+        private bool _isRivalMoveUp;
 
         private void Awake()
         {
@@ -36,29 +39,27 @@ namespace CarAssembler
 
         private void Update()
         {
-            if (_isInRace == false) return;
-
             if (_isControlled)
+            {
                 if (Input.GetMouseButton(0))
-                    _targetOffsetY = _maxPositionY;
+                    _playerFlyMover.MoveUp();
                 else
-                    _targetOffsetY = _minPositionY;
+                    _playerFlyMover.MoveDown();
 
+                if (_rivalChangeDirectionTimer <= 0)
+                {
+                    if (_isRivalMoveUp)
+                        _rivalFlyMover.MoveUp();
+                    else
+                        _rivalFlyMover.MoveDown();
 
-            if (_targetOffsetY - _player.PlayerMover.SplineFollower.motion.offset.y > 0)
-                _targetRotationX = -30f;
-            else if (_targetOffsetY - _player.PlayerMover.SplineFollower.motion.offset.y < 0)
-                _targetRotationX = 30f;
-            else
-                _targetRotationX = 0f;
+                    _rivalChangeDirectionTimer = Random.Range(0.1f, 1f);
+                    
+                    _isRivalMoveUp = !_isRivalMoveUp;
+                }
 
-            _player.PlayerMover.SplineFollower.motion.offset = Vector2.MoveTowards(
-                _player.PlayerMover.SplineFollower.motion.offset,
-                new Vector2(0, _targetOffsetY), 6 * Time.deltaTime);
-
-            _player.PlayerMover.SplineFollower.motion.rotationOffset = Vector3.Lerp(
-                _player.PlayerMover.SplineFollower.motion.rotationOffset,
-                new Vector3(_targetRotationX, 0, 0), 8 * Time.deltaTime);
+                _rivalChangeDirectionTimer -= Time.deltaTime;
+            }
         }
 
         public event Action RaceEnded;
@@ -68,6 +69,8 @@ namespace CarAssembler
             _player = player;
             _ui = ui;
             _mainCameraContainer = mainCameraContainer;
+            _playerFlyMover.Initialize(_player.PlayerMover.SplineFollower);
+            _rivalFlyMover.Initialize(_rival.Follower);
 
             _player.QuickTimeEventTaken += OnQuickTimeEventTaken;
             _player.QuickTimeEventEnded += OnQuickTimeEventEnded;
@@ -87,12 +90,11 @@ namespace CarAssembler
             _ui.RaceMenu.CountDownView.ShowCountDown();
             _countDown.ShowCountDown(() =>
             {
-                _targetOffsetY = _player.PlayerMover.SplineFollower.motion.offset.y;
-                _targetRotationX = _player.PlayerMover.SplineFollower.motion.rotationOffset.x;
                 _player.PlayerMover.StartMove();
+                _playerFlyMover.Enable();
+                _rivalFlyMover.Enable();
                 //_player.StartRotationWheels();
                 _rival.StartMove();
-                _isInRace = true;
                 _isControlled = true;
             });
         }
@@ -110,7 +112,8 @@ namespace CarAssembler
         //Used in Race Spline Computer trigger
         public void PrepareToStopRace()
         {
-            _targetOffsetY = 0;
+            _playerFlyMover.MoveToZero();
+            _rivalFlyMover.MoveToZero();
             _isControlled = false;
         }
 
@@ -118,19 +121,20 @@ namespace CarAssembler
         public void StopRace()
         {
             _player.PlayerMover.StopMove();
+            _playerFlyMover.Disable();
+            _rivalFlyMover.Disable();
 
             _player.QuickTimeEventTaken -= OnQuickTimeEventTaken;
             _player.QuickTimeEventEnded -= OnQuickTimeEventEnded;
 
             _mainCameraContainer.CameraAnimator.ShowEndLevelAnimation();
-            _isInRace = false;
 
             RaceEnded?.Invoke();
         }
 
         private void OnQuickTimeEventTaken(QuickTimeEvent quickTimeEvent)
         {
-            _player.PlayerMover.SetFollowSpeed(_defaultSpeed * 0.5f);
+            _player.PlayerMover.SetFollowSpeed(_defaultSpeed * _speedReductionMultiplier);
         }
 
         private void OnQuickTimeEventEnded()

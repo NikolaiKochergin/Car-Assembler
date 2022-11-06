@@ -11,6 +11,8 @@ namespace CarAssembler
 
         private float _defaultSpeed;
 
+        public SplineFollower Follower => _splineFollower;
+
         private void Awake()
         {
             StopRotationWheels();//refactoring
