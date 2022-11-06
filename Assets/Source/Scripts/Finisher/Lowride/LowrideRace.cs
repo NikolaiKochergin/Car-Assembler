@@ -32,28 +32,29 @@ namespace CarAssembler
             if(_isInRace == false) return;
             
             if (Input.GetMouseButtonDown(0))
-                _playerEnergy += 0.5f;
+                _playerEnergy += 0.05f;
 
-            _player.AnimatorContainer.BlendLowride(_ui.RaceMenu.Lowride.PlayerSlider.Filler.fillAmount);//refactoring
 
             if(_playerEnergy > 0)
-                _playerEnergy -= Time.deltaTime;
+                _playerEnergy -= 0.1f * Time.deltaTime;
 
             if (_rivalEnergy > 0)
-                _rivalEnergy -= Time.deltaTime;
+                _rivalEnergy -= 0.1f * Time.deltaTime;
 
             _rivalTimer += Time.deltaTime;
             
             if (_rivalTimer > 0.5f)
             {
-                _rivalEnergy += 1;
+                _rivalEnergy += 0.1f;
                 _rivalTimer = 0;
             }
+            
+            _player.AnimatorContainer.BlendLowride(_playerEnergy);
             
             _ui.RaceMenu.Lowride.PlayerSlider.SetValue(_playerEnergy);
             _ui.RaceMenu.Lowride.RivalSlider.SetValue(_rivalEnergy);
             
-            if(_playerEnergy > 5)
+            if(_playerEnergy >= 1)
                 StopRace();
         }
 
@@ -68,9 +69,12 @@ namespace CarAssembler
         {
             _player.AnimatorContainer.Enable();
             _player.AnimatorContainer.ShowIdle();
+            _mainCameraContainer.Follower.enabled = false;
             _mainCameraContainer.SetRacePosition();
             
             _player.transform.SetPositionAndRotation(_playerStartPoint.position, _playerStartPoint.rotation);
+            
+            _mainCameraContainer.transform.position = _player.transform.position;
             
             _ui.RaceMenu.Lowride.Show();
             _ui.RaceMenu.Lowride.PlayerSlider.SetValue(_playerEnergy);
