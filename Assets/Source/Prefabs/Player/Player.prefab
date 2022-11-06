@@ -139,6 +139,8 @@ MonoBehaviour:
   _slots:
   - {fileID: 4147931406597990747}
   _model: {fileID: 5550166794198082280}
+  _defaultSpeed: 8
+  _nearStandSpeed: 5
 --- !u!114 &2103651885645875612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1012,7 +1014,7 @@ MonoBehaviour:
   autoStartPosition: 0
   _follow: 1
   preserveUniformSpeedWithOffset: 0
-  _followSpeed: 5
+  _followSpeed: 8
   _followDuration: 1
   _startPosition: 0
   _speedModifier:

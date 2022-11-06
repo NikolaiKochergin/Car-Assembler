@@ -35,6 +35,7 @@ namespace CarAssembler
         {
             var detail = _player.Stand.GetDetail();
             _player.Car.TakeDetail(detail);
+            _player.SetDefaultSpeed();
         }
     }
 }

@@ -17,6 +17,8 @@ namespace CarAssembler
         [SerializeField] private ParticleContainer _particleContainer;
         [SerializeField] private List<Slot> _slots;
         [SerializeField] private Transform _model;
+        [SerializeField] [Min(0)] private float _defaultSpeed;
+        [SerializeField] [Min(0)] private float _nearStandSpeed;
 
         public ConveyorAnimator ConveyorAnimator => _conveyorAnimator;
         public AnimatorContainer AnimatorContainer => _animatorContainer;
@@ -85,6 +87,8 @@ namespace CarAssembler
 
             Stand = _stand;
             Stand.OnHighlight();
+            
+            _playerMover.SetFollowSpeed(_nearStandSpeed);
         }
 
         private void OnStandLost(Stand _stand)
@@ -93,7 +97,13 @@ namespace CarAssembler
             {
                 Stand.OffHighlight();
                 Stand = null;
+                _playerMover.SetFollowSpeed(_defaultSpeed);
             }
+        }
+
+        public void SetDefaultSpeed()
+        {
+            _playerMover.SetFollowSpeed(_defaultSpeed);
         }
         
         private void OnObstacleTaken(Obstacle obstacle)
