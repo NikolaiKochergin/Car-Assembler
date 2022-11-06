@@ -51,7 +51,7 @@ MonoBehaviour:
     _slotType: 3
     _speed: 0
     _fuelEconomy: 0
-    _coolness: 1
+    _coolness: 2
     _comfort: 0
     _airplane: 0
     _angel: 0

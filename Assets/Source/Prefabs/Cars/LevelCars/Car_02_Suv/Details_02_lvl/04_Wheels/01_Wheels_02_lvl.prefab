@@ -29283,7 +29283,7 @@ MonoBehaviour:
     _elephant: 0
     _fireTrack: 0
     _fish: 0
-    _offroad: 3
+    _offroad: 1
     _spring: 0
     _power: 2
 --- !u!114 &8068490344901314250

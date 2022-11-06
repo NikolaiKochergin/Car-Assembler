@@ -228,9 +228,9 @@ MonoBehaviour:
     _elephant: 0
     _fireTrack: 0
     _fish: 0
-    _offroad: 3
+    _offroad: 2
     _spring: 0
-    _power: 2
+    _power: 1
 --- !u!1001 &3866324552205900458
 PrefabInstance:
   m_ObjectHideFlags: 0

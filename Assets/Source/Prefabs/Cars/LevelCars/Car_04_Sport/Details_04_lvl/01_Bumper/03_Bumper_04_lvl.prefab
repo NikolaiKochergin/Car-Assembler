@@ -49,12 +49,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 7201457417162675134}
   _features:
-    _slotType: 2
+    _slotType: 3
     _speed: 2
     _fuelEconomy: 0
     _coolness: 0
     _comfort: 0
-    _airplane: 4
+    _airplane: 2
     _angel: 0
     _boat: 0
     _devil: 0

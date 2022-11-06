@@ -192,7 +192,7 @@ MonoBehaviour:
     _fish: 0
     _offroad: -2
     _spring: 0
-    _power: -2
+    _power: -1
 --- !u!54 &7946863819595384868
 Rigidbody:
   m_ObjectHideFlags: 0

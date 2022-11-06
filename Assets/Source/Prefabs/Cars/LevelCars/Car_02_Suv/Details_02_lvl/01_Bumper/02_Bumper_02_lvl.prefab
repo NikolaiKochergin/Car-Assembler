@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 4077199408643276331}
   _features:
-    _slotType: 2
+    _slotType: 3
     _speed: 0
     _fuelEconomy: 0
     _coolness: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
     _fish: 0
     _offroad: 2
     _spring: 0
-    _power: 2
+    _power: 1
 --- !u!1001 &4077199408661525423
 PrefabInstance:
   m_ObjectHideFlags: 0

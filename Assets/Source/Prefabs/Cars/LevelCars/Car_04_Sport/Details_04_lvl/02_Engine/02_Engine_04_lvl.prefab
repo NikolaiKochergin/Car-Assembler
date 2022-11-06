@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1172474373239614401}
   - component: {fileID: 3240936828805564624}
   m_Layer: 0
-  m_Name: 01_Engine_04_lvl
+  m_Name: 02_Engine_04_lvl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   _appearParticles: {fileID: 5480587922177902191}
   _features:
     _slotType: 6
-    _speed: 2
+    _speed: 1
     _fuelEconomy: 0
     _coolness: 0
     _comfort: 0

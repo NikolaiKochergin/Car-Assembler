@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 292589522419274949}
   _features:
-    _slotType: 2
+    _slotType: 3
     _speed: 0
     _fuelEconomy: 0
     _coolness: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
     _elephant: 0
     _fireTrack: 0
     _fish: 0
-    _offroad: 3
+    _offroad: 1
     _spring: 0
     _power: 2
 --- !u!1001 &292589522437527873

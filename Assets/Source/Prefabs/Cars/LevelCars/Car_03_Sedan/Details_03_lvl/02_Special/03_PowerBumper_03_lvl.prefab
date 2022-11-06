@@ -140,7 +140,7 @@ MonoBehaviour:
     _airplane: 0
     _angel: 0
     _boat: 0
-    _devil: 1
+    _devil: -1
     _elephant: 0
     _fireTrack: 0
     _fish: 0

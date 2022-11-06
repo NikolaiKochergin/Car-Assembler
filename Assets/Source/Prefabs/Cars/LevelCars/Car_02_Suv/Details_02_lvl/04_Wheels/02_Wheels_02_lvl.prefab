@@ -14737,9 +14737,9 @@ MonoBehaviour:
     _elephant: 0
     _fireTrack: 0
     _fish: 0
-    _offroad: 4
+    _offroad: 3
     _spring: 0
-    _power: 4
+    _power: 2
 --- !u!114 &3824705191379613068
 MonoBehaviour:
   m_ObjectHideFlags: 0

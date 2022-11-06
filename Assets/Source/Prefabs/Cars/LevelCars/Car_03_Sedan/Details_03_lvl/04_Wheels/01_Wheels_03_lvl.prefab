@@ -55,12 +55,12 @@ MonoBehaviour:
     _slotType: 4
     _speed: 0
     _fuelEconomy: 0
-    _coolness: 2
+    _coolness: -1
     _comfort: 0
     _airplane: 0
     _angel: 0
     _boat: 0
-    _devil: 1
+    _devil: -2
     _elephant: 0
     _fireTrack: 0
     _fish: 0
