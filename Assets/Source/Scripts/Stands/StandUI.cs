@@ -48,9 +48,9 @@ namespace CarAssembler
             CreateFreatureView(FeatureType.Coolness, detail.Features.Coolness);
             CreateFreatureView(FeatureType.Comfort, detail.Features.Comfort);
             CreateFreatureView(FeatureType.Airplane, detail.Features.Airplane);
-            CreateFreatureView(FeatureType.Angel, detail.Features.Angel);
+            CreateFreatureView(FeatureType.Kindness, detail.Features.Angel);
             CreateFreatureView(FeatureType.Boat, detail.Features.Boat);
-            CreateFreatureView(FeatureType.Devil, detail.Features.Devil);
+            CreateFreatureView(FeatureType.Angry, detail.Features.Devil);
             CreateFreatureView(FeatureType.Elephant, detail.Features.Elephant);
             CreateFreatureView(FeatureType.FireTrack, detail.Features.FireTrack);
             CreateFreatureView(FeatureType.Fish, detail.Features.Fish);
@@ -84,9 +84,9 @@ namespace CarAssembler
             _iconsMap.Add(FeatureType.Coolness, _coolnessIcon);
             _iconsMap.Add(FeatureType.Comfort, _comfortIcon);
             _iconsMap.Add(FeatureType.Airplane, _airplaneIcon);
-            _iconsMap.Add(FeatureType.Angel, _angelIcon);
+            _iconsMap.Add(FeatureType.Kindness, _angelIcon);
             _iconsMap.Add(FeatureType.Boat, _boatIcon);
-            _iconsMap.Add(FeatureType.Devil, _devilIcon);
+            _iconsMap.Add(FeatureType.Angry, _devilIcon);
             _iconsMap.Add(FeatureType.Elephant, _elephantIcon);
             _iconsMap.Add(FeatureType.FireTrack, _fireTrackIcon);
             _iconsMap.Add(FeatureType.Fish, _fishIcon);

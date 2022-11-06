@@ -40,9 +40,9 @@ namespace CarAssembler
             SpawnWidget(FeatureType.Coolness);
             SpawnWidget(FeatureType.Comfort);
             SpawnWidget(FeatureType.Airplane);
-            SpawnWidget(FeatureType.Angel);
+            SpawnWidget(FeatureType.Kindness);
             SpawnWidget(FeatureType.Boat);
-            SpawnWidget(FeatureType.Devil);
+            SpawnWidget(FeatureType.Angry);
             SpawnWidget(FeatureType.Elephant);
             SpawnWidget(FeatureType.FireTrack);
             SpawnWidget(FeatureType.Fish);

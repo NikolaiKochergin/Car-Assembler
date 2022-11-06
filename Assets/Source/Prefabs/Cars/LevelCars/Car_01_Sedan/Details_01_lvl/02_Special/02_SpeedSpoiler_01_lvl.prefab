@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 9107019333809353679}
   - component: {fileID: 6081317481016408571}
   m_Layer: 0
-  m_Name: SpeedSpoiler
+  m_Name: 02_SpeedSpoiler_01_lvl
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -251,9 +251,9 @@ MonoBehaviour:
   _appearParticles: {fileID: 4920342082619288378}
   _features:
     _slotType: 5
-    _speed: 6
+    _speed: 2
     _fuelEconomy: 0
-    _coolness: 3
+    _coolness: 1
     _comfort: 0
     _airplane: 0
     _angel: 0

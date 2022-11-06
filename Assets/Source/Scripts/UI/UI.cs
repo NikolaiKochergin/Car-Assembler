@@ -88,9 +88,9 @@ namespace CarAssembler
             _iconsMap.Add(FeatureType.Coolness, _coolnessIcon);
             _iconsMap.Add(FeatureType.Comfort, _comfortIcon);
             _iconsMap.Add(FeatureType.Airplane, _airplaneIcon);
-            _iconsMap.Add(FeatureType.Angel, _angelIcon);
+            _iconsMap.Add(FeatureType.Kindness, _angelIcon);
             _iconsMap.Add(FeatureType.Boat, _boatIcon);
-            _iconsMap.Add(FeatureType.Devil, _devilIcon);
+            _iconsMap.Add(FeatureType.Angry, _devilIcon);
             _iconsMap.Add(FeatureType.Elephant, _elephantIcon);
             _iconsMap.Add(FeatureType.FireTrack, _fireTrackIcon);
             _iconsMap.Add(FeatureType.Fish, _fishIcon);
@@ -103,9 +103,9 @@ namespace CarAssembler
             _brokenIconsMap.Add(FeatureType.Coolness, _coolnessBrokenIcon);
             _brokenIconsMap.Add(FeatureType.Comfort, _comfortBrokenIcon);
             _brokenIconsMap.Add(FeatureType.Airplane, _airplaneBrokenIcon);
-            _brokenIconsMap.Add(FeatureType.Angel, _angelBrokenIcon);
+            _brokenIconsMap.Add(FeatureType.Kindness, _angelBrokenIcon);
             _brokenIconsMap.Add(FeatureType.Boat, _boatBrokenIcon);
-            _brokenIconsMap.Add(FeatureType.Devil, _devilBrokenIcon);
+            _brokenIconsMap.Add(FeatureType.Angry, _devilBrokenIcon);
             _brokenIconsMap.Add(FeatureType.Elephant, _elephantBrokenIcon);
             _brokenIconsMap.Add(FeatureType.FireTrack, _fireTrackBrokenIcon);
             _brokenIconsMap.Add(FeatureType.Fish, _fishBrokenIcon);
@@ -118,9 +118,9 @@ namespace CarAssembler
             _namesOfFeatureMap.Add(FeatureType.Coolness, _coolnessName);
             _namesOfFeatureMap.Add(FeatureType.Comfort, _comfortName);
             _namesOfFeatureMap.Add(FeatureType.Airplane, _airplaneName);
-            _namesOfFeatureMap.Add(FeatureType.Angel, _angelName);
+            _namesOfFeatureMap.Add(FeatureType.Kindness, _angelName);
             _namesOfFeatureMap.Add(FeatureType.Boat, _boatName);
-            _namesOfFeatureMap.Add(FeatureType.Devil, _devilName);
+            _namesOfFeatureMap.Add(FeatureType.Angry, _devilName);
             _namesOfFeatureMap.Add(FeatureType.Elephant, _elephantName);
             _namesOfFeatureMap.Add(FeatureType.FireTrack, _fireTrackName);
             _namesOfFeatureMap.Add(FeatureType.Fish, _fishName);

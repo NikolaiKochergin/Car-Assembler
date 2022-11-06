@@ -15,6 +15,6 @@ MonoBehaviour:
   _car: {fileID: 5298266227521765617, guid: 971c9c2c10c85094c8a94ff6449aa28b, type: 3}
   _tasks:
   - _featureType: 4
-    _targetValue: 10
+    _targetValue: 5
   - _featureType: 0
-    _targetValue: 10
+    _targetValue: 5

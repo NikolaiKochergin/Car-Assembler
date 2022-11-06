@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _appearParticles: {fileID: 2592837676636751864}
   _features:
-    _slotType: 7
+    _slotType: 3
     _speed: -1
     _fuelEconomy: 0
     _coolness: -1

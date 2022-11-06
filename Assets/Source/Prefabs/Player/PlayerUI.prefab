@@ -48,6 +48,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   _followSpeed: 50
   _rotateSpeed: 0
+  _lockYAxisMovement: 0
 --- !u!1001 &535606699397438686
 PrefabInstance:
   m_ObjectHideFlags: 0

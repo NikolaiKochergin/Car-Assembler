@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7265935409388701608}
   - component: {fileID: 5162627802979858115}
   m_Layer: 0
-  m_Name: 03_RoofBox
+  m_Name: 03_RoofBox_01_lvl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,9 +52,9 @@ MonoBehaviour:
   _appearParticles: {fileID: 9042821059437953092}
   _features:
     _slotType: 5
-    _speed: -2
+    _speed: -1
     _fuelEconomy: 0
-    _coolness: -3
+    _coolness: -2
     _comfort: 0
     _airplane: 0
     _angel: 0

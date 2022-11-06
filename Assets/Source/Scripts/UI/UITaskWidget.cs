@@ -56,13 +56,13 @@ namespace CarAssembler
                 case FeatureType.Airplane:
                     SetIconViewBy(carFeatures.Airplane);
                     break;
-                case FeatureType.Angel:
+                case FeatureType.Kindness:
                     SetIconViewBy(carFeatures.Angel);
                     break;
                 case FeatureType.Boat:
                     SetIconViewBy(carFeatures.Boat);
                     break;
-                case FeatureType.Devil:
+                case FeatureType.Angry:
                     SetIconViewBy(carFeatures.Devil);
                     break;
                 case FeatureType.Elephant:
