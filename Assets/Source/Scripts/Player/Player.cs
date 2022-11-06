@@ -56,6 +56,11 @@ namespace CarAssembler
             _collisionHandler.QuickTimeEventEnded -= OnQuickTimeEventEnded;
         }
 
+        private void Start()
+        {
+            _conveyorAnimator.SetAnimationSpeed(_defaultSpeed/_nearStandSpeed);
+        }
+
         public void Initialize(Car car, IReadOnlyList<Task> tasks)
         {
             SetCar(car);
@@ -89,6 +94,7 @@ namespace CarAssembler
             Stand.OnHighlight();
             
             _playerMover.SetFollowSpeed(_nearStandSpeed);
+            _conveyorAnimator.SetAnimationSpeed(1f);
         }
 
         private void OnStandLost(Stand _stand)
@@ -98,12 +104,14 @@ namespace CarAssembler
                 Stand.OffHighlight();
                 Stand = null;
                 _playerMover.SetFollowSpeed(_defaultSpeed);
+                _conveyorAnimator.SetAnimationSpeed(_defaultSpeed/_nearStandSpeed);
             }
         }
 
         public void SetDefaultSpeed()
         {
             _playerMover.SetFollowSpeed(_defaultSpeed);
+            _conveyorAnimator.SetAnimationSpeed(_defaultSpeed/_nearStandSpeed);
         }
         
         private void OnObstacleTaken(Obstacle obstacle)

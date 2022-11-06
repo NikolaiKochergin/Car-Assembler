@@ -20,5 +20,10 @@ namespace CarAssembler
         {
             foreach (var animator in _animators) animator.enabled = false;
         }
+
+        public void SetAnimationSpeed(float value)
+        {
+            foreach (var animator in _animators) animator.speed = value;
+        }
     }
 }
