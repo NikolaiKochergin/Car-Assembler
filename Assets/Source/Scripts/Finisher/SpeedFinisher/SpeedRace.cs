@@ -126,6 +126,11 @@ namespace CarAssembler
             _player.StopRotationWheels();
             _rival.StopRotationWheels();
 
+            Invoke(nameof(SetEndRace), 1.5f);
+        }
+
+        private void SetEndRace()
+        {
             RaceEnded?.Invoke();
         }
     }
