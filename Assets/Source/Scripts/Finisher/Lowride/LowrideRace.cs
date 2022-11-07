@@ -107,7 +107,6 @@ namespace CarAssembler
 
         public void StopRace()
         {
-            _mainCameraContainer.CameraAnimator.ShowEndLevelAnimation();
             _isInRace = false;
             
             _ui.RaceMenu.TapMessage.Hide();
