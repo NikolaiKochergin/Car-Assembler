@@ -89,7 +89,7 @@ namespace CarAssembler
 
                 _player.AnimatorContainer.ShowDefaultDirtRace();
                 _player.ParticleContainer.PlayDirtFall();
-                //_player.StartRotationWheels();
+                _player.StartRotationWheels();
                 _rival.StartMove();
                 _rival.StartRotationWheels();
             });
