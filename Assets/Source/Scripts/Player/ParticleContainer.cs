@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace CarAssembler
@@ -20,6 +18,14 @@ namespace CarAssembler
             if (_dirtFallParticle)
             {
                 _dirtFallParticle.Play();
+            }
+        }
+
+        public void StopDirtFall()
+        {
+            if (_dirtFallParticle)
+            {
+                _dirtFallParticle.Stop();
             }
         }
     }

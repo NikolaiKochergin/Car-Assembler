@@ -15,6 +15,7 @@ namespace CarAssembler
         [SerializeField] [Min(0)] private float _startSpeed = 6;
         [SerializeField] private AnimationCurve _changeSpeedCurve;
         [SerializeField] [Min(0)] private float _changeSpeedDuration = 1;
+        [SerializeField] private ParticleContainer _rivalDirtVFX;
 
         private Coroutine _changeSpeedCoroutine;
         private Coroutine _rivalChangeSpeedCoroutine;
@@ -46,7 +47,7 @@ namespace CarAssembler
 
             if (_timer <= 0)
             {
-                _timer = Random.Range(_changeSpeedDuration * 1.2f, _changeSpeedDuration * 1.5f);
+                _timer = Random.Range(_changeSpeedDuration * 1.3f, _changeSpeedDuration * 1.8f);
 
                 if (_rivalChangeSpeedCoroutine != null)
                 {
@@ -92,6 +93,7 @@ namespace CarAssembler
                 _player.StartRotationWheels();
                 _rival.StartMove();
                 _rival.StartRotationWheels();
+                _rivalDirtVFX.PlayDirtFall();
             });
         }
 
@@ -149,6 +151,9 @@ namespace CarAssembler
         public void StopRace()
         {
             _player.PlayerMover.StopMove();
+            _player.AnimatorContainer.ShowIdle();
+            _player.ParticleContainer.StopDirtFall();
+            _player.StopRotationWheels();
 
             _player.QuickTimeEventTaken -= OnQuickTimeEventTaken;
             _player.QuickTimeEventEnded -= OnQuickTimeEventEnded;
