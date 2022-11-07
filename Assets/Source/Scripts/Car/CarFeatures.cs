@@ -12,9 +12,9 @@ namespace CarAssembler
             Coolness = 0;
             Comfort = 0;
             Airplane = 0;
-            Angel = 0;
+            Kindness = 0;
             Boat = 0;
-            Devil = 0;
+            Angry = 0;
             Elephant = 0;
             FireTrack = 0;
             Fish = 0;
@@ -28,9 +28,9 @@ namespace CarAssembler
         public int Coolness { get; private set; }
         public int Comfort { get; private set; }
         public int Airplane { get; private set; }
-        public int Angel { get; private set; }
+        public int Kindness { get; private set; }
         public int Boat { get; private set; }
-        public int Devil { get; private set; }
+        public int Angry { get; private set; }
         public int Elephant { get; private set; }
         public int FireTrack { get; private set; }
         public int Fish { get; private set; }
@@ -47,9 +47,9 @@ namespace CarAssembler
             Coolness = 0;
             Comfort = 0;
             Airplane = 0;
-            Angel = 0;
+            Kindness = 0;
             Boat = 0;
-            Devil = 0;
+            Angry = 0;
             Elephant = 0;
             FireTrack = 0;
             Fish = 0;
@@ -63,9 +63,9 @@ namespace CarAssembler
                 Coolness += detail.Features.Coolness;
                 Comfort += detail.Features.Comfort;
                 Airplane += detail.Features.Airplane;
-                Angel += detail.Features.Angel;
+                Kindness += detail.Features.Angel;
                 Boat += detail.Features.Boat;
-                Devil += detail.Features.Devil;
+                Angry += detail.Features.Devil;
                 Elephant += detail.Features.Elephant;
                 FireTrack += detail.Features.FireTrack;
                 Fish += detail.Features.Fish;
@@ -86,9 +86,9 @@ namespace CarAssembler
             Coolness += detail.Features.Coolness;
             Comfort += detail.Features.Comfort;
             Airplane += detail.Features.Airplane;
-            Angel += detail.Features.Angel;
+            Kindness += detail.Features.Angel;
             Boat += detail.Features.Boat;
-            Devil += detail.Features.Devil;
+            Angry += detail.Features.Devil;
             Elephant += detail.Features.Elephant;
             FireTrack += detail.Features.FireTrack;
             Fish += detail.Features.Fish;
