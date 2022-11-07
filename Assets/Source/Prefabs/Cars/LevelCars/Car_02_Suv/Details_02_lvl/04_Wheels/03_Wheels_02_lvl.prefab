@@ -324,7 +324,7 @@ MonoBehaviour:
     _elephant: 0
     _fireTrack: 0
     _fish: 0
-    _offroad: -2
+    _offroad: -1
     _spring: 0
     _power: -1
 --- !u!114 &7814105271404917777

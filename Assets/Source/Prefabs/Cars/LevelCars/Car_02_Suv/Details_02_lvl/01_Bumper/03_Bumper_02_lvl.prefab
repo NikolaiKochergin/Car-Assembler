@@ -149,7 +149,7 @@ MonoBehaviour:
     _fish: 0
     _offroad: 1
     _spring: 0
-    _power: 2
+    _power: 1
 --- !u!1001 &292589522437527873
 PrefabInstance:
   m_ObjectHideFlags: 0

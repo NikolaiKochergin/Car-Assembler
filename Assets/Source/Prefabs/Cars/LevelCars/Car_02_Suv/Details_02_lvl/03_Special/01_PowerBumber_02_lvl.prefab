@@ -259,9 +259,9 @@ MonoBehaviour:
     _elephant: 0
     _fireTrack: 0
     _fish: 0
-    _offroad: 2
+    _offroad: 1
     _spring: 0
-    _power: 1
+    _power: 2
 --- !u!54 &3362680007912952133
 Rigidbody:
   m_ObjectHideFlags: 0
