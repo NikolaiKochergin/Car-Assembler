@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 698004418863815200}
   - component: {fileID: 8660232606590710120}
+  - component: {fileID: 1823246438433903198}
   m_Layer: 0
   m_Name: 01_Special_04_lvl
   m_TagString: Untagged
@@ -63,6 +64,22 @@ MonoBehaviour:
     _offroad: 0
     _spring: 0
     _power: 0
+--- !u!54 &1823246438433903198
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2908013770688263948}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6069126557378529032
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,6 +91,7 @@ GameObject:
   - component: {fileID: 3883644158668388670}
   - component: {fileID: 8390894076664619374}
   - component: {fileID: 999925101312178363}
+  - component: {fileID: 9049138448904042067}
   m_Layer: 0
   m_Name: spoiler3
   m_TagString: Untagged
@@ -148,6 +166,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &9049138448904042067
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069126557378529032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4337491189864499721, guid: 8265b4c4420c59c46a6a73e134ab914b, type: 3}
 --- !u!1001 &6913377224103790105
 PrefabInstance:
   m_ObjectHideFlags: 0
