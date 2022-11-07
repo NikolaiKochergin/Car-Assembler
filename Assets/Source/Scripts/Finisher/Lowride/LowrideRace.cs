@@ -88,6 +88,7 @@ namespace CarAssembler
             _ui.RaceMenu.CountDownView.ShowCountDown();
             _countDown.ShowCountDown(() =>
             {
+                _ui.RaceMenu.TapMessage.Show();
                 _player.AnimatorContainer.ShowLowride();
                 _lowrideRaceRivalAnimator.ShowLowride();
                 _isInRace = true;
@@ -109,6 +110,7 @@ namespace CarAssembler
             _mainCameraContainer.CameraAnimator.ShowEndLevelAnimation();
             _isInRace = false;
             
+            _ui.RaceMenu.TapMessage.Hide();
             _ui.RaceMenu.Lowride.Hide();
          
             Invoke(nameof(SetEndRace), 1.5f);
