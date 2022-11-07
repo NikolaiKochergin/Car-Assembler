@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Dreamteck.Splines;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace CarAssembler
 {
@@ -16,9 +17,11 @@ namespace CarAssembler
         [SerializeField] [Min(0)] private float _changeSpeedDuration = 1;
 
         private Coroutine _changeSpeedCoroutine;
+        private Coroutine _rivalChangeSpeedCoroutine;
 
         private float _defaultSpeed;
         private bool _isOnQuickTimeEvent;
+        private float _timer = 0;
         
         private MainCameraContainer _mainCameraContainer;
         private Player _player;
@@ -37,7 +40,22 @@ namespace CarAssembler
             if (_isOnQuickTimeEvent == false) return;
 
             if (Input.GetMouseButtonDown(0)) 
-                _changeSpeedCoroutine ??= StartCoroutine(ChangSpeedCoroutine());
+                _changeSpeedCoroutine ??= StartCoroutine(ChangeSpeedCoroutine());
+            
+            _timer -= Time.deltaTime;
+
+            if (_timer <= 0)
+            {
+                _timer = Random.Range(_changeSpeedDuration * 1.2f, _changeSpeedDuration * 1.5f);
+
+                if (_rivalChangeSpeedCoroutine != null)
+                {
+                    StopCoroutine(_rivalChangeSpeedCoroutine);
+                    _rivalChangeSpeedCoroutine = null;
+                }
+                
+                _rivalChangeSpeedCoroutine = StartCoroutine(RivalChangeSpeedCoroutine());
+            }
         }
 
         public event Action RaceEnded;
@@ -98,7 +116,6 @@ namespace CarAssembler
 
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed * 0.5f);
             _rival.SetSpeedMultiplier(0.5f);
-
         }
 
         private void OnQuickTimeEventEnded()
@@ -110,6 +127,12 @@ namespace CarAssembler
             {
                 StopCoroutine(_changeSpeedCoroutine);
                 _changeSpeedCoroutine = null;
+            }
+            
+            if (_rivalChangeSpeedCoroutine != null)
+            {
+                StopCoroutine(_rivalChangeSpeedCoroutine);
+                _rivalChangeSpeedCoroutine = null;
             }
             
             _ui.RaceMenu.TapMessage.Hide();
@@ -132,20 +155,36 @@ namespace CarAssembler
 
             _mainCameraContainer.CameraAnimator.ShowEndLevelAnimation();
 
+            Invoke(nameof(SetEndRace), 1.5f);
+        }
+
+        private void SetEndRace()
+        {
             RaceEnded?.Invoke();
         }
 
-        private IEnumerator ChangSpeedCoroutine()
+        private IEnumerator ChangeSpeedCoroutine()
         {
             for (float t = 0; t < 1; t += Time.deltaTime / _changeSpeedDuration)
             {
-                _player.PlayerMover.SetFollowSpeed(_defaultSpeed * (_changeSpeedCurve.Evaluate(t)- 0.8f));
-                _rival.SetSpeedMultiplier(_changeSpeedCurve.Evaluate(t) - 0.8f);
+                _player.PlayerMover.SetFollowSpeed(_defaultSpeed * _changeSpeedCurve.Evaluate(t));
 
                 yield return null;
             }
 
             _changeSpeedCoroutine = null;
+        }
+
+        private IEnumerator RivalChangeSpeedCoroutine()
+        {
+            for (float t = 0; t < 1; t += Time.deltaTime / _changeSpeedDuration)
+            {
+                _rival.SetSpeedMultiplier(_changeSpeedCurve.Evaluate(t));
+
+                yield return null;
+            }
+
+            _rivalChangeSpeedCoroutine = null;
         }
     }
 }
