@@ -47,11 +47,19 @@ namespace CarAssembler
                     break;
                 }
             }
-            
+
             var spawnedDetail = Instantiate(detail, parent);
             spawnedDetail.PlayParticle();
             _details.Add(spawnedDetail);
-
+            
+            if (_currentWheels == null && spawnedDetail.Features.Slot == SlotType.Wheels)
+            {
+                _currentWheels = spawnedDetail.GetComponentsInChildren<Wheel>().ToList();
+                foreach (var wheel in _currentWheels)
+                {
+                    wheel.Initialize();
+                }
+            }
             if (spawnedDetail.Features.Slot == SlotType.Wheels && wheelSlot != null)
             {
                 var wheelsList = spawnedDetail.GetComponent<WheelsList>();
@@ -67,16 +75,7 @@ namespace CarAssembler
                     wheelsList.Wheels[i].transform.parent = wheelsSlots.Slots[i].transform;
                 }
             }
-            
-            if (_currentWheels == null && spawnedDetail.Features.Slot == SlotType.Wheels)
-            {
-                _currentWheels = spawnedDetail.GetComponentsInChildren<Wheel>().ToList();
-                foreach (var wheel in _currentWheels)
-                {
-                    wheel.Initialize();
-                }
-            }
-            
+
             if (spawnedDetail.TryGetComponent(out Rigidbody rigidbody))
                 _rigidbodiesDetails.Add(rigidbody);
 
