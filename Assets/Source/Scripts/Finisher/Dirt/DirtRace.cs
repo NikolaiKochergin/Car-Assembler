@@ -16,6 +16,7 @@ namespace CarAssembler
         [SerializeField] private AnimationCurve _changeSpeedCurve;
         [SerializeField] [Min(0)] private float _changeSpeedDuration = 1;
         [SerializeField] private ParticleContainer _rivalDirtVFX;
+        [SerializeField] private Animator _rivalAnimator;
 
         private Coroutine _changeSpeedCoroutine;
         private Coroutine _rivalChangeSpeedCoroutine;
@@ -118,6 +119,7 @@ namespace CarAssembler
 
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed * 0.5f);
             _rival.SetSpeedMultiplier(0.5f);
+            _rivalAnimator.enabled = true;
         }
 
         private void OnQuickTimeEventEnded()
@@ -141,6 +143,7 @@ namespace CarAssembler
 
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed);
             _rival.SetSpeedMultiplier(1);
+            _rivalAnimator.enabled = false;
 
             if (_player.Car.CurrentWheels != null) 
                 _player.ChangeRotationWheels(_player.PlayerMover.MoveSpeed);
