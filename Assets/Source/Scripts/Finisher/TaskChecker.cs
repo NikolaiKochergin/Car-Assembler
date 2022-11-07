@@ -32,69 +32,55 @@ namespace CarAssembler
 
         public IFinisher GetFinisherBy(IReadOnlyList<Task> tasks, Car car)
         {
-            int feature = 0;
-            
-            // if (car.Features.Speed >= tasks[0].TargetValue)
-            // {
-            //     CurrentFinisher = _finisherInterfaces[1];
-            //     return _finisherInterfaces[1];
-            // }
+            foreach (var task in tasks)
+            {
+                var feature = GetValueBy(task.FeatureType, car);
 
-            switch (tasks[0].FeatureType)
+                if (feature < task.TargetValue)
+                {
+                    CurrentFinisher = _finisherInterfaces[0];
+                    return _finisherInterfaces[0];
+                }
+            }
+            
+            return _finisherInterfaces[1];
+        }
+
+        private int GetValueBy(FeatureType type, Car car)
+        {
+            switch (type)
             {
                 case FeatureType.Speed:
-                    feature = car.Features.Speed;
-                    break;
+                    return car.Features.Speed;
                 case FeatureType.FuelEconomy:
-                    feature = car.Features.FuelEconomy;
-                    break;
+                    return car.Features.FuelEconomy;
                 case FeatureType.Coolness:
-                    feature = car.Features.Coolness;
-                    break;
+                    return car.Features.Coolness;
                 case FeatureType.Comfort:
-                    feature = car.Features.Comfort;
-                    break;
+                    return car.Features.Comfort;
                 case FeatureType.Airplane:
-                    feature = car.Features.Airplane;
-                    break;
+                    return car.Features.Airplane;
                 case FeatureType.Kindness:
-                    feature = car.Features.Kindness;
-                    break;
+                    return car.Features.Kindness;
                 case FeatureType.Boat:
-                    feature = car.Features.Boat;
-                    break;
+                    return car.Features.Boat;
                 case FeatureType.Angry:
-                    feature = car.Features.Angry;
-                    break;
+                    return car.Features.Angry;
                 case FeatureType.Elephant:
-                    feature = car.Features.Elephant;
-                    break;
+                    return car.Features.Elephant;
                 case FeatureType.FireTrack:
-                    feature = car.Features.FireTrack;
-                    break;
+                    return car.Features.FireTrack;
                 case FeatureType.Fish:
-                    feature = car.Features.Fish;
-                    break;
+                    return car.Features.Fish;
                 case FeatureType.Offroad:
-                    feature = car.Features.Offroad;
-                    break;
+                    return car.Features.Offroad;
                 case FeatureType.Spring:
-                    feature = car.Features.Spring;
-                    break;
+                    return car.Features.Spring;
                 case FeatureType.Power:
-                    feature = car.Features.Power;
-                    break;
+                    return car.Features.Power;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
-            if (feature >= tasks[0].TargetValue)
-            {
-                CurrentFinisher = _finisherInterfaces[1];
-                return _finisherInterfaces[1];
-            }
-            
-            return _finisherInterfaces[0];
         }
     }
 }
