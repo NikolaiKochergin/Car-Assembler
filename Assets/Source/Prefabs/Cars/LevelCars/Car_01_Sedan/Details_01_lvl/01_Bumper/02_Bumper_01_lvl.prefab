@@ -49,7 +49,7 @@ MonoBehaviour:
   _appearParticles: {fileID: 5935886781135634527}
   _features:
     _slotType: 3
-    _speed: 1
+    _speed: -1
     _fuelEconomy: 0
     _coolness: 1
     _comfort: 0
