@@ -54,14 +54,15 @@ namespace CarAssembler
 
         public void StartRace()
         {
-            _mainCameraContainer.SetRacePosition();
-            
             _player.AnimatorContainer.Enable();
             _player.AnimatorContainer.ShowIdle();
             _player.PlayerMover.SplineFollower.spline = _spline;
             _player.PlayerMover.SplineFollower.SetPercent(0);
             _player.PlayerMover.SetFollowSpeed(_defaultSpeed);
             _player.transform.SetPositionAndRotation(_playerStartPoint.position, _playerStartPoint.rotation);
+            
+            _mainCameraContainer.transform.position = _player.transform.position;
+            _mainCameraContainer.SetRacePosition();
 
             _ui.RaceMenu.CountDownView.ShowCountDown();
             _countDown.ShowCountDown(() =>
