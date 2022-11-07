@@ -8,6 +8,7 @@ namespace CarAssembler
         [SerializeField] private Rival _rival;
         [SerializeField] private Transform _playerStartPoint;
         [SerializeField] private CountDown _countDown;
+        [SerializeField] private LowrideRaceRivalAnimator _lowrideRaceRivalAnimator;
 
         private bool _isInRace;
         private float _playerEnergy;
@@ -50,6 +51,7 @@ namespace CarAssembler
             }
             
             _player.AnimatorContainer.BlendLowride(_playerEnergy);
+            _lowrideRaceRivalAnimator.BlendLowride(_rivalEnergy);
             
             _ui.RaceMenu.Lowride.PlayerSlider.SetValue(_playerEnergy);
             _ui.RaceMenu.Lowride.RivalSlider.SetValue(_rivalEnergy);
@@ -69,6 +71,10 @@ namespace CarAssembler
         {
             _player.AnimatorContainer.Enable();
             _player.AnimatorContainer.ShowIdle();
+            
+            _lowrideRaceRivalAnimator.Enable();
+            _lowrideRaceRivalAnimator.ShowIdle();
+            
             _mainCameraContainer.Follower.enabled = false;
             _mainCameraContainer.SetRacePosition();
             
@@ -83,6 +89,7 @@ namespace CarAssembler
             _countDown.ShowCountDown(() =>
             {
                 _player.AnimatorContainer.ShowLowride();
+                _lowrideRaceRivalAnimator.ShowLowride();
                 _isInRace = true;
             });
         }
@@ -103,7 +110,12 @@ namespace CarAssembler
             _isInRace = false;
             
             _ui.RaceMenu.Lowride.Hide();
-            
+         
+            Invoke(nameof(SetEndRace), 1.5f);
+        }
+
+        private void SetEndRace()
+        {
             RaceEnded?.Invoke();
         }
     }
